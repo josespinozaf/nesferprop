@@ -16420,14 +16420,6 @@ fieldset[disabled] .dropdown--select .dropdown-toggle {
   width: 215px;
 
 }
-
-.logo
-{
-	position: absolute;
-	height: 60px;
-  	width: 215px;
-  	
-}
 @media (max-width: 1199px) {
   .navbar__brand-logo {
     width: 140px;
