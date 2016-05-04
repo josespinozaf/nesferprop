@@ -9,14 +9,14 @@ $preciomin = $_REQUEST['inpricefrom'];
 $preciomax = $_REQUEST['inpriceto'];
 $areamin = $_REQUEST['inareafrom'];
 $areamax = $_REQUEST['inareato'];
-echo $contrato;echo '<br>';
-echo $tipo;echo '<br>';
-echo $comuna;echo '<br>';
-echo $preciomin;echo '<br>';
-echo $preciomax;echo '<br>';
-echo $areamin;echo '<br>';
-echo $areamax;echo '<br>';
 
+echo $contrato ; echo '<br>';
+echo $tipo ; echo '<br>';
+echo $comuna ; echo '<br>';
+echo $preciomin; echo '<br>';
+echo $preciomax; echo '<br>';
+echo $areamin; echo '<br>';
+echo $areamax; echo '<br>';
 ?><!DOCTYPE HTML >
 <html>
   <head lang="en">
@@ -213,10 +213,10 @@ echo $areamax;echo '<br>';
                     <div class="widget__content">
                     <?php 
 						//Busqueda en la base de datos//
- 
+ 						if ($contrato && $tipo && $comuna && $preciomax && $areamax && $preciomin && $areamin ){
                   		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo."' AND `comuna` ='".$comuna."'
 								AND `contrato` ='".$contrato."' AND `precio`>=".$preciomin." AND `precio`<=".$preciomax."
-								AND `area`>=".$areamin." AND `area`<=".$areamax, $db);
+								AND `area`>=".$areamin." AND `area`<=".$areamax."", $db);
 				
                   		if (!$result) {
 								die(mysql_error());
@@ -261,7 +261,7 @@ echo $areamax;echo '<br>';
                           </div>  
                           <!-- end of block .properties__item-->
                         </div>
-                      </div><?php }}?>
+                      </div><?php }}} else { echo "No existen datos.";}?>
                     </div>
                   </div>
                 </div>
@@ -278,12 +278,11 @@ echo $areamax;echo '<br>';
                   </div>
                   <div class="widget__content">
                     <!-- BEGIN SEARCH-->
-                    <form action="properties_listing_list.html" class="form form--flex form--search js-search-form form--sidebar">
+                    <form action="properties_listing_list.html" method="POST" class="form form--flex form--search js-search-form form--sidebar">
               <div class="row">
-                
                 <div class="form-group">
                   <label for="in-contract-type" class="control-label">¿Venta o Arriendo?</label>
-                  <select id="in-contract-type" data-placeholder="---" class="form-control">
+                  <select id="in-contract-type" data-placeholder="---" class="form-control" name="contrato">
                     <option label=" "></option>
                     <option>Venta</option>
                     <option>Arriendo</option>
@@ -295,49 +294,30 @@ echo $areamax;echo '<br>';
                     <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
                       <ul>
                         <li>
-                          <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox">
-                          <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departmento</label>
+                          <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Departamento">
+                          <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departamento</label>
                         </li>
-                        
                         <li>
-                          <input id="checkbox_type_2" type="checkbox" name="checkbox_type_2" class="in-checkbox">
-                          <label for="checkbox_type_2" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Cabaña</label>
-                        </li>
-                        
-                        <li>
-                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_3" class="in-checkbox">
+                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa">
                           <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Casa</label>
                         </li>
                         
                         <li>
-                          <input id="checkbox_type_4" type="checkbox" name="checkbox_type_4" class="in-checkbox">
+                          <input id="checkbox_type_4" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Sitio">
                           <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Sitio</label>
                         </li>
                         <li>
-                          <input id="checkbox_type_5" type="checkbox" name="checkbox_type_5" class="in-checkbox">
+                          <input id="checkbox_type_5" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Parcela">
                           <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Parcela</label>
                         </li>
                         <li>
-                          <input id="checkbox_type_6" type="checkbox" name="checkbox_type_6" class="in-checkbox">
+                          <input id="checkbox_type_6" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Local comercial">
                           <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Local comercial</label>
                         </li>
                       </ul>
                       <!-- end of block .dropdown-menu-->
                     </div>
                   </div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="in-bedrooms-type" class="control-label">Habitaciones</label>
-                  <select id="in-bedrooms-type" data-placeholder="---" class="form-control">
-                    <option label=" "></option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4+</option>
-                    <option>No Aplica</option>
-                    
-                  </select>
                 </div>
                 <div class="form-group"><span class="control-label">Comuna</span>
                   <div class="dropdown dropdown--select">
@@ -346,34 +326,13 @@ echo $areamax;echo '<br>';
                       <div class="region-select">
                         <ul class="js-checkboxes-tree bonsai region-select__list">
                           <li>
-                            <input type="checkbox" name="location[]" value="Curicó" id="region-select-states-0" class="in-checkbox">
+                            <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox">
                             <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
-                            <ul>
-                              <li>
-                                <input type="checkbox" name="location[]" value="Rauco" id="region-select-states-1" class="in-checkbox">
-                                <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Rauco" class="in-label">Rauquén</label>
-                              </li>
-                              <li>
-                                <input type="checkbox" name="location[]" value="Centro" id="region-select-states-2" class="in-checkbox">
-                                <label for="region-select-states-2" data-toggle="tooltip" data-placement="top" title="Ccentro" class="in-label">Centro</label>
-                              </li>
-                              <li>
-                                <input type="checkbox" name="location[]" value="Avenida España" id="region-select-states-3" class="in-checkbox">
-                                <label for="region-select-states-3" data-toggle="tooltip" data-placement="top" title="Avenida España" class="in-label">Avenida España</label>
-                              </li>
-                            </ul>
+                            
                           </li>
                           <li>
-                            <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-states-4" class="in-checkbox">
+                            <input type="checkbox" name="location" value="Los Angeles" id="region-select-states-4" class="in-checkbox">
                             <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Molina</label>
-                            <ul>
-                              <li>
-                                <input type="checkbox" name="location[]" value="Santa Elvira" id="region-select-states-5" class="in-checkbox">
-                                <label for="region-select-states-5" data-toggle="tooltip" data-placement="top" title="Santa Elvira" class="in-label">Santa Elvira</label>
-                              </li>
-                              
-                                </ul>
-                            
                             
                           </li>
                         </ul>
@@ -398,8 +357,8 @@ echo $areamax;echo '<br>';
                     <input id="range_price" class="js-search-range form__ranges-in">
                   </div>
                   <div class="form__inputs js-search-inputs">
-                    <input type="text" id="in-price-from" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
-                    <input type="text" id="in-price-to" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
+                    <input type="text" name="inpricefrom" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
+                    <input type="text" name="inpriceto" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
                   </div>
                 </div>
 
@@ -412,8 +371,8 @@ echo $areamax;echo '<br>';
                     <input id="range_area" class="js-search-range form__ranges-in">
                   </div>
                   <div class="form__inputs js-search-inputs">
-                    <input type="text" id="in-area-from" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
-                    <input type="text" id="in-area-to" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
+                    <input type="text" name="inareafrom" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
+                    <input type="text" name="inareato" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
                   </div>
                 </div>
                 
