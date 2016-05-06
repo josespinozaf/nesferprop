@@ -1,23 +1,4 @@
-<?php
-include ("php/connect.php"); 
-
-//Declaración de variables
-$contrato = $_REQUEST['contrato']; 
-$tipo = $_REQUEST['checkbox_type_1'];
-$comuna = $_REQUEST['location'];
-$preciomin = $_REQUEST['inpricefrom'];
-$preciomax = $_REQUEST['inpriceto'];
-$areamin = $_REQUEST['inareafrom'];
-$areamax = $_REQUEST['inareato'];
-
-echo $contrato ; echo '<br>';
-echo $tipo ; echo '<br>';
-echo $comuna ; echo '<br>';
-echo $preciomin; echo '<br>';
-echo $preciomax; echo '<br>';
-echo $areamin; echo '<br>';
-echo $areamax; echo '<br>';
-?><!DOCTYPE HTML >
+<!DOCTYPE HTML >
 <html>
   <head lang="en">
     <meta charset="UTF-8">
@@ -212,6 +193,24 @@ echo $areamax; echo '<br>';
                   <div class="widget js-widget widget--main">
                     <div class="widget__content">
                     <?php 
+						include ("php/connect.php"); 
+						if (isset($_POST['Buscar'])){
+						//Declaración de variables
+						$contrato = $_REQUEST['contrato']; 
+						$tipo = $_REQUEST['checkbox_type_1'];
+						$comuna = $_REQUEST['location'];
+						$preciomin = $_REQUEST['inpricefrom'];
+						$preciomax = $_REQUEST['inpriceto'];
+						$areamin = $_REQUEST['inareafrom'];
+						$areamax = $_REQUEST['inareato'];
+
+						echo $contrato ; echo '<br>';
+						echo $tipo ; echo '<br>';
+						echo $comuna ; echo '<br>';
+						echo $preciomin; echo '<br>';
+						echo $preciomax; echo '<br>';
+						echo $areamin; echo '<br>';
+						echo $areamax; echo '<br>';
 						//Busqueda en la base de datos//
  						if ($contrato && $tipo && $comuna && $preciomax && $areamax && $preciomin && $areamin ){
                   		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo."' AND `comuna` ='".$comuna."'
@@ -261,7 +260,7 @@ echo $areamax; echo '<br>';
                           </div>  
                           <!-- end of block .properties__item-->
                         </div>
-                      </div><?php }}} else { echo "No existen datos.";}?>
+                      </div><?php }}}} else { echo "No existen datos. Haga la busqueda en el filtro";}?>
                     </div>
                   </div>
                 </div>
@@ -298,8 +297,8 @@ echo $areamax; echo '<br>';
                           <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departamento</label>
                         </li>
                         <li>
-                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa">
-                          <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Casa</label>
+                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa" checked>
+                          <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label" >Casa</label>
                         </li>
                         
                         <li>
@@ -326,13 +325,13 @@ echo $areamax; echo '<br>';
                       <div class="region-select">
                         <ul class="js-checkboxes-tree bonsai region-select__list">
                           <li>
-                            <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox">
+                            <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox" checked>
                             <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
                             
                           </li>
                           <li>
-                            <input type="checkbox" name="location" value="Los Angeles" id="region-select-states-4" class="in-checkbox">
-                            <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Molina</label>
+                            <input type="checkbox" name="location" value="Los Angeles" id="region-select-states-1" class="in-checkbox">
+                            <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
                             
                           </li>
                         </ul>
@@ -378,7 +377,7 @@ echo $areamax; echo '<br>';
                 
                 <div class="form__buttons form__buttons--double">
                   <button type="button" class="form__reset js-form-reset">Reinicio</button>
-                  <button type="submit" class="form__submit">Buscar</button>
+                  <button type="submit" value="Buscar" class="form__submit">Buscar</button>
                 </div>
               </div>
             </form>

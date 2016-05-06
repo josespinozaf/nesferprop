@@ -1,4 +1,6 @@
-<!DOCTYPE html >
+<?php
+include ("php/connect.php"); 
+?><!DOCTYPE html >
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -194,7 +196,7 @@
                   <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departamento</label>
               </li>             
               <li>
-                  <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa">
+                  <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa" checked>
                   <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Casa</label>
               </li>
               
@@ -223,13 +225,13 @@
       <div class="region-select">
         <ul class="js-checkboxes-tree bonsai region-select__list">
           <li>
-            <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox">
+            <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox" checked>
             <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
 
     </li>
     <li>
-        <input type="checkbox" name="location" value="Molina" id="region-select-states-4" class="in-checkbox">
-        <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Molina</label>
+        <input type="checkbox" name="location" value="Molina" id="region-select-states-1" class="in-checkbox">
+        <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
           
 </li>
 </ul>
@@ -275,7 +277,7 @@
 
 <div class="form__buttons form__buttons--double">
   <button type="button" class="form__reset js-form-reset">Reinicio</button>
-  <button type="submit" class="form__submit">Buscar</button>
+  <button type="submit"  value="Buscar" class="form__submit">Buscar</button>
 </div>
 </div>
 </form>
@@ -291,28 +293,37 @@
 <div class="widget__content">
     <!-- BEGIN PROPERTIES INDEX-->
     <div class="listing listing--grid">
+<?php 
+//Busqueda en la base de datos//
+                  		$result = mysql_query("SELECT * FROM `propiedades` ORDER BY id DESC LIMIT 3", $db);
+                  		if (!$result) {
+								die(mysql_error());
+										}
+						else{
+							while($datos= mysql_fetch_array($result)) {
+?>
       <div class="listing__item">
         <div class="properties properties--grid">
           <div class="properties__thumb"><a href="property_details_local1.html" class="item-photo"><img src="assets/media/propiedades/local1/1.JPG" alt=""/>
               <figure class="item-photo__hover item-photo__hover--params">
-                  <span class="properties__params">Contrucción - 18 m2</span>
+                  <span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
                   
-                  <span class="properties__intro">Local para uso comercial, fusionable con el local comercial vecino (Rodríguez #1174)</span>
+                  <span class="properties__intro"><?php echo $datos['descripcion']."(".$datos['direccion'].")"; ?></span>
                   
                   <span class="properties__more">Ver detalles</span>
-              </figure></a><span class="properties__ribon">Arriendo</span>
+              </figure></a><span class="properties__ribon"><?php echo $datos['contrato'];?></span>
           </div>
           <!-- end of block .properties__thumb-->
           <div class="properties__details">
-            <div class="properties__info"><a href="property_details_local1.html" class="properties__address"><span class="properties__address-street">Manuel Rodríguez #1172</span>
-                <span class="properties__address-city">Curicó</span></a>
+            <div class="properties__info"><a href="property_details_local1.html" class="properties__address"><span class="properties__address-street"><?php echo $datos['direccion'];?></span>
+                <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
                 <div class="properties__offer">
                     <div class="properties__offer-column">
-                      <div class="properties__offer-value"><strong>$200.000</strong><span class="properties__offer-period">/mes</span>
+                      <div class="properties__offer-value"><strong><?php echo "$".$datos['precio'];?></strong><span class="properties__offer-period">CLP</span>
                       </div>
                   </div>
               </div>
-              <div class="properties__params--mob"><a href="#" class="properties__more">Ver detalles</a><span class="properties__params">Construcción - 18 m2</span>
+              <div class="properties__params--mob"><a href="#" class="properties__more">Ver detalles</a><span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
 
               </div>
           </div>
@@ -322,43 +333,8 @@
 </div>
 <!-- end of block .properties__item-->
 </div>
-
-<div class="listing__item">
-        <div class="properties properties--grid">
-          <div class="properties__thumb"><a href="property_details_local1.html" class="item-photo"><img src="assets/media/propiedades/local1/1.JPG" alt=""/>
-              <figure class="item-photo__hover item-photo__hover--params">
-                  <span class="properties__params">Contrucción - 18 m2</span>
-                  
-                  <span class="properties__intro">Local para uso comercial, fusionable con el local comercial vecino (Rodríguez #1172)</span>
-                  
-                  <span class="properties__more">Ver detalles</span>
-              </figure></a><span class="properties__ribon">Arriendo</span>
-          </div>
-          <!-- end of block .properties__thumb-->
-          <div class="properties__details">
-            <div class="properties__info"><a href="property_details_local1.html" class="properties__address"><span class="properties__address-street">Manuel Rodríguez #1174</span>
-                <span class="properties__address-city">Curicó</span></a>
-                <div class="properties__offer">
-                    <div class="properties__offer-column">
-                      <div class="properties__offer-value"><strong>$200.000</strong><span class="properties__offer-period">/mes</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="properties__params--mob"><a href="#" class="properties__more">Ver detalles</a><span class="properties__params">Construcción - 18 m2</span>
-
-              </div>
-          </div>
-          <!-- end of block .properties__info-->
-      </div>
-  <!-- end of block .properties__info-->
+<?php }}?>
 </div>
-<!-- end of block .properties__item-->
-</div>
-
-
-</div>
-</div>
-
 <div class="widget__footer"><a href="feature_grid_large.html" class="widget__more">Más propiedades</a></div>
 <!-- END PROPERTIES INDEX-->
 </div>
