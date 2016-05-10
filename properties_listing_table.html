@@ -1,3 +1,6 @@
+<?php 
+@session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head lang="en">
@@ -205,16 +208,39 @@
                                 <th class="datatable__head-4 datatable__head-sort">Tipo</th>
                                 <th class="datatable__head-5">Details</th>
                               </tr>
-                            </thead>
-                            <tbody>
+                            </thead>      
+                           <?php
+                            include ("php/connect.php"); 
+							if (isset($_SESSION['contrato'])){
+							//Declaración de variables
+							$contrato = $_SESSION['contrato']; 
+							$tipo = $_SESSION['checkbox_type_1'];
+							$comuna = $_SESSION['location'];
+							$preciomin = $_SESSION['inpricefrom'];
+							$preciomax = $_SESSION['inpriceto'];
+							$areamin = $_SESSION['inareafrom'];
+							$areamax = $_SESSION['inareato'];
+							
+							if ($contrato && $tipo && $comuna && $preciomax && $areamax && $preciomin && $areamin ){
+                  		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo."' AND `comuna` ='".$comuna."'
+								AND `contrato` ='".$contrato."' AND `precio`>=".$preciomin." AND `precio`<=".$preciomax."
+								AND `area`>=".$areamin." AND `area`<=".$areamax."", $db);
+				
+                  		if (!$result) {
+								die(mysql_error());
+										}
+						else{
+							while($datos= mysql_fetch_array($result)) {
+						?> <tbody>
                               <tr data-info="&lt;table class=&quot;table table--stripped&quot;&gt;&lt;tr&gt;&lt;td&gt;Pisos:&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Area:&lt;/td&gt;&lt;td&gt;18 m2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Contrato:&lt;/td&gt;&lt;td&gt;Arriendo &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;/td&gt;&lt;td&gt;Precio:&lt;/td&gt;&lt;td&gt; $200.000/mes">
-                                <td class="datatable__cell-1">Manuel Rodríguez #1172</td>
-                                <td class="datatable__cell-2"><strong>Arriendo</strong>
+                                <td class="datatable__cell-1"><?php echo $datos['direccion']; ?></td>
+                                <td class="datatable__cell-2"><strong><?php echo $datos['contrato']; ?></strong>
                                 </td>
-                                <td class="datatable__cell-3">200.000</td>
-                                <td class="datatable__cell-4">Local Comercial</td>
+                                <td class="datatable__cell-3"><?php echo $datos['precio']; ?></td>
+                                <td class="datatable__cell-4"><?php echo $datos['tipo']; ?></td>
                                 <td class="datatable__cell-5"><a href="property_details_local1.html" class="datatable__more">Ver detalles</a></td>
                               </tr>
+                              <?php } } } } else { echo "No existen datos. Haga la busqueda en el filtro";}?>
                             </tbody>
                           </table>
                         </div>
@@ -244,7 +270,7 @@
                   </div>
                   <div class="widget__content">
                     <!-- BEGIN SEARCH-->
-                    <form action="properties_listing_list.html" method="POST" class="form form--flex form--search js-search-form form--sidebar">
+                    <form action="php/formulario.php" method="POST" class="form form--flex form--search js-search-form form--sidebar">
               <div class="row">
                 <div class="form-group">
                   <label for="in-contract-type" class="control-label">¿Venta o Arriendo?</label>
@@ -297,8 +323,8 @@
                             
                           </li>
                           <li>
-                            <input type="checkbox" name="location" value="Los Angeles" id="region-select-states-4" class="in-checkbox">
-                            <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Molina</label>
+                            <input type="checkbox" name="location" value="Molina" id="region-select-states-4" class="in-checkbox">
+                            <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
                             
                           </li>
                         </ul>

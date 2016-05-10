@@ -1,5 +1,8 @@
 <?php
 include ("php/connect.php"); 
+@session_start();
+@session_unset();
+
 ?><!DOCTYPE html >
 <html>
 <head lang="en">
@@ -176,7 +179,7 @@ include ("php/connect.php");
     </div>
     <div class="widget__content">
         <!-- BEGIN SEARCH-->
-        <form action="properties_listing_list.html" method="POST" class="form form--flex form--search js-search-form form--wide">
+        <form action="php/formulario.php" method="POST" class="form form--flex form--search js-search-form form--wide">
           <div class="row">
             <div class="form-group">
               <label for="in-contract-type" class="control-label">¿Venta o Arriendo?</label>
@@ -277,7 +280,7 @@ include ("php/connect.php");
 
 <div class="form__buttons form__buttons--double">
   <button type="button" class="form__reset js-form-reset">Reinicio</button>
-  <button type="submit"  value="Buscar" class="form__submit">Buscar</button>
+  <button type="submit"  name="Buscar" class="form__submit">Buscar</button>
 </div>
 </div>
 </form>

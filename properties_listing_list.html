@@ -194,28 +194,23 @@
                     <div class="widget__content">
                     <?php 
 						include ("php/connect.php"); 
-						if (isset($_POST['Buscar'])){
 						//Declaración de variables
-						$contrato = $_REQUEST['contrato']; 
-						$tipo = $_REQUEST['checkbox_type_1'];
-						$comuna = $_REQUEST['location'];
-						$preciomin = $_REQUEST['inpricefrom'];
-						$preciomax = $_REQUEST['inpriceto'];
-						$areamin = $_REQUEST['inareafrom'];
-						$areamax = $_REQUEST['inareato'];
-
-						echo $contrato ; echo '<br>';
-						echo $tipo ; echo '<br>';
-						echo $comuna ; echo '<br>';
-						echo $preciomin; echo '<br>';
-						echo $preciomax; echo '<br>';
-						echo $areamin; echo '<br>';
-						echo $areamax; echo '<br>';
+						//include ("php/formulario.php");
+						@session_start();
+						if (isset($_SESSION['contrato'])){
+						$contrato1 = $_SESSION['contrato']; 
+						$tipo1 = $_SESSION['checkbox_type_1'];
+						$comuna1 = $_SESSION['location'];
+						$preciomin1 = $_SESSION['inpricefrom'];
+						$preciomax1 = $_SESSION['inpriceto'];
+						$areamin1 = $_SESSION['inareafrom'];
+						$areamax1 = $_SESSION['inareato'];
+					
 						//Busqueda en la base de datos//
- 						if ($contrato && $tipo && $comuna && $preciomax && $areamax && $preciomin && $areamin ){
-                  		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo."' AND `comuna` ='".$comuna."'
-								AND `contrato` ='".$contrato."' AND `precio`>=".$preciomin." AND `precio`<=".$preciomax."
-								AND `area`>=".$areamin." AND `area`<=".$areamax."", $db);
+ 						if ($contrato1 && $tipo1 && $comuna1 && $preciomax1 && $areamax1 && $preciomin1 && $areamin1 ){
+                  		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo1."' AND `comuna` ='".$comuna1."'
+								AND `contrato` ='".$contrato1."' AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1."
+								AND `area`>=".$areamin1." AND `area`<=".$areamax1."", $db);
 				
                   		if (!$result) {
 								die(mysql_error());
@@ -277,7 +272,7 @@
                   </div>
                   <div class="widget__content">
                     <!-- BEGIN SEARCH-->
-                    <form action="properties_listing_list.html" method="POST" class="form form--flex form--search js-search-form form--sidebar">
+                    <form action="php/formulario.php" method="POST" class="form form--flex form--search js-search-form form--sidebar">
               <div class="row">
                 <div class="form-group">
                   <label for="in-contract-type" class="control-label">¿Venta o Arriendo?</label>
@@ -330,7 +325,7 @@
                             
                           </li>
                           <li>
-                            <input type="checkbox" name="location" value="Los Angeles" id="region-select-states-1" class="in-checkbox">
+                            <input type="checkbox" name="location" value="Molina" id="region-select-states-1" class="in-checkbox">
                             <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
                             
                           </li>

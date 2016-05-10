@@ -602,11 +602,11 @@
     if ($rangeArea.length ) {
       $rangeArea.ionRangeSlider({
         type: "double",
-        min: 0,
+        min: 1,
         max: 200,
-        hide_min_max: true,
+        hide_min_max: false,
         hide_from_to: false,
-        grid: false,
+        grid: true,
         postfix: ' m2',
         force_edges: true,
         step: 10,
@@ -618,11 +618,11 @@
     if ($rangePrice.length ) {
       $rangePrice.ionRangeSlider({
         type: "double",
-        min: 0,
+        min: 1,
         max: 250000000,
-        hide_min_max: true,
+        hide_min_max: false,
         hide_from_to: false,
-        grid: false,
+        grid: true,
         prefix: '$',
         force_edges: true,
         max_postfix: '+',
