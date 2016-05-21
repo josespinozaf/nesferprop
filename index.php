@@ -60,7 +60,7 @@ include ("php/connect.php");
  <!-- BEGIN HEADER-->
   <header class="header header--brand">
     <div class="container">
-      <div class="header__row"><a href="index.html" class="header__logo">
+      <div class="header__row"><a href="index.php" class="header__logo">
         <svg>
            <use xlink:href="assets/img/sprite.svg#icon-area"></use>
          
@@ -118,14 +118,14 @@ include ("php/connect.php");
 <div id="header-nav-offset"></div>
 <nav id="header-nav" class="navbar navbar--header">
     <div class="container">
-      <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
+      <div class="navbar__row js-navbar-row"><a href="index.php" class="navbar__brand">
           <svg class="navbar__brand-logo">
          <use xlink:href="#icon-logo"></use>
         </svg></a>
         
         <div id="navbar-collapse-1" class="navbar__wrap">
           <ul class="navbar__nav">
-            <li class="navbar__item js-dropdown active"><a href="index.html" class="navbar__link">Principal
+            <li class="navbar__item js-dropdown active"><a href="index.php" class="navbar__link">Principal
                 <svg class="navbar__arrow">
                   <use xlink:href="#icon-arrow-right"></use>
               </svg></a>
@@ -295,7 +295,7 @@ include ("php/connect.php");
 </div>
 <div class="widget__content">
     <!-- BEGIN PROPERTIES INDEX-->
-    <div class="listing listing--grid">
+    <div class="listing listing--grid"> 
 <?php 
 //Busqueda en la base de datos//
                   		$result = mysql_query("SELECT * FROM `propiedades` ORDER BY id DESC LIMIT 3", $db);
@@ -303,11 +303,15 @@ include ("php/connect.php");
 								die(mysql_error());
 										}
 						else{
-							while($datos= mysql_fetch_array($result)) {
+								
+								while ($datos =  mysql_fetch_assoc($result))
+								{
+							
 ?>
       <div class="listing__item">
         <div class="properties properties--grid">
-          <div class="properties__thumb"><a href="property_details_local1.html" class="item-photo"><img src="assets/media/propiedades/local1/1.JPG" alt=""/>
+          <div class="properties__thumb">
+           	<a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="item-photo"><img src="assets/media/propiedades/local1/1.JPG" alt=""/> 
               <figure class="item-photo__hover item-photo__hover--params">
                   <span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
                   
@@ -335,6 +339,7 @@ include ("php/connect.php");
   <!-- end of block .properties__info-->
 </div>
 <!-- end of block .properties__item-->
+
 </div>
 <?php }}?>
 </div>

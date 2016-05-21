@@ -193,18 +193,30 @@
           <div class="container">
             <div class="row">
               <div class="site site--main">
-
+<?php
+include ("php/connect.php");
+$id = $_REQUEST['id'];
+$result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
+                  		if (!$result) {
+								die(mysql_error());
+										}
+						else{
+								
+								while ($datos =  mysql_fetch_assoc($result))
+								{
+								
+	?>							
                 <!-- BEGIN PROPERTY DETAILS-->
                 <div class="property">
-                  <h1 class="property__title">Manuel Rodríguez #1172 y #1174<span class="property__city">Curicó</span></h1>
+                  <h1 class="property__title"><?php echo $datos['direccion'];?><span class="property__city"><?php echo $datos['comuna'];?></span></h1>
                   <div class="property__header">
-                    <div class="property__price"><strong class="property__price-value">$200.000 c/u</strong>
+                    <div class="property__price"><strong class="property__price-value"><?php echo $datos['precio'];?></strong>
                     <span class="property__price-label"></span></div>                    
                   
                   </div>
                   <div class="clearfix"></div>
                   <div class="property__slider">
-                    <div class="property__ribon">Arriendo</div>
+                    <div class="property__ribon"><?php echo $datos['contrato'];?></div>
                     
                                     <div id="properties-thumbs" class="slider slider--small js-slider-thumbs">
                                       <div class="slider__block js-slick-slider">
@@ -245,8 +257,8 @@
                                     </div>
                   </div>
                   <div class="property__info">
-                    <div class="property__info-item">Tipo de propiedad: <strong> Local Comercial</strong></div>
-                    <div class="property__info-item">Construido: <strong> 18 m2</strong></div>
+                    <div class="property__info-item">Tipo de propiedad: <strong> <?php echo $datos['tipo']; ?></strong></div>
+                    <div class="property__info-item">Construido: <strong><?php echo $datos['area']."m2";?></strong></div>
                   </div>
                   <div class="property__plan">
                     <dl class="property__plan-item">
@@ -256,7 +268,7 @@
                         </svg>
                       </dt>
                       <dd class="property__plan-title">Área</dd>
-                      <dd class="property__plan-value">18</dd>
+                      <dd class="property__plan-value"><?php echo $datos['area'];?></dd>
                     </dl>
                     
                     
@@ -315,7 +327,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div><?php }}?>
                   <div class="widget js-widget widget--details">
                     <div class="widget__content">
                       
