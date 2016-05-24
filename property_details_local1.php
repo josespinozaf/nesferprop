@@ -30,12 +30,12 @@
     <!-- Meta graph protocol-->
 
     <meta property="og:title" content="Arriendo local comercial">
-    <meta property="og:url" content="property_details_local1.html">
+    <meta property="og:url" content="property_details_local1.php">
     <meta property="og:image" content="assets/media/propiedades/local1/1.JPG">
     <meta property="og:description" content="Manuel Rodríguez #1172; 18 m2">
     <!--Meta Twitter protocol-->
     <meta name="twitter:card" content="Arriendo local comercial">
-    <meta name="twitter:url" content="property_details_local1.html">
+    <meta name="twitter:url" content="property_details_local1.php">
     <meta name="twitter:title" content="Arriendo local comercial">
     <meta name="twitter:description" content="Manuel Rodríguez #1172; 18 m2">
     <meta name="twitter:image" content="assets/media/propiedades/local1/0.JPG">
@@ -67,7 +67,7 @@
       <!-- BEGIN HEADER-->
   <header class="header header--brand">
     <div class="container">
-      <div class="header__row"><a href="index.html" class="header__logo">
+      <div class="header__row"><a href="index.php" class="header__logo">
         <svg>
            <use xlink:href="#icon-logo--mob"></use>
        </svg></a>
@@ -124,13 +124,13 @@
 <div id="header-nav-offset"></div>
 <nav id="header-nav" class="navbar navbar--header">
     <div class="container">
-      <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
+      <div class="navbar__row js-navbar-row"><a href="index.php" class="navbar__brand">
           <svg class="navbar__brand-logo">
             <use xlink:href="icon-logo"></use>
         </svg></a>
         <div id="navbar-collapse-1" class="navbar__wrap">
           <ul class="navbar__nav">
-            <li class="navbar__item js-dropdown"><a href="index.html" class="navbar__link">Principal
+            <li class="navbar__item js-dropdown"><a href="index.php" class="navbar__link">Principal
                 <svg class="navbar__arrow">
                   <use xlink:href="#icon-arrow-right"></use>
               </svg></a>
@@ -181,10 +181,21 @@
         <!-- BEGIN BREADCRUMBS-->
         <nav class="breadcrumbs">
           <div class="container">
+     <?php
+include ("php/connect.php");
+$id = $_REQUEST['id'];
+$result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
+                  		if (!$result) {
+								die(mysql_error());
+										}
+						else{ 
+								while ($datos =  mysql_fetch_assoc($result)){
+							
+							?>
             <ul>
-              <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Principal</a></li>
+              <li class="breadcrumbs__item"><a href="index.php" class="breadcrumbs__link">Principal</a></li>
               <li class="breadcrumbs__item"><a href="feature_grid_large.html" class="breadcrumbs__link">Propiedades</a></li>
-              <li class="breadcrumbs__item"><a href="property_details_local1.html" class="breadcrumbs__link">Curicó, Manuel Rodríguez #1172 y #1174</a></li>
+              <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link"><?php echo $datos['comuna'].". ".$datos['direccion'];?></a></li>
             </ul>
           </div>
         </nav>
@@ -192,25 +203,12 @@
         <div class="center">
           <div class="container">
             <div class="row">
-              <div class="site site--main">
-<?php
-include ("php/connect.php");
-$id = $_REQUEST['id'];
-$result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
-                  		if (!$result) {
-								die(mysql_error());
-										}
-						else{
-								
-								while ($datos =  mysql_fetch_assoc($result))
-								{
-								
-	?>							
+              <div class="site site--main">						
                 <!-- BEGIN PROPERTY DETAILS-->
                 <div class="property">
                   <h1 class="property__title"><?php echo $datos['direccion'];?><span class="property__city"><?php echo $datos['comuna'];?></span></h1>
                   <div class="property__header">
-                    <div class="property__price"><strong class="property__price-value"><?php echo $datos['precio'];?></strong>
+                    <div class="property__price"><strong class="property__price-value"><?php echo "$".$datos['precio'];?></strong>
                     <span class="property__price-label"></span></div>                    
                   
                   </div>
@@ -258,7 +256,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                   </div>
                   <div class="property__info">
                     <div class="property__info-item">Tipo de propiedad: <strong> <?php echo $datos['tipo']; ?></strong></div>
-                    <div class="property__info-item">Construido: <strong><?php echo $datos['area']."m2";?></strong></div>
+                    <div class="property__info-item">Construido: <strong><?php echo $datos['mconstruidos']." m2";?></strong></div>
                   </div>
                   <div class="property__plan">
                     <dl class="property__plan-item">
@@ -268,7 +266,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                         </svg>
                       </dt>
                       <dd class="property__plan-title">Área</dd>
-                      <dd class="property__plan-value"><?php echo $datos['area'];?></dd>
+                      <dd class="property__plan-value"><?php echo $datos['area']." m2";?></dd>
                     </dl>
                     
                     
@@ -279,14 +277,14 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                           <use xlink:href="#icon-garage"></use>
                         </svg>
                       </dt>
-                      <dd class="property__plan-title">Garage</dd>
-                      <dd class="property__plan-value">0</dd>
+                      <dd class="property__plan-title">Metros construidos</dd>
+                      <dd class="property__plan-value"><?php echo $datos['mconstruidos']." m2";?></dd>
                     </dl>
                   </div>
                   <div class="property__params">
                     <h4 class="property__subtitle">La propiedad</h4>
                     <ul class="property__params-list">
-                      <li>Año construcción:<strong>1990</strong></li>
+                      <li>Año construcción:<strong><?php echo $datos['anoconstruccion'];?></strong></li>
                       <li>Número de estacionamientos:<strong>1</strong></li>                      
                       <li>Radier:<strong>Completo</strong></li>
                       <li>Externo<strong>Construcción: Terraza</strong></li>
@@ -310,9 +308,8 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                   <div class="property__description js-unhide-block">
                     <h4 class="property__subtitle">Descripción</h4>
                     <div class="property__description-wrap">
-                      <p>Local comercial. Excelente ubicación a media cuadra de avenida Freire. Ampliable con local vecino.</p>                      
+                      <p><?php echo $datos['tipo'].". ".$datos['descripcion'];?></p>                      
                     </div>
-                    <button type="button" class="property__btn-more js-unhide">Más información ...</button>
                   </div>
                   <div class="widget js-widget widget--details">
                     <div class="widget__content">
@@ -540,7 +537,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
         </div>
         <div class="widget__content">
             <nav class="nav nav--footer">
-                <a href="index.html">Principal</a>
+                <a href="index.php">Principal</a>
                 <a href="feature_grid_large">Propiedades</a>
                 <a href="contacts.html">Contacto</a>
                 
