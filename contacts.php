@@ -113,9 +113,8 @@
 <nav id="header-nav" class="navbar navbar--header">
     <div class="container">
       <div class="navbar__row js-navbar-row"><a href="index.php" class="navbar__brand">
-          <svg class="navbar__brand-logo">
-            <use xlink:href="icon-logo"></use>
-        </svg></a>
+        <img class="navbar__brand-logo" src="assets/img/logo.png" alt=""> 
+        </a>            
         <div id="navbar-collapse-1" class="navbar__wrap">
           <ul class="navbar__nav">
             <li class="navbar__item js-dropdown"><a href="index.php" class="navbar__link">Principal
