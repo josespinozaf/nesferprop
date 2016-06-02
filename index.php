@@ -2,7 +2,7 @@
 include ("php/connect.php"); 
 @session_start();
 @session_unset();
-
+header("Content-Type: text/html;charset=utf-8");
 ?><!DOCTYPE html >
 <html>
 <head lang="en">
@@ -119,65 +119,52 @@ include ("php/connect.php");
 <nav id="header-nav" class="navbar navbar--header">
     <div class="container">
       <div class="navbar__row js-navbar-row"><a href="index.php" class="navbar__brand">
-          <svg class="navbar__brand-logo">
-         <use xlink:href="#icon-logo"></use>
-        </svg></a>
+          <img class="navbar__brand-logo" src="assets/img/logo.png" alt=""> 
+          </a>
+            <!--
+             <svg class="navbar__brand-logo">
+             <use xlink:href="assets/img/logo.png"></use>
+             </svg>
+             -->
         
         <div id="navbar-collapse-1" class="navbar__wrap">
           <ul class="navbar__nav">
             <li class="navbar__item js-dropdown active"><a href="index.php" class="navbar__link">Principal
                 <svg class="navbar__arrow">
-                  <use xlink:href="#icon-arrow-right"></use>
-              </svg></a>
-              <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                <button class="navbar__back js-navbar-submenu-back">
-                  <svg class="navbar__arrow">
-                    <use xlink:href="#icon-arrow-left"></use>
-                </svg>Volver
-            </button>
-            
-            
-        </div>
-    </li>
-    <li class="navbar__item js-dropdown"><a href="feature_grid_large.html" class="navbar__link">Propiedades
-        <svg class="navbar__arrow">
-          <use xlink:href="#icon-arrow-right"></use>
-      </svg></a>
-      <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-2">
-        <button class="navbar__back js-navbar-submenu-back">
-          <svg class="navbar__arrow">
-            <use xlink:href="#icon-arrow-left"></use>
-        </svg>Volver
-    </button>
-    
-    
-
-    
-</div>
-</li>
-
-
-
-
-<li class="navbar__item"><a href="contacts.html" class="navbar__link">Contacto</a></li>
-
-
-
-
-
-</ul>
+                    <use xlink:href="#icon-arrow-right"></use>
+                </svg></a>
+                <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+                    <button class="navbar__back js-navbar-submenu-back">
+                        <svg class="navbar__arrow">
+                            <use xlink:href="#icon-arrow-left"></use>
+                        </svg>Volver
+                    </button>
+                </div>
+            </li>
+            <li class="navbar__item js-dropdown"><a href="feature_grid_large.php" class="navbar__link">Propiedades
+                <svg class="navbar__arrow">
+                    <use xlink:href="#icon-arrow-right"></use>
+                </svg></a>
+                <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-2">
+                    <button class="navbar__back js-navbar-submenu-back">
+                        <svg class="navbar__arrow">
+                            <use xlink:href="#icon-arrow-left"></use>
+                        </svg>Volver
+                    </button>
+                </div>
+            </li>
+            <li class="navbar__item"><a href="contacts.php" class="navbar__link">Contacto</a>
+            </li>
+          </ul>
 <!-- end of block  navbar__nav-->
-</div>
-</div>
-</div>
+        </div>
+       </div>
+    </div>
 </nav>
 <!-- END NAVBAR-->
 <div class="site-wrap js-site-wrap">
-    <div class="widget js-widget widget--landing widget--bg">
-      <div class="widget__header">
-        <h2 class="widget__title"><span class="title-thin">Encuentra tu</span> propiedad</h2>
-    </div>
-    <div class="widget__content">
+    <div class="widget js-widget widget--landing widget--bg">      
+    <div class="widget__header">
         <!-- BEGIN SEARCH-->
         <form action="php/formulario.php" method="POST" class="form form--flex form--search js-search-form form--wide">
           <div class="row">
@@ -188,66 +175,67 @@ include ("php/connect.php");
                 <option>Venta</option>
                 <option>Arriendo</option>
             </select>
-        </div>
-        <div class="form-group"><span class="control-label">Tipo de propiedad</span>
-          <div class="dropdown dropdown--select">
-            <button type="button" data-toggle="dropdown" data-placeholder="---" class="dropdown-toggle js-select-checkboxes-btn">---</button>
-            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
-              <ul>
-                <li>
-                  <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Departamento">
-                  <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departamento</label>
-              </li>             
-              <li>
-                  <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa" checked>
-                  <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Casa</label>
-              </li>
-              
-              <li>
-                  <input id="checkbox_type_4" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Sitio">
-                  <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Sitio</label>
-              </li>
-              <li>
-                  <input id="checkbox_type_5" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Parcela">
-                  <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Parcela</label>
-              </li>
-              <li>
-                  <input id="checkbox_type_6" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Local comercial">
-                  <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Local comercial</label>
-              </li>
-          </ul>
+          </div>
+            <div class="form-group"><span class="control-label">Tipo de propiedad</span>
+              <div class="dropdown dropdown--select">
+                <button type="button" data-toggle="dropdown" data-placeholder="---" class="dropdown-toggle js-select-checkboxes-btn">
+                </button>
+                <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                  <ul>
+                    <li>
+                      <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Departamento">
+                      <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departamento
+                      </label>
+                    </li>             
+                    <li>
+                       <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa">
+                       <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Casa
+                       </label>
+                    </li>                  
+                    <li>
+                      <input id="checkbox_type_4" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Sitio">
+                      <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Sitio
+                      </label>
+                    </li>
+                    <li>
+                      <input id="checkbox_type_5" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Parcela">
+                      <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Parcela</label>
+                    </li>
+                    <li>
+                      <input id="checkbox_type_6" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Local comercial">
+                      <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Local comercial
+                      </label>
+                    </li>
+                  </ul>
           <!-- end of block .dropdown-menu-->
-      </div>
-  </div>
-</div>
-
-<div class="form-group"><span class="control-label">Comuna</span>
-  <div class="dropdown dropdown--select">
-    <button type="button" data-toggle="dropdown" data-placeholder="Comuna" class="dropdown-toggle js-select-checkboxes-btn">Comuna</button>
-    <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
-      <div class="region-select">
-        <ul class="js-checkboxes-tree bonsai region-select__list">
-          <li>
-            <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox" checked>
-            <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
-
-    </li>
-    <li>
-        <input type="checkbox" name="location" value="Molina" id="region-select-states-1" class="in-checkbox">
-        <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
-          
-</li>
-</ul>
-<div class="region-select__buttons">
-  <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Limpiar</button>
-  <button type="button" class="region-select__btn js-select-checkboxes-accept">Aceptar</button>
-</div>
-</div>
-<!-- end of block .region-select-->
-</div>
-<!-- end of block .dropdown-menu-->
-</div>
-</div>
+                </div>
+               </div>
+            </div>
+            <div class="form-group"><span class="control-label">Comuna</span>
+              <div class="dropdown dropdown--select">
+                <button type="button" data-toggle="dropdown" data-placeholder="Comuna" class="dropdown-toggle js-select-checkboxes-btn">Comuna</button>
+                <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                  <div class="region-select">
+                    <ul class="js-checkboxes-tree bonsai region-select__list">
+                      <li>
+                        <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox">
+                        <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" name="location" value="Molina" id="region-select-states-1" class="in-checkbox">
+                        <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>                      
+                    </li>
+                    </ul>
+            <div class="region-select__buttons">
+              <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Limpiar</button>
+              <button type="button" class="region-select__btn js-select-checkboxes-accept">Aceptar</button>
+            </div>
+            </div>
+            <!-- end of block .region-select-->
+            </div>
+            <!-- end of block .dropdown-menu-->
+            </div>
+            </div>
 
 
 <div class="form-group">
@@ -299,6 +287,7 @@ include ("php/connect.php");
 <?php 
 //Busqueda en la base de datos//
                   		$result = mysql_query("SELECT * FROM `propiedades` ORDER BY id DESC LIMIT 3", $db);
+                        mysql_query("SET NAMES 'utf8'");
                   		if (!$result) {
 								die(mysql_error());
 										}
@@ -322,7 +311,7 @@ include ("php/connect.php");
           </div>
           <!-- end of block .properties__thumb-->
           <div class="properties__details">
-            <div class="properties__info"><a href="property_details_local1.html" class="properties__address"><span class="properties__address-street"><?php echo $datos['direccion'];?></span>
+            <div class="properties__info"><a href="property_details_local1.php" class="properties__address"><span class="properties__address-street"><?php echo $datos['direccion'];?></span>
                 <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
                 <div class="properties__offer">
                     <div class="properties__offer-column">
@@ -343,7 +332,7 @@ include ("php/connect.php");
 </div>
 <?php }}?>
 </div>
-<div class="widget__footer"><a href="feature_grid_large.html" class="widget__more">Más propiedades</a></div>
+<div class="widget__footer"><a href="feature_grid_large.php" class="widget__more">Más propiedades</a></div>
 <!-- END PROPERTIES INDEX-->
 </div>
 </div>
@@ -355,23 +344,7 @@ include ("php/connect.php");
 <!-- BEGIN AFTER CENTER SECTION-->
 
 <!-- END PARTNERS-->
-<div class="widget js-widget">
-  <div class="widget__content">
-    <!-- BEGIN SUBSCRIBE-->
-    <div class="subscribe">
-      <form action="#" class="subscribe__form js-subscribe-form">
-        <h4 class="subscribe__title">Suscripción</h4>
-        <div class="subscribe__group form-group">
-          <label class="sr-only">Suscripción</label>
-          <input type="email" placeholder="Ingrese su e-mail" name="email" required data-parsley-trigger="change" class="subscribe__field form-control js-subscribe-email">
-      </div>
-      <button type="submit" class="btn--action subscribe__submit js-subscribe-submit">INGRESAR</button>
-  </form>
-  <!-- end of block .subscribe__form-->
-</div>
-<!-- END SUBSCRIBE-->
-</div>
-</div>
+
 <!-- END AFTER CENTER SECTION-->
 <!-- BEGIN FOOTER-->
 <footer class="footer">
@@ -384,9 +357,9 @@ include ("php/connect.php");
         </div>
         <div class="widget__content">
             <nav class="nav nav--footer">
-                <a href="index.html">Principal</a>
-                <a href="feature_grid_large">Propiedades</a>
-                <a href="contacts.html">Contacto</a>
+                <a href="index.php">Principal</a>
+                <a href="feature_grid_large.php">Propiedades</a>
+                <a href="contacts.php">Contacto</a>
                 
                 <!-- end of block .nav-footer-->
             </div>
@@ -452,7 +425,7 @@ include ("php/connect.php");
                     <div class="dropdown__menu auth__dropdown--login">
                         <!-- BEGIN AUTH LOGIN-->
                         <h5 class="auth__title">Ingresar en tu cuenta</h5>
-                        <form action="#" class="form form--flex form--auth js-login-form js-parsley">
+                        <form action="administracion.php" class="form form--flex form--auth js-login-form js-parsley" method="POST">
                           <div class="row">
                             <div class="form-group">
                               <label for="login-username-dropdown" class="control-label">Usuario</label>
@@ -528,15 +501,15 @@ include ("php/connect.php");
 </div>
 <div class="widget__content">
     <!-- BEGIN SECTION FEEDBACK-->
-    <form action="" class="form form--flex form--footer js-parsley">
+    <form action="php\contact.php" class="form form--flex form--footer js-parsley" method="POST">
       <div class="row">
         <div class="form-group">
-          <label for="in-email" class="sr-only control-label">E-mail</label>
-          <input id="in-email" type="email" name="email" placeholder="E-mail" required data-parsley-trigger="change" class="form-control">
+          <label for="email" class="sr-only control-label">E-mail</label>
+          <input id="email" type="email" name="email" placeholder="E-mail" required data-parsley-trigger="change" class="form-control">
       </div>
       <div class="form-group">
-          <label for="in-message" class="sr-only control-label">Tu mensaje</label>
-          <textarea id="in-message" name="message" placeholder="Tu mensaje" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="Ingresa al menos 20 caracteres en tu mensaje" class="form-control"></textarea>
+          <label for="message" class="sr-only control-label">Tu mensaje</label>
+          <textarea id="message" name="message" placeholder="Tu mensaje" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="Ingresa al menos 20 caracteres en tu mensaje" class="form-control"></textarea>
       </div>
   </div>
   <div class="row">

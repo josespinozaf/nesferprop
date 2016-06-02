@@ -1,4 +1,4 @@
-<!DOCTYPE HTML >
+<!DOCTYPE html>
 <html>
   <head lang="en">
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="assets/css/ie-fix.css"><![endif]-->
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
   </head>
-  <body class="properties_listing_list menu-default hover-default ">
+  <body class="contacts menu-default hover-default ">
     <!--
     SVG icons from sprite-inline.svg
     They are inlined in order to make them work,
@@ -55,7 +55,7 @@
        <!-- BEGIN HEADER-->
   <header class="header header--brand">
     <div class="container">
-      <div class="header__row"><a href="index.html" class="header__logo">
+      <div class="header__row"><a href="index.php" class="header__logo">
         <svg>
            <use xlink:href="#icon-logo--mob"></use>
        </svg></a>
@@ -112,13 +112,13 @@
 <div id="header-nav-offset"></div>
 <nav id="header-nav" class="navbar navbar--header">
     <div class="container">
-      <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
+      <div class="navbar__row js-navbar-row"><a href="index.php" class="navbar__brand">
           <svg class="navbar__brand-logo">
-            <use xlink:href="#icon-logo"></use>
+            <use xlink:href="icon-logo"></use>
         </svg></a>
         <div id="navbar-collapse-1" class="navbar__wrap">
           <ul class="navbar__nav">
-            <li class="navbar__item js-dropdown"><a href="index.html" class="navbar__link">Principal
+            <li class="navbar__item js-dropdown"><a href="index.php" class="navbar__link">Principal
                 <svg class="navbar__arrow">
                   <use xlink:href="#icon-arrow-right"></use>
               </svg></a>
@@ -132,7 +132,7 @@
             
         </div>
     </li>
-    <li class="navbar__item js-dropdown active"><a href="feature_grid_large.html" class="navbar__link">Propiedades
+    <li class="navbar__item js-dropdown"><a href="feature_grid_large.php" class="navbar__link">Propiedades
         <svg class="navbar__arrow">
           <use xlink:href="#icon-arrow-right"></use>
       </svg></a>
@@ -152,7 +152,7 @@
 
 
 
-<li class="navbar__item"><a href="contacts.html" class="navbar__link">Contacto</a></li>
+<li class="navbar__item active"><a href="contacts.php" class="navbar__link">Contacto</a></li>
 
 
 
@@ -165,231 +165,94 @@
 </div>
 </nav>
 <!-- END NAVBAR-->
+
       <div class="site-wrap js-site-wrap">
-        
-        <div class="center">
+        <!-- BEGIN BREADCRUMBS-->
+       <div class="center">
           <div class="container">
-            <div class="row">
-              <!-- BEGIN site-->
-              <div class="site site--main">
-                <header class="site__header">
-                  <h1 class="site__title">Propiedades</h1>
-                 
-                </header>
-                <button type="button" data-goto-target=".js-search-form" class="widget__btn--goto js-goto-btn">Mostrar filtros</button>
-                <div class="site__panel">
-                  
-                  <!--end of block .listing__sort-->
-               
-                  <div class="listing__view"><span class="control-label">Vista:</span>
-                    <a href="feature_grid_large.html" class="btn--white"><i class="fa fa-th-large"></i></a>
-                    <a href="properties_listing_list.html" class="btn--white active"><i class="fa fa-bars"></i></a>
-                    <a href="properties_listing_table.html" class="btn--white"><i class="fa fa-table"></i></a>
-                  </div>
-                  <!--end of block .listing__view-->
-                </div>
-                <!--end of block .listing__param-->
-                <div class="site__main">
-                  <div class="widget js-widget widget--main">
-                    <div class="widget__content">
-                    <?php 
-						include ("php/connect.php"); 
-						//Declaración de variables
-						//include ("php/formulario.php");
-						@session_start();
-						if (isset($_SESSION['contrato'])){
-						$contrato1 = $_SESSION['contrato']; 
-						$tipo1 = $_SESSION['checkbox_type_1'];
-						$comuna1 = $_SESSION['location'];
-						$preciomin1 = $_SESSION['inpricefrom'];
-						$preciomax1 = $_SESSION['inpriceto'];
-						$areamin1 = $_SESSION['inareafrom'];
-						$areamax1 = $_SESSION['inareato'];
-					
-						//Busqueda en la base de datos//
- 						if ($contrato1 && $tipo1 && $comuna1 && $preciomax1 && $areamax1 && $preciomin1 && $areamin1 ){
-                  		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo1."' AND `comuna` ='".$comuna1."'
-								AND `contrato` ='".$contrato1."' AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1."
-								AND `area`>=".$areamin1." AND `area`<=".$areamax1."", $db);
-				
-                  		if (!$result) {
-								die(mysql_error());
-										}
-						else{
-							while($datos= mysql_fetch_array($result)) {
-?>
-                      <div class="listing listing--list js-properties-list">
-                        <div class="listing__item">
-                          <div class="properties properties--list">
-                            <div class="properties__thumb"><a href="property_details_local1.html" class="item-photo"><img src="assets/media/propiedades/local1/0.JPG" alt=""/>
-                                <figure class="item-photo__hover item-photo__hover--params">
-                                <span class="properties__params"><?php echo 'Tiene un área de '.$datos['area'].' m2';?></span>
-                                
-                                <span class="properties__intro"><?php echo $datos['descripcion'];?></span>
-                                
-                                <span class="properties__more">Ver detalles</span>
-                                </figure></a><span class="properties__ribon"><?php echo $datos['contrato']; ?></span>
-                            </div>
-                            <!-- end of block .properties__thumb-->
-                            <div class="properties__details">
-                              <div class="properties__info"><a href="property_details_local1.html" class="properties__address">
-                              <span class="properties__address-street"><?php echo $datos['direccion'];?></span>
-                              <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
-                                <div class="properties__offer">
-                                  <div class="properties__offer-column">
-                                    <div class="properties__offer-value"><strong><?php echo '$'.$datos['precio'];?></strong>
-                                    <span class="properties__offer-period">/mes</span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="properties__params--mob"><a href="property_details_local1.html" class="properties__more">Ver detalles</a>
-                                <span class="properties__params"><?php 'Tiene un área de '.$datos['area'].' m2';?></span>
-                                
-                              </div>
-                              </div>
-                              <div class="properties__intro">
-                                <p><?php echo 'Tiene un área de '.$datos['area'].' m2, '.$datos['descripcion'];?></p>
-                              </div><a href="property_details_local1.html" class="properties__more">Ver detalles</a>
-                            </div> 
-                            <!-- end of block .properties__info-->
-                          </div>  
-                          <!-- end of block .properties__item-->
-                        </div>
-                      </div><?php }}}} else { echo "No existen datos. Haga la busqueda en el filtro";}?>
-                    </div>
-                  </div>
-                </div>
-                
+            <div class="widget js-widget widget--landing">
+              <div class="widget__header">
+                <h2 class="widget__title">Contáctanos</h2>
+                <h5 class="widget__headline">Usa la siguiente información para contactarnos o usa el formulario de contacto.</h5>
               </div>
-            
-              <!-- END site-->
-              <!-- BEGIN SIDEBAR-->
-              <div class="sidebar">
-                <div class="widget js-widget widget--sidebar">
-                  <div class="widget__header">
-                    <h2 class="widget__title">Filtro</h2>
-                    <h5 class="widget__headline">Encuentra tu propiedad ajustando tus preferencias.</h5><a class="widget__btn js-widget-btn widget__btn--toggle">Mostrar filtros</a>
-                  </div>
-                  <div class="widget__content">
-                    <!-- BEGIN SEARCH-->
-                    <form action="php/formulario.php" method="POST" class="form form--flex form--search js-search-form form--sidebar">
-              <div class="row">
-                <div class="form-group">
-                  <label for="in-contract-type" class="control-label">¿Venta o Arriendo?</label>
-                  <select id="in-contract-type" data-placeholder="---" class="form-control" name="contrato">
-                    <option label=" "></option>
-                    <option>Venta</option>
-                    <option>Arriendo</option>
-                  </select>
-                </div>
-                <div class="form-group"><span class="control-label">Tipo de propiedad</span>
-                  <div class="dropdown dropdown--select">
-                    <button type="button" data-toggle="dropdown" data-placeholder="---" class="dropdown-toggle js-select-checkboxes-btn">---</button>
-                    <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
-                      <ul>
-                        <li>
-                          <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Departamento">
-                          <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departamento</label>
-                        </li>
-                        <li>
-                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa" checked>
-                          <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label" >Casa</label>
-                        </li>
+
+              <div class="widget__content">
+                <div class="contacts">
+                  <div class="row">
+                    <div class="contacts__column">
+                      <div class="contacts__address">
+                        <address class="contacts__address-item"><span class="contacts__address-title">Curicó</span>
+                          <dl class="contacts__address-column">
+                            <dt class="contacts__address-column__title">Teléfono:</dt>
+                            <dd>+56 9 82346784</dd>
+                            <dd>+56 9 91629961</dd>
+                          </dl>
+                          <dl class="contacts__address-column">
+                            <dt class="contacts__address-column__title">Email:</dt>
+                            <dd><a href="mailto:">contacto@nestorfernandezpropiedades.cl</a><br><br></dd>
+                            
+                          </dl>
+                        </address>
+                      </div>
+                      <div class="contacts__form">
                         
-                        <li>
-                          <input id="checkbox_type_4" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Sitio">
-                          <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Sitio</label>
-                        </li>
-                        <li>
-                          <input id="checkbox_type_5" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Parcela">
-                          <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Parcela</label>
-                        </li>
-                        <li>
-                          <input id="checkbox_type_6" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Local comercial">
-                          <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Local comercial</label>
-                        </li>
-                      </ul>
-                      <!-- end of block .dropdown-menu-->
+                        <form action="#" method="POST" class="form form--flex js-contact-form form--contacts">
+                          <div class="row">
+                            <div class="form-group required">
+                              <label for="in-form-name" class="control-label">Tu nombre</label>
+                              <input id="in-form-name" type="text" name="name" required class="form-control">
+                            </div>
+                            <div class="form-group form-group--col-6">
+                              <label for="in-form-phone" class="control-label">Teléfono</label>
+                              <input id="in-form-phone" type="text" name="phone" class="form-control">
+                            </div>
+                            <div class="form-group form-group--col-6 required">
+                              <label for="in-form-email" class="control-label">E-mail</label>
+                              <input id="in-form-email" type="email" name="email" required data-parsley-trigger="change" class="form-control">
+                            </div>
+                            <div class="form-group required">
+                              <label for="in-form-message" class="control-label">Mensaje</label>
+                              <textarea id="in-form-message" name="message" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="Ingresa al menos 20 caracteres en tu mensaje" class="form-control"></textarea>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <button type="submit" class="form__submit">Enviar</button>
+                          </div>
+                        </form>
+                        <!-- end of block form-->
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="form-group"><span class="control-label">Comuna</span>
-                  <div class="dropdown dropdown--select">
-                    <button type="button" data-toggle="dropdown" data-placeholder="Comuna" class="dropdown-toggle js-select-checkboxes-btn">Comuna</button>
-                    <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
-                      <div class="region-select">
-                        <ul class="js-checkboxes-tree bonsai region-select__list">
-                          <li>
-                            <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox" checked>
-                            <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
-                            
-                          </li>
-                          <li>
-                            <input type="checkbox" name="location" value="Molina" id="region-select-states-1" class="in-checkbox">
-                            <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
-                            
-                          </li>
-                        </ul>
-                        <div class="region-select__buttons">
-                          <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Limpiar</button>
-                          <button type="button" class="region-select__btn js-select-checkboxes-accept">Aceptar</button>
+                    <div class="contacts__column">
+                      <div class="contacts__body">
+                        <h4>Contáctanos para cualquier consulta o visita a nuestras propiedades</h4>
+                        <p>Fundada en Marzo del 2016, localizados en Curicó, enfocados en trabajar con un seguimiento personalizado y activo para cumplir con tus expectativas.</p> 
+                        <p>Una plataforma moderna que te permite navegar con nosotros incluso desde tu celular cómodamente.</p>
+                        
+                      </div>
+                      <div class="contacts__social">
+                        <div class="social social--worker social--contacts"><span class="contacts__social-title">Nuestras redes sociales:</span>
+                            <a href="https://www.facebook.com/nestorfernandezpropiedades" class="social__item"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com/in/nestor-fernandez-6b380334/" class="social__item"><i class="fa fa-linkedin"></i></a>
                         </div>
                       </div>
-                      <!-- end of block .region-select-->
                     </div>
-                    <!-- end of block .dropdown-menu-->
                   </div>
                 </div>
-                
-                
-                <div class="form-group">
-                  <div class="form__mode">
-                    <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
-                  </div>
-                  <label for="range_price" class="control-label">Precio</label>
-                  <div class="form__ranges">
-                    <input id="range_price" class="js-search-range form__ranges-in">
-                  </div>
-                  <div class="form__inputs js-search-inputs">
-                    <input type="text" name="inpricefrom" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
-                    <input type="text" name="inpriceto" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
-                  </div>
-                </div>
+              </div>
 
-                <div class="form-group">
-                  <div class="form__mode">
-                    <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
-                  </div>
-                  <label for="range_area" class="control-label">Area</label>
-                  <div class="form__ranges">
-                    <input id="range_area" class="js-search-range form__ranges-in">
-                  </div>
-                  <div class="form__inputs js-search-inputs">
-                    <input type="text" name="inareafrom" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
-                    <input type="text" name="inareato" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
-                  </div>
-                </div>
-                
-                <div class="form__buttons form__buttons--double">
-                  <button type="button" class="form__reset js-form-reset">Reinicio</button>
-                  <button type="submit" value="Buscar" class="form__submit">Buscar</button>
-                </div>
-              </div>
-            </form>
-                    <!-- end of block-->
-                    <!-- END SEARCH-->
-                  </div>
-                </div>
-              </div>
-              <!-- END SIDEBAR-->
-              <div class="clearfix"></div>
             </div>
-          </div>
+            <div class="clearfix"></div>
+            </div>
         </div>
+
+        <!-- END BREADCRUMBS-->
+        
+        
         <!-- END CENTER SECTION-->
         <!-- BEGIN AFTER CENTER SECTION-->
         <!-- END AFTER CENTER SECTION-->
-        <!-- BEGIN FOOTER-->
+        
+<!-- BEGIN FOOTER-->
 <footer class="footer">
   <div class="container">
     <div class="footer__wrap">
@@ -400,9 +263,9 @@
         </div>
         <div class="widget__content">
             <nav class="nav nav--footer">
-                <a href="index.html">Principal</a>
-                <a href="feature_grid_large">Propiedades</a>
-                <a href="contacts.html">Contacto</a>
+                <a href="index.php">Principal</a>
+                <a href="feature_grid_large.php">Propiedades</a>
+                <a href="contacts.php">Contacto</a>
                 
                 <!-- end of block .nav-footer-->
             </div>
@@ -574,6 +437,7 @@
 </footer>
 <!-- end of block .footer-->
 <!-- END FOOTER-->
+
       </div>
     </div>
     <button type="button" class="scrollup js-scrollup"></button>

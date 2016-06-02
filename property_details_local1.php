@@ -144,7 +144,7 @@
             
         </div>
     </li>
-    <li class="navbar__item js-dropdown active"><a href="feature_grid_large.html" class="navbar__link">Propiedades
+    <li class="navbar__item js-dropdown active"><a href="feature_grid_large.php" class="navbar__link">Propiedades
         <svg class="navbar__arrow">
           <use xlink:href="#icon-arrow-right"></use>
       </svg></a>
@@ -164,7 +164,7 @@
 
 
 
-<li class="navbar__item"><a href="contacts.html" class="navbar__link">Contacto</a></li>
+<li class="navbar__item"><a href="contacts.php" class="navbar__link">Contacto</a></li>
 
 
 
@@ -187,6 +187,7 @@ $id = $_REQUEST['id'];
 $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                   		if (!$result) {
 								die(mysql_error());
+								
 										}
 						else{ 
 								while ($datos =  mysql_fetch_assoc($result)){
@@ -194,7 +195,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
 							?>
             <ul>
               <li class="breadcrumbs__item"><a href="index.php" class="breadcrumbs__link">Principal</a></li>
-              <li class="breadcrumbs__item"><a href="feature_grid_large.html" class="breadcrumbs__link">Propiedades</a></li>
+              <li class="breadcrumbs__item"><a href="feature_grid_large.php" class="breadcrumbs__link">Propiedades</a></li>
               <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link"><?php echo $datos['comuna'].". ".$datos['direccion'];?></a></li>
             </ul>
           </div>
@@ -369,7 +370,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                   </div>
                   <div class="widget__content">
                     <!-- BEGIN SEARCH-->
-                    <form action="properties_listing_list.html" class="form form--flex form--search js-search-form form--sidebar">
+                    <form action="properties_listing_list.php" class="form form--flex form--search js-search-form form--sidebar">
               <div class="row">
                 
                 <div class="form-group">
@@ -539,7 +540,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
             <nav class="nav nav--footer">
                 <a href="index.php">Principal</a>
                 <a href="feature_grid_large">Propiedades</a>
-                <a href="contacts.html">Contacto</a>
+                <a href="contacts.php">Contacto</a>
                 
                 <!-- end of block .nav-footer-->
             </div>
