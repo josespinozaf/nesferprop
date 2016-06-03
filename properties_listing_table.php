@@ -222,7 +222,10 @@
 							if ($contrato && $tipo && $comuna && $preciomax && $preciomin ){
                   		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo."' AND `comuna` ='".$comuna."'
 								AND `contrato` ='".$contrato."' AND `precio`>=".$preciomin." AND `precio`<=".$preciomax."", $db);
-				
+                  		// Si no existen datos a mostrar
+                  		if(mysql_num_rows($result) == 0){
+                  			echo "No existe data!";
+                  		}
                   		if (!$result) {
 								die(mysql_error());
 										}

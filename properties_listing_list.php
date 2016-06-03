@@ -203,12 +203,16 @@
 						$comuna1 = $_SESSION['location'];
 						$preciomin1 = $_SESSION['inpricefrom'];
 						$preciomax1 = $_SESSION['inpriceto'];
+						
 					
 						//Busqueda en la base de datos//
  						if ($contrato1 && $tipo1 && $comuna1 && $preciomax1 && $preciomin1){
                   		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo1."' AND `comuna` ='".$comuna1."'
 								AND `contrato` ='".$contrato1."' AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1."", $db);
-				
+                  		// Si no existen datos a mostrar
+						if(mysql_num_rows($result) == 0){
+							echo "No existe data!";
+						}
                   		if (!$result) {
 								die(mysql_error());
 										}
