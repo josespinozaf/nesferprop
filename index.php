@@ -61,10 +61,8 @@ header("Content-Type: text/html;charset=utf-8");
   <header class="header header--brand">
     <div class="container">
       <div class="header__row"><a href="index.php" class="header__logo">
-        <svg>
-           <use xlink:href="assets/img/sprite.svg#icon-area"></use>
-         
-       </svg></a>
+        <img src="assets/img/logo.png" alt=""> 
+        </a>
        <div class="header__settings">
            
 
@@ -132,29 +130,18 @@ header("Content-Type: text/html;charset=utf-8");
             <li class="navbar__item js-dropdown active"><a href="index.php" class="navbar__link">Principal
                 <svg class="navbar__arrow">
                     <use xlink:href="#icon-arrow-right"></use>
-                </svg></a>
-                <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
-                        <svg class="navbar__arrow">
-                            <use xlink:href="#icon-arrow-left"></use>
-                        </svg>Volver
-                    </button>
-                </div>
+                </svg></a>                
             </li>
-            <li class="navbar__item js-dropdown"><a href="feature_grid_large.php" class="navbar__link">Propiedades
+            <li class="navbar__item"><a href="feature_grid_large.php" class="navbar__link">Propiedades
                 <svg class="navbar__arrow">
                     <use xlink:href="#icon-arrow-right"></use>
-                </svg></a>
-                <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-2">
-                    <button class="navbar__back js-navbar-submenu-back">
-                        <svg class="navbar__arrow">
-                            <use xlink:href="#icon-arrow-left"></use>
-                        </svg>Volver
-                    </button>
-                </div>
+                </svg></a>                
             </li>
-            <li class="navbar__item"><a href="contacts.php" class="navbar__link">Contacto</a>
-            </li>
+            <li class="navbar__item"><a href="contacts.php" class="navbar__link">Contacto
+                <svg class="navbar__arrow">
+                    <use xlink:href="#icon-arrow-right"></use>
+                </svg></a>                
+            </li>            
           </ul>
 <!-- end of block  navbar__nav-->
         </div>

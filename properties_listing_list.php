@@ -56,9 +56,8 @@
   <header class="header header--brand">
     <div class="container">
       <div class="header__row"><a href="index.php" class="header__logo">
-        <svg>
-           <use xlink:href="#icon-logo--mob"></use>
-       </svg></a>
+        <img src="assets/img/logo.png" alt=""> 
+        </a>
        <div class="header__settings">
            
 
@@ -529,16 +528,16 @@
     <h2 class="widget__title">Dános tu opinión</h2>
 </div>
 <div class="widget__content">
-    <!-- BEGIN SECTION FEEDBACK-->
-    <form action="#" class="form form--flex form--footer js-parsley">
+    <!-- BEGIN SECTION FEEDBACK-->    
+    <form action="php\contact.php" class="form form--flex form--footer js-parsley" method="POST">
       <div class="row">
         <div class="form-group">
-          <label for="in-email" class="sr-only control-label">E-mail</label>
-          <input id="in-email" type="email" name="email" placeholder="E-mail" required data-parsley-trigger="change" class="form-control">
+          <label for="email" class="sr-only control-label">E-mail</label>
+          <input id="email" type="email" name="email" placeholder="E-mail" required data-parsley-trigger="change" class="form-control">
       </div>
       <div class="form-group">
-          <label for="in-message" class="sr-only control-label">Tu mensaje</label>
-          <textarea id="in-message" name="message" placeholder="Tu mensaje" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="Ingresa al menos 20 caracteres en tu mensaje" class="form-control"></textarea>
+          <label for="message" class="sr-only control-label">Tu mensaje</label>
+          <textarea id="message" name="message" placeholder="Tu mensaje" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="Ingresa al menos 20 caracteres en tu mensaje" class="form-control"></textarea>
       </div>
   </div>
   <div class="row">
