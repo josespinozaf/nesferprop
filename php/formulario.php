@@ -1,4 +1,4 @@
-<meta http-equiv="refresh" content="0; url=/../nesferprop/properties_listing_list.php" />
+<meta http-equiv="refresh" content="0; url=/../properties_listing_list.php" />
 <?php
 $contrato = @$_REQUEST['contrato'];
 $tipo = @$_REQUEST['checkbox_type_1'];
