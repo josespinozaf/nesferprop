@@ -1,9 +1,4 @@
-<?php
-include ("php/connect.php"); 
-@session_start();
-@session_unset();
-header("Content-Type: text/html;charset=utf-8");
-?><!DOCTYPE html >
+<!DOCTYPE html >
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -149,398 +144,60 @@ header("Content-Type: text/html;charset=utf-8");
     </div>
 </nav>
 <!-- END NAVBAR-->
-<div class="site-wrap js-site-wrap">
-    <div class="widget js-widget widget--landing widget--bg">      
-    <div class="widget__header">
-        <!-- BEGIN SEARCH-->
-        <form action="php/formulario.php" method="POST" class="form form--flex form--search js-search-form form--wide">
-          <div class="row">
-            <div class="form-group">
-              <label for="in-contract-type" class="control-label">¿Venta o Arriendo?</label>
-              <select id="in-contract-type" data-placeholder="---" class="form-control" name="contrato">
-                <option label=""></option>
-                <option>Venta</option>
-                <option>Arriendo</option>
-            </select>
-          </div>
-            <div class="form-group"><span class="control-label">Tipo de propiedad</span>
-              <div class="dropdown dropdown--select">
-                <button type="button" data-toggle="dropdown" data-placeholder="---" class="dropdown-toggle js-select-checkboxes-btn">
-                </button>
-                <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
-                  <ul>
-                    <li>
-                      <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Departamento">
-                      <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departamento
-                      </label>
-                    </li>             
-                    <li>
-                       <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa">
-                       <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Casa
-                       </label>
-                    </li>                  
-                    <li>
-                      <input id="checkbox_type_4" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Sitio">
-                      <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Sitio
-                      </label>
-                    </li>
-                    <li>
-                      <input id="checkbox_type_5" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Parcela">
-                      <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Parcela</label>
-                    </li>
-                    <li>
-                      <input id="checkbox_type_6" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Local comercial">
-                      <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Local comercial
-                      </label>
-                    </li>
-                  </ul>
-          <!-- end of block .dropdown-menu-->
-                </div>
-               </div>
-            </div>
-            <div class="form-group"><span class="control-label">Comuna</span>
-              <div class="dropdown dropdown--select">
-                <button type="button" data-toggle="dropdown" data-placeholder="Comuna" class="dropdown-toggle js-select-checkboxes-btn">Comuna</button>
-                <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
-                  <div class="region-select">
-                    <ul class="js-checkboxes-tree bonsai region-select__list">
-                      <li>
-                        <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox">
-                        <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
-                      </li>
-                      <li>
-                        <input type="checkbox" name="location" value="Molina" id="region-select-states-1" class="in-checkbox">
-                        <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>                      
-                    </li>
-                    </ul>
-            <div class="region-select__buttons">
-              <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Limpiar</button>
-              <button type="button" class="region-select__btn js-select-checkboxes-accept">Aceptar</button>
-            </div>
-            </div>
-            <!-- end of block .region-select-->
-            </div>
-            <!-- end of block .dropdown-menu-->
-            </div>
-            </div>
+<?php
+include("php/connect.php");
+if (isset($_POST['Ingresar'])){
+$username= $_REQUEST['username'];
+$password= $_REQUEST['password'];
 
+$sql = mysql_query("SELECT * FROM `user`", $db);
+while($result= mysql_fetch_object($sql)){
+	if ($result->user != $username){
+		echo "<h3> El usuario no está registrado</h3>";
+		echo '<meta http-equiv="refresh" content="3; url=/../nesferprop/index.php" />';
+		
+	}
+	else{
+		if($password != $result->password){
+			echo "<h3>La contraseña es incorrecta!</h3>";
+    		echo '<meta http-equiv="refresh" content="3; url=/../nesferprop/index.php" />';
+    		
+		}
+		else{
 
-<div class="form-group">
-  <div class="form__mode">
-    <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
-</div>
-<label for="range_price" class="control-label">Precio</label>
-<div class="form__ranges">
-    <input id="range_price" class="js-search-range form__ranges-in">
-</div>
-<div class="form__inputs js-search-inputs">
-    <input type="text" id="in-price-from" name="inpricefrom" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
-    <input type="text" id="in-price-to" name="inpriceto" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
-</div>
-</div>
+		$sql1 = mysql_query("SELECT * FROM `user` WHERE `user`='".$username."' AND
+		`password`= '".$password."'", $db);
+			if(mysql_num_rows($sql1) == 1){
+				?>
+			      <div class="site-wrap js-site-wrap">
+			        <!-- BEGIN BREADCRUMBS-->
+			       <div class="center">
+			          <div class="container">
+			            <div class="widget js-widget widget--landing">
+			              <div class="widget__header">
+			                <h2 class="widget__title">Bienvenido Administrador</h2>
+			                <h5 class="widget__headline">Aquí puede ingresar, editar y eliminar propiedades.</h5>
+			              </div>
+			             
+			             </div>
+			          </div>
+			        </div>
+			       </div>
+				
+				<?php 
+			}
+			else{ 
+				echo "<h3>No esta registrado con nosotros. Por favor contactenos.<h3>" ;
+				}		
+		}
+	}
+	
+}
 
-<div class="form__buttons form__buttons--double">
-  <button type="button" class="form__reset js-form-reset">Reinicio</button>
-  <button type="submit"  name="Buscar" class="form__submit">Buscar</button>
-</div>
-</div>
-</form>
-<!-- end of block-->
-<!-- END SEARCH-->
-</div>
-</div>
-<div class="widget js-widget widget--landing widget--gray">
-  <div class="widget__header">
-    <h2 class="widget__title"><span class="title-thin">Últimas</span> Propiedades</h2>
-    <h5 class="widget__headline">Trabajamos profesionalmente en compras, ventas, evaluaciones y negociaciones de bienes raíces.</h5>
-</div>
-<div class="widget__content">
-    <!-- BEGIN PROPERTIES INDEX-->
-    <div class="listing listing--grid"> 
-<?php 
-//Busqueda en la base de datos//
-                  		$result = mysql_query("SELECT * FROM `propiedades` ORDER BY id DESC LIMIT 3", $db);
-                        mysql_query("SET NAMES 'utf8'");
-                  		if (!$result) {
-								die(mysql_error());
-										}
-						else{
-								
-								while ($datos =  mysql_fetch_assoc($result))
-								{
-							
+}
+else{
 ?>
-      <div class="listing__item">
-        <div class="properties properties--grid">
-          <div class="properties__thumb">
-           	<a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="item-photo"><img src="assets/media/propiedades/local1/1.JPG" alt=""/> 
-              <figure class="item-photo__hover item-photo__hover--params">
-                  <span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
-                  
-                  <span class="properties__intro"><?php echo $datos['descripcion']."(".$datos['direccion'].")"; ?></span>
-                  
-                  <span class="properties__more">Ver detalles</span>
-              </figure></a><span class="properties__ribon"><?php echo $datos['contrato'];?></span>
-          </div>
-          <!-- end of block .properties__thumb-->
-          <div class="properties__details">
-            <div class="properties__info"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="properties__address"><span class="properties__address-street"><?php echo $datos['direccion'];?></span>
-                <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
-                <div class="properties__offer">
-                    <div class="properties__offer-column">
-                      <div class="properties__offer-value"><strong><?php echo "$".$datos['precio'];?></strong><span class="properties__offer-period">CLP</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="properties__params--mob"><a href="#" class="properties__more">Ver detalles</a><span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
-
-              </div>
-          </div>
-          <!-- end of block .properties__info-->
-      </div>
-  <!-- end of block .properties__info-->
-</div>
-<!-- end of block .properties__item-->
-
-</div>
-<?php }}?>
-</div>
-<div class="widget__footer"><a href="feature_grid_large.php" class="widget__more">Más propiedades</a></div>
-<!-- END PROPERTIES INDEX-->
-</div>
-</div>
-
-
-<!-- END SECTION WORKER INDEX-->
-
-<!-- END CENTER SECTION-->
-<!-- BEGIN AFTER CENTER SECTION-->
-
-<!-- END PARTNERS-->
-
-<!-- END AFTER CENTER SECTION-->
-<!-- BEGIN FOOTER-->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__wrap">
-      <div class="footer__col footer__col--first">
-        <div class="widget js-widget widget--footer">
-          <div class="widget__header">
-            <h2 class="widget__title">Menú</h2>
-        </div>
-        <div class="widget__content">
-            <nav class="nav nav--footer">
-                <a href="index.php">Principal</a>
-                <a href="feature_grid_large.php">Propiedades</a>
-                <a href="contacts.php">Contacto</a>
-                
-                <!-- end of block .nav-footer-->
-            </div>
-        </div>
-        <div class="widget js-widget widget--footer">
-          <div class="widget__header">
-            <h2 class="widget__title">Sobre nosotros</h2>
-        </div>
-        <div class="widget__content">
-            <aside class="widget_text">
-              <div class="textwidget">
-                Néstor Fernández Propiedades te ofrece un servicio personalizado a tus necesidades de compra, venta o arriendo de bienes raíces. 
-                <p>¡Cuenta con nosotros!</p>
-            </div>
-            
-            </aside>
-        </div>
-        </div>
-
-        <div class="widget js-widget widget--footer">
-          <div class="widget__header">
-            <h2 class="widget__title">Administración</h2>
-            </div>
-        <div class="widget__content">
-            <aside class="widget_text">
-              
-
-
-                <div class="auth auth--footer">
-                    <ul class="auth__nav">
-                    <li class="dropdown auth__nav-item">
-                    <div class="dropdown__menu auth__dropdown--restore">
-                        <!-- BEGIN AUTH RESTORE-->
-                        <h5 class="auth__title">Reiniciar contraseña</h5>
-                        <form action="#" class="form form--flex form--auth form--restore js-restore-form js-parsley">
-                          <div class="row">
-                            <div class="form-group">
-                              <label for="restore-email-dropdown" class="control-label">Ingrese su cuenta o email</label>
-                              <input type="email" name="email" id="restore-email-dropdown" required class="form-control">
-                            </div>
-                          </div>
-                        <div class="row">
-                            <button type="submit" class="form__submit">Reiniciar contraseña</button>
-                        </div>
-                        <div class="row">
-                            <div class="form__options">Volver a
-                              <button type="button" class="js-user-login">Ingresar</button>              
-                            </div>
-                          <!-- end of block .auth__links-->
-                        </div>
-                        </form>
-              <!-- end of block .auth__form-->
-              <!-- END AUTH RESTORE-->
-                    </div>
-                    </li>
-                    <li class="dropdown auth__nav-item">
-                      <button data-toggle="dropdown" type="button" class="dropdown-toggle js-auth-nav-btn auth__nav-btn">
-                        <svg class="auth__icon-user">
-                          <use xlink:href="#icon-user"></use>
-                        </svg>
-                        <span class="header__span">  Ingresar</span>
-                        </button>
-                    <div class="dropdown__menu auth__dropdown--login">
-                        <!-- BEGIN AUTH LOGIN-->
-                        <h5 class="auth__title">Ingresar en tu cuenta</h5>
-                        <form action="administracion.php" class="form form--flex form--auth js-login-form js-parsley" method="POST">
-                          <div class="row">
-                            <div class="form-group">
-                              <label for="login-username-dropdown" class="control-label">Usuario</label>
-                              <input type="text" name="username" id="login-username-dropdown" required data-parsley-trigger="keyup" data-parsley-minlength="5" data-parsley-validation-threshold="5" data-parsley-minlength-message="El ingreso debe contener al menos 5 caracteres" class="form-control">
-                            </div>
-                             <div class="form-group">
-                              <label for="login-password-dropdown" class="control-label">Contraseña</label>
-                              <input type="password" name="password" id="login-password-dropdown" required class="form-control">
-                            </div>
-                            </div>
-                             <div class="row">
-                                <div class="form__options form__options--forgot">
-                                  <button type="button" class="js-user-restore">¿Olvidó su contraseña?</button>
-                                </div>
-                              <button type="submit" class="form__submit" name="Ingresar">Ingresar</button>
-                            </div>
-                            <div class="form__remember">
-                                <input type="checkbox" id="remember-in-dropdown" class="in-checkbox">
-                                <label for="remember-in-dropdown" class="in-label">Recordarme</label>
-                            </div>
-
-                        </form>
-<!-- end of block .auth__form-->
-<!-- END AUTH LOGIN-->
-                    </div>
-                    </li>
-
-                    </ul>
-
-            
-            </aside>
-        </div>             
-    </div>
-    </div>
-<!-- end of block .footer__col-first-->
-<div class="footer__col footer__col--second">
-    <div class="widget js-widget widget--footer">
-      <div class="widget__header">
-        <h2 class="widget__title">Contacto</h2>
-    </div>
-    <div class="widget__content">
-        <section class="address address--footer">
-          
-          <address class="address__main">
-              <a href="mailto:contacto@nestorfernandezpropiedades.cl">contacto@nestorfernandezpropiedades.cl</a>
-          </address>
-          <address>              
-              <a href="tel:+56982346784">+56 9 82346784</a><br>              
-              <a href="tel:+56991629961">+56 9 91629961</a>              
-          </address>
-        </section>
-          <!-- end of block .address-->
-      </div>
-  </div>
-  <div class="widget js-widget widget--footer">
-      <div class="widget__header">
-        <h2 class="widget__title">Social</h2>
-    </div>
-    <div class="widget__content">
-        <div class="social social--footer">
-            <a href="https://www.facebook.com/nestorfernandezpropiedades" class="social__item"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.linkedin.com/in/nestor-fernandez-6b380334/" class="social__item"><i class="fa fa-linkedin"></i></a>                
-        </div>
-        <!-- end of block .social-footer-->
-    </div>
-</div>
-</div>
-<!--end of block .footer__col-second-->
-<div class="footer__col footer__col--third">
- <div class="widget js-widget widget--footer">
-  <div class="widget__header">
-    <h2 class="widget__title">Dános tu opinión</h2>
-</div>
-<div class="widget__content">
-    <!-- BEGIN SECTION FEEDBACK-->
-    <form action="php\contact.php" class="form form--flex form--footer js-parsley" method="POST">
-      <div class="row">
-        <div class="form-group">
-          <label for="email" class="sr-only control-label">E-mail</label>
-          <input id="email" type="email" name="email" placeholder="E-mail" required data-parsley-trigger="change" class="form-control">
-      </div>
-      <div class="form-group">
-          <label for="message" class="sr-only control-label">Tu mensaje</label>
-          <textarea id="message" name="message" placeholder="Tu mensaje" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="Ingresa al menos 20 caracteres en tu mensaje" class="form-control"></textarea>
-      </div>
-  </div>
-  <div class="row">
-    <button type="submit" class="form__submit">Enviar</button>
-</div>
-</form>
-
-<!-- END SECTION FEEDBACK-->
-</div>
-</div>
-
-</div>
-<!-- end of block .footer__col-third-->
-<div class="clearfix"></div><span class="footer__copyright">&copy; 2016 NESTOR FERNANDEZ PROPIEDADES. Todos los derechos reservados</span>
-<!-- end of block .footer__copyright-->
-
-</div>
-</div>
-</footer>
-<!-- end of block .footer-->
-<!-- END FOOTER-->
-</div>
-</div>
-<button type="button" class="scrollup js-scrollup"></button>
-<!-- end of block .scrollup-->
-<!-- BEGIN SCRIPTS and INCLUDES-->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places,drawing,geometry"></script>
-<script type="text/javascript" src="http://cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
-    <!--
-    Contains vendor libraries (Bootstrap3, Jquery, Chosen, etc) already compiled into a single file, with
-    versions that are verified to work with our theme. Normally, you should not edit that file.
--->
-<!-- build:jsvendor-->
-<script type="text/javascript" src="assets/js/vendor.js"></script>
-<!-- endbuild-->
-    <!--
-    This file is used for demonstration purposes and contains example property items, that are mostly used to
-    render markers on the map. You can safely delete this file, after you've adapted the demo.js code
-    to use your own data.
--->
-<!-- build:jsdemodata-->
-<script type="text/javascript" src="assets/js/demodata.js"></script>
-<!-- endbuild-->
-    <!--
-    The library code that Realtyspace theme relies on, in order to function properly.
-    Normally, you should not edit this file or add your own code there.
--->
-<!-- build:jsapp-->
-<script type="text/javascript" src="assets/js/app.js"></script>
-<!-- endbuild-->
-    <!--
-    the main file, that you should modify. It contains lots of examples of
-    plugin usage, with detailed comments about specific sections of the code.
--->
-<!-- build:jsdemo-->
-<script type="text/javascript" src="assets/js/demo.js"></script>
-<!-- endbuild--><!-- inject:ga  -->
-<!-- endinject -->
-<!-- END SCRIPTS and INCLUDES-->
-</body>
-</html>
+	<meta http-equiv="refresh" content="0; url=/../nesferprop/index.php" />
+<?php 
+}
+?>
