@@ -154,13 +154,13 @@ $sql = mysql_query("SELECT * FROM `user`", $db);
 while($result= mysql_fetch_object($sql)){
 	if ($result->user != $username){
 		echo "<h3> El usuario no está registrado</h3>";
-		echo '<meta http-equiv="refresh" content="3; url=/../nesferprop/index.php" />';
+		echo '<meta http-equiv="refresh" content="3; url=/../../index.php" />';
 		
 	}
 	else{
 		if($password != $result->password){
 			echo "<h3>La contraseña es incorrecta!</h3>";
-    		echo '<meta http-equiv="refresh" content="3; url=/../nesferprop/index.php" />';
+    		echo '<meta http-equiv="refresh" content="3; url=/../../index.php" />';
     		
 		}
 		else{
@@ -197,7 +197,7 @@ while($result= mysql_fetch_object($sql)){
 }
 else{
 ?>
-	<meta http-equiv="refresh" content="0; url=/../nesferprop/index.php" />
+	<meta http-equiv="refresh" content="0; url=/../../index.php" />
 <?php 
 }
 ?>
