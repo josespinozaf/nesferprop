@@ -197,18 +197,25 @@
                       <div class="listing listing--grid listing--lg-6 js-properties-list">
                        <?php
                             include ("php/connect.php"); 
-							if (isset($_SESSION['contrato'])){
-							//Declaración de variables
-							$contrato = $_SESSION['contrato']; 
-							$tipo = $_SESSION['checkbox_type_1'];
-							$comuna = $_SESSION['location'];
-							$preciomin = $_SESSION['inpricefrom'];
-							$preciomax = $_SESSION['inpriceto'];
-							
-							if ($contrato && $tipo && $comuna && $preciomax && $preciomin){
-                  		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo."' AND `comuna` ='".$comuna."'
-								AND `contrato` ='".$contrato."' AND `precio`>=".$preciomin." AND `precio`<=".$preciomax."", $db);
-                  		// Si no existen datos a mostrar
+                            @session_start();
+                            if (isset($_SESSION['contrato'])){
+                            	$contrato1 = @$_SESSION['contrato'];
+                            	$tipo1 = @$_SESSION['checkbox_type_1'];
+                            	$comuna1 = @$_SESSION['location'];
+                            	$preciomin1 = @$_SESSION['inpricefrom'];
+                            	$preciomax1 = @$_SESSION['inpriceto'];
+                            }
+                            	
+                            //Busqueda en la base de datos//
+                            if (@$contrato1 && @$tipo1 && @$comuna1 && @$preciomax1 && @$preciomin1){
+                            	$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo1."' AND `comuna` ='".$comuna1."'
+								AND `contrato` ='".$contrato1."' AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1."", $db);
+                            }else{
+                            	$result = mysql_query("SELECT * FROM `propiedades`", $db);
+                            	echo "OJO! Faltaron parametros en el filtro.<br>";
+                            }
+                            
+							// Si no existen datos a mostrar
                   		if(mysql_num_rows($result) == 0){
                   			echo "No existe data!";
                   		}
@@ -252,7 +259,7 @@
                         </div>
                         
                         </div>
- 						<?php } } } } else { echo "No existen datos. Haga la busqueda en el filtro";}?>
+ 						<?php } }?>
                       </div>
                     </div>
                   </div>                  

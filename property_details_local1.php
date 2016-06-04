@@ -255,7 +255,9 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                   </div>
                   <div class="property__info">
                     <div class="property__info-item">Tipo de propiedad: <strong> <?php echo $datos['tipo']; ?></strong></div>
+                    <?php if ($datos['mconstruidos']!=0){?>
                     <div class="property__info-item">Construido: <strong><?php echo $datos['mconstruidos']." m2";?></strong></div>
+                    <?php }?>
                   </div>
                   <div class="property__plan">
                     <dl class="property__plan-item">
@@ -267,9 +269,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                       <dd class="property__plan-title">Área</dd>
                       <dd class="property__plan-value"><?php echo $datos['area']." m2";?></dd>
                     </dl>
-                    
-                    
-                    
+                    <?php if ($datos['mconstruidos']!=0){?>
                     <dl class="property__plan-item">
                       <dt class="property__plan-icon property__plan-icon--garage">
                         <svg>
@@ -279,6 +279,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                       <dd class="property__plan-title">Metros construidos</dd>
                       <dd class="property__plan-value"><?php echo $datos['mconstruidos']." m2";?></dd>
                     </dl>
+                    <?php }?>
                   </div>
                   <div class="property__params">
                     <h4 class="property__subtitle">La propiedad</h4>

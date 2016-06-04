@@ -196,18 +196,22 @@
 						//include ("php/formulario.php");
 						@session_start();
 						if (isset($_SESSION['contrato'])){
-						$contrato1 = $_SESSION['contrato']; 
-						$tipo1 = $_SESSION['checkbox_type_1'];
-						$comuna1 = $_SESSION['location'];
-						$preciomin1 = $_SESSION['inpricefrom'];
-						$preciomax1 = $_SESSION['inpriceto'];
-						
+						$contrato1 = @$_SESSION['contrato']; 
+						$tipo1 = @$_SESSION['checkbox_type_1'];
+						$comuna1 = @$_SESSION['location'];
+						$preciomin1 = @$_SESSION['inpricefrom'];
+						$preciomax1 = @$_SESSION['inpriceto'];
+						}
 					
 						//Busqueda en la base de datos//
- 						if ($contrato1 && $tipo1 && $comuna1 && $preciomax1 && $preciomin1){
+ 						if (@$contrato1 && @$tipo1 && @$comuna1 && @$preciomax1 && @$preciomin1){
                   		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo1."' AND `comuna` ='".$comuna1."'
 								AND `contrato` ='".$contrato1."' AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1."", $db);
-                  		// Si no existen datos a mostrar
+ 						}else{
+ 						$result = mysql_query("SELECT * FROM `propiedades`", $db);
+ 						echo "OJO! Faltaron parametros en el filtro.";
+ 						}
+						// Si no existen datos a mostrar
 						if(mysql_num_rows($result) == 0){
 							echo "No existe data!";
 						}
@@ -254,7 +258,7 @@
                           </div>  
                           <!-- end of block .properties__item-->
                         </div>
-                      </div><?php }}}} else { echo "No existen datos. Haga la busqueda en el filtro";}?>
+                      </div><?php }}?>
                     </div>
                   </div>
                 </div>
