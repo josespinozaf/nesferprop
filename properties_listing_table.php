@@ -241,7 +241,7 @@
                                 </td>
                                 <td class="datatable__cell-3"><?php echo $datos['precio']; ?></td>
                                 <td class="datatable__cell-4"><?php echo $datos['tipo']; ?></td>
-                                <td class="datatable__cell-5"><a href="property_details_local1.php" class="datatable__more">Ver detalles</a></td>
+                                <td class="datatable__cell-5"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="datatable__more">Ver detalles</a></td>
                               </tr>
                               <?php } } ?>
                             </tbody>

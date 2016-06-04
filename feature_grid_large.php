@@ -228,7 +228,7 @@
                  
                         <div class="listing__item">
                           <div class="properties properties--grid">
-                            <div class="properties__thumb"><a href="property_details_sitio1.php" class="item-photo"><img src="assets/media/propiedades/sitio1/0.JPG" alt=""/>
+                            <div class="properties__thumb"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="item-photo"><img src="assets/media/propiedades/sitio1/0.JPG" alt=""/>
                                 <figure class="item-photo__hover item-photo__hover--params">
                                 <span class="properties__params"><?php echo 'Tiene un área de '.$datos['area'].' m2';?></span>
                                 
@@ -239,7 +239,7 @@
                             </div>
                             <!-- end of block .properties__thumb-->
                             <div class="properties__details">
-                              <div class="properties__info"><a href="property_details_sitio1.php" class="properties__address"><span class="properties__address-street"><?php echo $datos['direccion'];?></span>
+                              <div class="properties__info"><a href="property_details_sitio1.php?id=<?php echo $datos['id']; ?>" class="properties__address"><span class="properties__address-street"><?php echo $datos['direccion'];?></span>
                               <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
                                 <div class="properties__offer">
                                   
