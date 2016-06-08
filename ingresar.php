@@ -27,42 +27,6 @@
     <!--[if lt IE 11]>
     <link rel="stylesheet" href="assets/css/ie-fix.css"><![endif]-->
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-    <style>
-ul {
-    list-style-type: none;
-    margin: 0px 30% 0px 30%;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    border-radius: 10px;
-}
-
-li {
-    float: left;
-    border-right:1px solid #bbb;
-}
-
-li:last-child {
-    border-right: none;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Add a gray right border to all list items, except the last item (last-child) */
-li {
-    border-right: 1px solid #bbb;
-}
-
-li:last-child {
-    border-right: none;
-}
-</style>
 </head>
 <body class="index_projects menu-default hover-default scroll-animation">
     <!--
@@ -180,65 +144,48 @@ li:last-child {
     </div>
 </nav>
 <!-- END NAVBAR-->
-<?php
-include("php/connect.php");
-if (isset($_POST['Ingresar'])){
-$username= $_REQUEST['username'];
-$password= $_REQUEST['password'];
-
-$sql = mysql_query("SELECT * FROM `user`", $db);
-while($result= mysql_fetch_object($sql)){
-	if ($result->user != $username){
-		echo "<h3> El usuario no está registrado</h3>";
-		echo '<meta http-equiv="refresh" content="3; url=/../../index.php" />';
-		
-	}
-	else{
-		if($password != $result->password){
-			echo "<h3>La contraseña es incorrecta!</h3>";
-    		echo '<meta http-equiv="refresh" content="3; url=/../../index.php" />';
-    		
-		}
-		else{
-
-		$sql1 = mysql_query("SELECT * FROM `user` WHERE `user`='".$username."' AND
-		`password`= '".$password."'", $db);
-			if(mysql_num_rows($sql1) == 1){
-				?>
 			      <div class="site-wrap js-site-wrap">
 			        <!-- BEGIN BREADCRUMBS-->
 			       <div class="center">
 			          <div class="container">
 			            <div class="widget js-widget widget--landing">
 			              <div class="widget__header">
-			                <h2 class="widget__title">Bienvenido Administrador</h2>
-			                <h5 class="widget__headline">Aquí puede ingresar, editar y eliminar propiedades.</h5>
-			              <br>
-			              <ul>
-						  <li><a href="ingresar.php">Ingresar Propiedad</a></li>
-						  <li><a href="editar.php">Editar Propiedad</a></li>
-						  <li><a href="eliminar.php">Eliminar Propiedad</a></li>
-						  </ul> 
-			              </div>
-			             </div>
-			          </div>
-			        </div>
-			       </div>
-				
-				<?php 
-			}
-			else{ 
-				echo "<h3>No esta registrado con nosotros. Por favor contactenos.<h3>" ;
-				}		
-		}
-	}
-	
-}
-
-}
-else{
-?>
-	<meta http-equiv="refresh" content="0; url=/../../index.php" />
-<?php 
-}
-?>
+			              <h2 class="widget__title">Ingresar Propiedad</h2><br><br><br>
+<form action="subir.php" method="POST" enctype="multipart/form-data">
+		<p>Dirección: <input type="text" name="direccion" size="20"></p>
+		<p>Tipo: <select name="tipo" style="width:150px">
+		 <option>Casa</option>
+		 <option>Departamento</option>
+		 <option>Local Comercial</option>
+		 <option>Sitio</option>
+		 <option>Parcela</option>
+		 		</select></p>
+		<p>Contrato: <select name="contrato" style="width:150px">
+		 <option>Venta</option>
+		 <option>Arriendo</option>
+		 		</select></p>
+		<p>Precio: <input type="number" name="precio" size="15"></p>
+		<p>Área: <input type="number" name="area" size="4"> * En metros cuadrados</p>
+		<p>Metros Construidos: <input type="number" name="mconstruidos" size="4"></p>
+		<p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
+		<p>Comuna: <input type="text" name="comuna" size="10"></p>
+		<p>Habitaciones: <input type="number" name="habitaciones" size="2"></p>
+		<p>Baños:<input type="number" name="banos" size="2"></p>
+		<br>
+		<label for="imagen1">Imagen 1:* <input type="file" name="imagen1" id="imagen1" /></label>
+		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+		<label for="imagen2">Imagen 2:* <input type="file" name="imagen2" id="imagen2" /></label>
+		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+		<label for="imagen3">Imagen 3:* <input type="file" name="imagen3" id="imagen3" /></label>
+		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+		<textarea name="descripcion" rows="10" cols="40">Escribe la descripción de la propiedad</textarea>
+		<br>
+		<input type="submit" name="IngresarPropiedad" value="Subir"/>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
