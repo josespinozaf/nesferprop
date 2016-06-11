@@ -202,7 +202,8 @@
 						$preciomin1 = @$_SESSION['inpricefrom'];
 						$preciomax1 = @$_SESSION['inpriceto'];
 						}
-					
+						echo $preciomin1;
+						echo $preciomax1;
 						//Busqueda en la base de datos//
  						if (@$contrato1 && @$tipo1 && @$comuna1 && @$preciomax1 && @$preciomin1){
                   		$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo1."' AND `comuna` ='".$comuna1."'
@@ -220,11 +221,14 @@
 										}
 						else{
 							while($datos= mysql_fetch_array($result)) {
-?>
+								$result1 = mysql_query("SELECT * FROM `imagenes` WHERE `direccion`='".$datos['direccion']."' LIMIT 1", $db);
+								while ($datos1 =  mysql_fetch_assoc($result1)){
+								?>
                       <div class="listing listing--list js-properties-list">
                         <div class="listing__item">
                           <div class="properties properties--list">
-                            <div class="properties__thumb"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="item-photo"><img src="assets/media/propiedades/local1/0.JPG" alt=""/>
+                            <div class="properties__thumb"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="item-photo">
+                            <img src="/../../imagen.php?imagen_id=<?php echo $datos1['imagen_id'];?>" alt=""/>
                                 <figure class="item-photo__hover item-photo__hover--params">
                                 <span class="properties__params"><?php echo 'Tiene un área de '.$datos['area'].' m2';?></span>
                                 
@@ -241,7 +245,9 @@
                                 <div class="properties__offer">
                                   <div class="properties__offer-column">
                                     <div class="properties__offer-value"><strong><?php echo '$'.$datos['precio'];?></strong>
+                                    <?php if($datos['contrato']='Arriendo'){?>
                                     <span class="properties__offer-period">/mes</span>
+                                    <?php }?>
                                     </div>
                                   </div>
                                 </div>
@@ -258,7 +264,7 @@
                           </div>  
                           <!-- end of block .properties__item-->
                         </div>
-                      </div><?php }}?>
+                      </div><?php }}}?>
                     </div>
                   </div>
                 </div>

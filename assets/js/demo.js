@@ -619,6 +619,8 @@
       $rangePrice.ionRangeSlider({
         type: "double",
         min: 1,
+        from: 1,
+        to: 250000000,
         max: 250000000,
         hide_min_max: false,
         hide_from_to: false,
@@ -626,7 +628,9 @@
         prefix: '$',
         force_edges: true,
         max_postfix: '+',
-        step: 1000,
+        step: 1000000,
+        prettify_enabled: true,	
+        prettify_separator: ".",
         // converts numbers like 4000000 to 4m, remove if you don't like it
         
         onFinish: app.rangeInputInteraction

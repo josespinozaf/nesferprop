@@ -224,11 +224,13 @@
 										}
 						else{
 							while($datos= mysql_fetch_array($result)) {
-						?>
-                 
+								$result1 = mysql_query("SELECT * FROM `imagenes` WHERE `direccion`='".$datos['direccion']."' LIMIT 1", $db);
+								while ($datos1 =  mysql_fetch_assoc($result1)){
+								?>
                         <div class="listing__item">
                           <div class="properties properties--grid">
-                            <div class="properties__thumb"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="item-photo"><img src="assets/media/propiedades/sitio1/0.JPG" alt=""/>
+                            <div class="properties__thumb"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="item-photo">
+                            <img src="/../../imagen.php?imagen_id=<?php echo $datos1['imagen_id'];?>" alt=""/>
                                 <figure class="item-photo__hover item-photo__hover--params">
                                 <span class="properties__params"><?php echo 'Tiene un área de '.$datos['area'].' m2';?></span>
                                 
@@ -259,7 +261,7 @@
                         </div>
                         
                         </div>
- 						<?php } }?>
+ 						<?php } }}?>
                       </div>
                     </div>
                   </div>                  

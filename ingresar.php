@@ -170,7 +170,7 @@
 		<p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
 		<p>Comuna: <input type="text" name="comuna" size="10"></p>
 		<p>Habitaciones: <input type="number" name="habitaciones" size="2"></p>
-		<p>Baños:<input type="number" name="banos" size="2"></p>
+		<p>Baños:<input type="number" name="baños" size="2"></p>
 		<br>
 		<label for="imagen1">Imagen 1:* <input type="file" name="imagen1" id="imagen1" /></label>
 		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
@@ -180,7 +180,7 @@
 		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
 		<textarea name="descripcion" rows="10" cols="40">Escribe la descripción de la propiedad</textarea>
 		<br>
-		<input type="submit" name="IngresarPropiedad" value="Subir"/>
+		<input type="submit" name="IngresarPropiedad" value="Subir"/> <input type="reset" name="limpiar" value="Borrar datos del formulario" />
 </form>
 </div>
 </div>

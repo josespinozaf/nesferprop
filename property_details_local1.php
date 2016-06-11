@@ -189,8 +189,14 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
 										}
 						else{ 
 								while ($datos =  mysql_fetch_assoc($result)){
-							
-							?>
+									$result1 = mysql_query("SELECT imagen_id FROM `imagenes` WHERE `direccion`='".$datos['direccion']."'", $db);
+									$fotos = array();
+									while ($datos1 =  mysql_fetch_assoc($result1)){
+											$fotos[] = $datos1;
+										}
+										
+	 
+      ?>
             <ul>
               <li class="breadcrumbs__item"><a href="index.php" class="breadcrumbs__link">Principal</a></li>
               <li class="breadcrumbs__item"><a href="feature_grid_large.php" class="breadcrumbs__link">Propiedades</a></li>
@@ -214,32 +220,34 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                   <div class="clearfix"></div>
                   <div class="property__slider">
                     <div class="property__ribon"><?php echo $datos['contrato'];?></div>
-                    
                                     <div id="properties-thumbs" class="slider slider--small js-slider-thumbs">
                                       <div class="slider__block js-slick-slider">
-                                        <div class="slider__item slider__item--0"><a href="assets/media/propiedades/local1/0.JPG" data-size="1740x960" data-gallery-index='0' class="slider__img js-gallery-item"><img data-lazy="assets/media/propiedades/local1/0.JPG" src="assets/img/lazy-image.JPG" alt=""><span class="slider__description">Local para uso comercial. Excelente ubicación a media cuadra de Avenida Freire. <br>Ampliable con local vecino. ¡Toma esta oportunidad y haz que tu comercio explote!</span></a></div>
-
-                                        <div class="slider__item slider__item--1"><a href="assets/media/propiedades/local1/1.JPG" data-size="1740x960" data-gallery-index='1' class="slider__img js-gallery-item"><img data-lazy="assets/media/propiedades/local1/1.JPG" src="assets/img/lazy-image.JPG" alt=""><span class="slider__description">Baño equipado y en funcionamiento</span></a></div>
-
-                                        <div class="slider__item slider__item--2"><a href="assets/media/propiedades/local1/2.JPG" data-size="1740x960" data-gallery-index='2' class="slider__img js-gallery-item"><img data-lazy="assets/media/propiedades/local1/2.JPG" src="assets/img/lazy-image.JPG" alt=""><span class="slider__description">Forma rectangular</span></a></div>
-
-                                        
-                                      </div>
+                                      <?php $i=0; 
+                                      foreach($fotos as $imagen)
+										{
+											foreach($imagen as $id1)
+											{
+												
+                                      ?>
+                                        <div class="slider__item slider__item--<?php echo $i;?>"><a href="../../imagen.php?imagen_id=<?php echo $id1;?>" data-size="1740x960" data-gallery-index='<?php echo $i;?>' class="slider__img js-gallery-item">
+                                        <img data-lazy="../../imagen.php?imagen_id=<?php echo $id1;?>" src="assets/img/lazy-image.JPG" alt=""><span class="slider__description">Local para uso comercial. Excelente ubicación a media cuadra de Avenida Freire. <br>Ampliable con local vecino. ¡Toma esta oportunidad y haz que tu comercio explote!</span></a></div>
+                       <?php            $i=$i+1; 
+											}}?>   </div>
                                     </div>
-
                                     <div class="slider slider--thumbs">
                                       <div class="slider__wrap">
                                         <div class="slider__block js-slick-slider">
-                                          <div data-slide-rel='0' class="slider__item slider__item--0">
-                                            <div class="slider__img"><img data-lazy="assets/media/propiedades/local1/0.JPG" src="assets/img/lazy-image.JPG" alt=""></div>
+                                         <?php $i=0; 
+                                      foreach($fotos as $imagen)
+										{
+											foreach($imagen as $id1)
+											{	
+                                      ?>
+                                          <div data-slide-rel='<?php echo $i;?>' class="slider__item slider__item--<?php echo $i?>">
+                                            <div class="slider__img"><img data-lazy="../../imagen.php?imagen_id=<?php echo $id1;?>" src="assets/img/lazy-image.JPG" alt=""></div>
                                           </div>
-                                          <div data-slide-rel='1' class="slider__item slider__item--1">
-                                            <div class="slider__img"><img data-lazy="assets/media/propiedades/local1/1.JPG" src="assets/img/lazy-image.JPG" alt=""></div>
+                                          <?php $i=$i+1; }}?>
                                           </div>
-                                          <div data-slide-rel='2' class="slider__item slider__item--2">
-                                            <div class="slider__img"><img data-lazy="assets/media/propiedades/local1/2.JPG" src="assets/img/lazy-image.JPG" alt=""></div>
-                                          </div>                                          
-                                        </div>
                                         <button type="button" class="slider__control slider__control--prev js-slick-prev">
                                           <svg class="slider__control-icon">
                                             <use xlink:href="#icon-arrow-left"></use>

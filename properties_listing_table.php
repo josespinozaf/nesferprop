@@ -235,7 +235,7 @@
 						else{
 							while($datos= mysql_fetch_array($result)) {
 						?> <tbody>
-                              <tr data-info="&lt;table class=&quot;table table--stripped&quot;&gt;&lt;tr&gt;&lt;td&gt;Pisos:&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Area:&lt;/td&gt;&lt;td&gt;18 m2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Contrato:&lt;/td&gt;&lt;td&gt;Arriendo &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;/td&gt;&lt;td&gt;Precio:&lt;/td&gt;&lt;td&gt; $200.000/mes">
+                              <tr data-info="&lt;table class=&quot;table table--stripped&quot;&gt;&lt;tr&gt;&lt;td&gt;Tipo:&lt;/td&gt;&lt;td&gt;<?php echo$datos['tipo'];?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Area:&lt;/td&gt;&lt;td&gt;<?php echo$datos['area']."m2";?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Contrato:&lt;/td&gt;&lt;td&gt;<?php echo$datos['contrato'];?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;/td&gt;&lt;td&gt;Precio:&lt;/td&gt;&lt;td&gt;<?php echo$datos['precio'];?>">
                                 <td class="datatable__cell-1"><?php echo $datos['direccion']; ?></td>
                                 <td class="datatable__cell-2"><strong><?php echo $datos['contrato']; ?></strong>
                                 </td>
