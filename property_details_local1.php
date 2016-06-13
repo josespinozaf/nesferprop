@@ -390,30 +390,30 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                     <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
                       <ul>
                         <li>
-                          <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox">
+                          <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1[]" class="in-checkbox">
                           <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departmento</label>
                         </li>
                         
                         <li>
-                          <input id="checkbox_type_2" type="checkbox" name="checkbox_type_2" class="in-checkbox">
+                          <input id="checkbox_type_2" type="checkbox" name="checkbox_type_1[]" class="in-checkbox">
                           <label for="checkbox_type_2" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Cabaña</label>
                         </li>
                         
                         <li>
-                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_3" class="in-checkbox">
+                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1[]" class="in-checkbox">
                           <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Casa</label>
                         </li>
                         
                         <li>
-                          <input id="checkbox_type_4" type="checkbox" name="checkbox_type_4" class="in-checkbox">
+                          <input id="checkbox_type_4" type="checkbox" name="checkbox_type_1[]" class="in-checkbox">
                           <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Sitio</label>
                         </li>
                         <li>
-                          <input id="checkbox_type_5" type="checkbox" name="checkbox_type_5" class="in-checkbox">
+                          <input id="checkbox_type_5" type="checkbox" name="checkbox_type_1[]" class="in-checkbox">
                           <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Parcela</label>
                         </li>
                         <li>
-                          <input id="checkbox_type_6" type="checkbox" name="checkbox_type_6" class="in-checkbox">
+                          <input id="checkbox_type_6" type="checkbox" name="checkbox_type_1[]" class="in-checkbox">
                           <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Local comercial</label>
                         </li>
                       </ul>

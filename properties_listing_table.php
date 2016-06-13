@@ -326,24 +326,24 @@
                     <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
                       <ul>
                         <li>
-                          <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Departamento">
+                          <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1[]" class="in-checkbox" value="Departamento">
                           <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Departamento</label>
                         </li>
                         <li>
-                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Casa">
+                          <input id="checkbox_type_3" type="checkbox" name="checkbox_type_1[]" class="in-checkbox" value="Casa">
                           <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Casa</label>
                         </li>
                         
                         <li>
-                          <input id="checkbox_type_4" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Sitio">
+                          <input id="checkbox_type_4" type="checkbox" name="checkbox_type_1[]" class="in-checkbox" value="Sitio">
                           <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Sitio</label>
                         </li>
                         <li>
-                          <input id="checkbox_type_5" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Parcela">
+                          <input id="checkbox_type_5" type="checkbox" name="checkbox_type_1[]" class="in-checkbox" value="Parcela">
                           <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Parcela</label>
                         </li>
                         <li>
-                          <input id="checkbox_type_6" type="checkbox" name="checkbox_type_1" class="in-checkbox" value="Local comercial">
+                          <input id="checkbox_type_6" type="checkbox" name="checkbox_type_1[]" class="in-checkbox" value="Local comercial">
                           <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Local comercial</label>
                         </li>
                       </ul>
@@ -358,12 +358,12 @@
                       <div class="region-select">
                         <ul class="js-checkboxes-tree bonsai region-select__list">
                           <li>
-                            <input type="checkbox" name="location" value="Curico" id="region-select-states-0" class="in-checkbox">
+                            <input type="checkbox" name="location[]" value="Curico" id="region-select-states-0" class="in-checkbox">
                             <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
                             
                           </li>
                           <li>
-                            <input type="checkbox" name="location" value="Molina" id="region-select-states-4" class="in-checkbox">
+                            <input type="checkbox" name="location[]" value="Molina" id="region-select-states-4" class="in-checkbox">
                             <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
                             
                           </li>
