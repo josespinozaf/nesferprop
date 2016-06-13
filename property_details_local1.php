@@ -230,7 +230,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
 												
                                       ?>
                                         <div class="slider__item slider__item--<?php echo $i;?>"><a href="../../imagen.php?imagen_id=<?php echo $id1;?>" data-size="1740x960" data-gallery-index='<?php echo $i;?>' class="slider__img js-gallery-item">
-                                        <img data-lazy="../../imagen.php?imagen_id=<?php echo $id1;?>" src="assets/img/lazy-image.JPG" alt=""><span class="slider__description">Local para uso comercial. Excelente ubicación a media cuadra de Avenida Freire. <br>Ampliable con local vecino. ¡Toma esta oportunidad y haz que tu comercio explote!</span></a></div>
+                                        <img data-lazy="../../imagen.php?imagen_id=<?php echo $id1;?>" src="assets/img/lazy-image.JPG" alt=""><span class="slider__description"><?php echo $datos['descripcion'];?></span></a></div>
                        <?php            $i=$i+1; 
 											}}?>   </div>
                                     </div>
@@ -277,7 +277,27 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                       <dd class="property__plan-title">Área</dd>
                       <dd class="property__plan-value"><?php echo $datos['area']." m2";?></dd>
                     </dl>
-                    <?php if ($datos['mconstruidos']!=0){?>
+                    <?php if ($datos['habitaciones']>0 && $datos['banos']>0){?>
+                    <dl class="property__plan-item">
+                      <dt class="property__plan-icon property__plan-icon--garage">
+                        <svg>
+                          <use xlink:href="#icon-bathrooms"></use>
+                        </svg>
+                      </dt>
+                      <dd class="property__plan-title">Baños</dd>
+                      <dd class="property__plan-value"><?php echo $datos['banos'];?></dd>
+                    </dl>
+                      <dl class="property__plan-item">
+                      <dt class="property__plan-icon property__plan-icon--garage">
+                        <svg>
+                          <use xlink:href="#icon-bedrooms"></use>
+                        </svg>
+                      </dt>
+                      <dd class="property__plan-title">Habitaciones</dd>
+                      <dd class="property__plan-value"><?php echo $datos['habitaciones'];?></dd>
+                    </dl>
+                    <?php }?>
+                    <?php if ($datos['mconstruidos']>0){?>
                     <dl class="property__plan-item">
                       <dt class="property__plan-icon property__plan-icon--garage">
                         <svg>
@@ -288,30 +308,6 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                       <dd class="property__plan-value"><?php echo $datos['mconstruidos']." m2";?></dd>
                     </dl>
                     <?php }?>
-                  </div>
-                  <div class="property__params">
-                    <h4 class="property__subtitle">La propiedad</h4>
-                    <ul class="property__params-list">
-                      <li>Año construcción:<strong><?php echo $datos['anoconstruccion'];?></strong></li>
-                      <li>Número de estacionamientos:<strong>1</strong></li>                      
-                      <li>Radier:<strong>Completo</strong></li>
-                      <li>Externo<strong>Construcción: Terraza</strong></li>
-                      <li>Techo:<strong>Nuevo</strong></li>
-                      <li>Material exterior:<strong>Concreto / Sólida</strong></li>                      
-                      <li>Piso:<strong>Cerámica</strong></li>
-                      <li>Cañería:<strong>Cobre</strong></li>                      
-                      <li># Código:<strong>30</strong></li>
-                    </ul>
-                  </div>
-
-                  <div class="property__params">
-                    <h4 class="property__subtitle">Instalaciones</h4>
-                    <ul class="property__params-list property__params-list--options">
-                      <li>Baño</li>
-                      <li>Lavamanos</li>      
-                      <li>Cortinas metálicas externas</li>                
-                                        
-                    </ul>
                   </div>
                   <div class="property__description js-unhide-block">
                     <h4 class="property__subtitle">Descripción</h4>

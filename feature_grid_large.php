@@ -208,9 +208,46 @@
                             	
                             //Busqueda en la base de datos//
                             if (@$contrato1 && @$tipo1 && @$comuna1 && @$preciomax1 && @$preciomin1){
-                            	$result = mysql_query("SELECT * FROM `propiedades`  WHERE `tipo` ='".$tipo1."' AND `comuna` ='".$comuna1."'
-								AND `contrato` ='".$contrato1."' AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1."", $db);
-                            }else{
+                            if (is_array($tipo1) &&  is_array($comuna1)){
+ 							$query_tipo='';
+ 							$query_comuna='';
+ 							$total=count($tipo1);
+ 							if($total>1){
+ 							foreach ($tipo1 as $key=>$tipo1)
+								{
+									if ($key == $total-1){
+															 
+										$query_tipo.="'".$tipo1."'";
+								}
+									else{
+										$query_tipo.="'".$tipo1."',";
+									}
+ 							}
+                            }
+ 							else{
+ 								$query_tipo="'".$tipo[0]."'";
+ 							}
+ 							$total1=count($comuna1);
+ 							if($total1>1){
+ 								foreach ($comuna1 as $key=>$comuna1)
+ 								{
+ 									if ($key == $total1-1){
+ 							
+ 										$query_comuna.="'".$comuna1."'";
+ 									}
+ 									else{
+ 										$query_comuna.="'".$comuna1."',";
+ 									}
+ 								}
+ 							}
+ 							else{
+ 								$query_comuna="'".$comuna1[0]."'";
+ 							}
+ 							
+ 							$query= "SELECT * FROM `propiedades`  WHERE  `contrato` ='".$contrato1."'  AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1." AND `comuna` IN (".$query_comuna.") AND `tipo` IN (".$query_tipo.")";
+                
+ 							$result = mysql_query($query, $db);
+ 						}}else{
                             	$result = mysql_query("SELECT * FROM `propiedades`", $db);
                             	echo "OJO! Faltaron parametros en el filtro.<br>";
                             }
