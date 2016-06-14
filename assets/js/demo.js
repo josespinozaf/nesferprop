@@ -619,8 +619,8 @@
       $rangePrice.ionRangeSlider({
         type: "double",
         min: 1,
-        from: 1,
-        to: 250000000,
+        from: 124000000,
+        to: 125000000,
         max: 250000000,
         hide_min_max: false,
         hide_from_to: false,
