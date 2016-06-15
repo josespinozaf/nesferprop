@@ -261,7 +261,7 @@ header("Content-Type: text/html;charset=utf-8");
 
                 <div class="slider__item">
                   <div class="slider__preview">
-                    <div class="slider__img-lg"><img data-lazy="assets/img/index1.jpg" src="assets/img/index1.jpg" alt="Departamentos" width="1600" height="480"></div>                    
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index1.jpg" src="assets/img/index1.jpg" height="480"></div>                    
                   </div>
                   
 
@@ -270,7 +270,7 @@ header("Content-Type: text/html;charset=utf-8");
 
                 <div class="slider__item">
                   <div class="slider__preview">
-                    <div class="slider__img-lg" style="left:0"><img data-lazy="assets/img/index2.jpg" src="assets/img/index2.jpg" height="480"></div>                    
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index2.jpg" src="assets/img/index2.jpg" height="480"></div>                    
                   </div>
                   
 
@@ -278,7 +278,7 @@ header("Content-Type: text/html;charset=utf-8");
                 </div>
                 <div class="slider__item">
                   <div class="slider__preview">
-                    <div class="slider__img-lg"><img data-lazy="assets/img/index3.jpg" src="assets/img/index3.jpg" width="1600" height="480"></div>                    
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index3.jpg" src="assets/img/index3.jpg" height="480"></div>                    
                   </div>
                   
 
@@ -286,13 +286,13 @@ header("Content-Type: text/html;charset=utf-8");
                 </div>
                 <div class="slider__item">
                   <div class="slider__preview">
-                    <div class="slider__img-lg"><img data-lazy="assets/img/index4.jpg" src="assets/img/index4.jpg" width="1600" height="480"></div>
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index4.jpg" src="assets/img/index4.jpg" height="480"></div>
                   </div>
                   
                 </div>
                 <div class="slider__item">
                   <div class="slider__preview">
-                    <div class="slider__img-lg"><img data-lazy="assets/img/index5.jpg" src="assets/img/index5.jpg" width="1600" height="480"></div>
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index5.jpg" src="assets/img/index5.jpg" height="480"></div>
                   </div>
                   
                 </div>
