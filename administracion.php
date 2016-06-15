@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="assets/css/ie-fix.css"><![endif]-->
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
     <style>
-ul {
+.admin {
     list-style-type: none;
     margin: 0px 30% 0px 30%;
     padding: 0;
@@ -37,16 +37,16 @@ ul {
     border-radius: 10px;
 }
 
-li {
+.admin1 {
     float: left;
     border-right:1px solid #bbb;
 }
 
-li:last-child {
+.admin1:last-child {
     border-right: none;
 }
 
-li a {
+.admin1 a {
     display: block;
     color: white;
     text-align: center;
@@ -55,11 +55,11 @@ li a {
 }
 
 /* Add a gray right border to all list items, except the last item (last-child) */
-li {
+.admin1 {
     border-right: 1px solid #bbb;
 }
 
-li:last-child {
+.admin1:last-child {
     border-right: none;
 }
 </style>
@@ -214,10 +214,10 @@ while($result= mysql_fetch_object($sql)){
 			                <h2 class="widget__title">Bienvenido Administrador</h2>
 			                <h5 class="widget__headline">Aquí puede ingresar, editar y eliminar propiedades.</h5>
 			              <br>
-			              <ul>
-						  <li><a href="ingresar.php">Ingresar Propiedad</a></li>
-						  <li><a href="editar.php">Editar Propiedad</a></li>
-						  <li><a href="eliminar.php">Eliminar Propiedad</a></li>
+			              <ul class="admin">
+						  <li class="admin1"><a href="ingresar.php">Ingresar Propiedad</a></li>
+						  <li class="admin1"><a href="editar.php">Editar Propiedad</a></li>
+						  <li class="admin1"><a href="eliminar.php">Eliminar Propiedad</a></li>
 						  </ul> 
 			              </div>
 			             </div>

@@ -318,7 +318,6 @@ header("Content-Type: text/html;charset=utf-8");
 <?php 
 //Busqueda en la base de datos//
                   		$result = mysql_query("SELECT * FROM `propiedades` ORDER BY id DESC LIMIT 3", $db);
-                        mysql_query("SET NAMES 'utf8'");
                   		if (!$result) {
 								die(mysql_error());
 										}
