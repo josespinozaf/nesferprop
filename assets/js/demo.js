@@ -323,6 +323,8 @@
         dots: false,
         infinite: true,
         speed: 300,
+        autoplaySpeed: 4500,
+        autoplay: true,
         slidesToShow: 1,
         lazyLoad: 'progressive',
         prevArrow: $wideBanner.find('.js-banner-prev'),

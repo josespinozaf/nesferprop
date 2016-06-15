@@ -1,5 +1,5 @@
 <?php
-
+//header("Content-Type: text/html;charset=utf-8");
 $dbhost = "localhost:3306";
 $dbuser = "nestorfe";
 $dbpass = "Pagina123=";

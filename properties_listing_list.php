@@ -282,7 +282,7 @@
                                   <div class="properties__offer-column">
                                     <div class="properties__offer-value"><strong><?php echo '$'.$datos['precio'];?></strong>
                                     <?php if($datos['contrato']='Arriendo'){?>
-                                    <span class="properties__offer-period">/mes</span>
+                                    <span class="properties__offer-period">/mes</span> 
                                     <?php }?>
                                     </div>
                                   </div>
