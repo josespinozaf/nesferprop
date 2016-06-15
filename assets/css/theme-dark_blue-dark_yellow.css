@@ -12173,8 +12173,8 @@ mark {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form--flex .row:before,
@@ -12625,13 +12625,17 @@ mark {
 }
 
 .form--wide {
-  margin-top: 50px;
-  background: #fff;
+  margin-top: auto;
+  margin-right: auto;
+  background: rgba(355, 355, 355, 0.74);
   padding: 35px 40px;
-  position: relative;
+  position: absolute;
   -webkit-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   z-index: 50;
+  left:10%
+  right: 10%
+  top: 8%
 }
 
 @media (max-width: 767px) {
@@ -12662,7 +12666,8 @@ mark {
 
 .form--wide .form__buttons {
   width: 58%;
-  margin: 15px auto 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 767px) {

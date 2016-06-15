@@ -150,7 +150,7 @@ include ("php/connect.php");
 </nav>
 <!-- END NAVBAR-->
 <div class="site-wrap js-site-wrap">
-    <div class="widget js-widget widget--landing widget--bg">      
+    <div class="widget js-widget widget--landing widget--gray">      
     <div class="widget__header">
         <!-- BEGIN SEARCH-->
         <form action="php/formulario.php" method="POST" class="form form--flex form--search js-search-form form--wide">
@@ -238,6 +238,11 @@ include ("php/connect.php");
     <input type="text" id="in-price-to" name="inpriceto" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
 </div>
 </div>
+<div class="form-group">
+    <h2 style="text-align: center">
+        <span>ENCUENTRA TU</span> <b>PROPIEDAD</b>
+    </h2>     
+</div>
 
 <div class="form__buttons form__buttons--double">
   <button type="button" class="form__reset js-form-reset">Reinicio</button>
@@ -247,6 +252,59 @@ include ("php/connect.php");
 </form>
 <!-- end of block-->
 <!-- END SEARCH-->
+
+<!-- BEGIN SLIDER-->
+            <div id="slider-wide" class="slider slider--wide">
+              <div class="slider__block js-slick-slider">
+
+                    
+
+                <div class="slider__item">
+                  <div class="slider__preview">
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index1.jpg" src="assets/img/index1.jpg" alt="Departamentos" width="1600" height="480"></div>                    
+                  </div>
+                  
+
+                  <!-- end of block .slider__caption-->
+                </div>
+
+                <div class="slider__item">
+                  <div class="slider__preview">
+                    <div class="slider__img-lg" style="left:0"><img data-lazy="assets/img/index2.jpg" src="assets/img/index2.jpg" height="480"></div>                    
+                  </div>
+                  
+
+                  <!-- end of block .slider__caption-->
+                </div>
+                <div class="slider__item">
+                  <div class="slider__preview">
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index3.jpg" src="assets/img/index3.jpg" width="1600" height="480"></div>                    
+                  </div>
+                  
+
+                  <!-- end of block .slider__caption-->
+                </div>
+                <div class="slider__item">
+                  <div class="slider__preview">
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index4.jpg" src="assets/img/index4.jpg" width="1600" height="480"></div>
+                  </div>
+                  
+                </div>
+                <div class="slider__item">
+                  <div class="slider__preview">
+                    <div class="slider__img-lg"><img data-lazy="assets/img/index5.jpg" src="assets/img/index5.jpg" width="1600" height="480"></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+
+
+              <!-- end of block .slider__block-->
+              
+            </div>
+            <!--Término del Slider-->
+
 </div>
 </div>
 <div class="widget js-widget widget--landing widget--gray">
