@@ -2,7 +2,7 @@
 include ("php/connect.php"); 
 @session_start();
 @session_unset();
-//header("Content-Type: text/html;charset=utf-8");
+header("Content-Type: text/html;charset=utf-8");
 ?><!DOCTYPE html >
 <html>
 <head lang="en">
