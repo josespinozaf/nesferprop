@@ -205,9 +205,10 @@ header("Content-Type: text/html;charset=utf-8");
                   <div class="region-select">
                     <ul class="js-checkboxes-tree bonsai region-select__list">
                       <li>
-                        <input type="checkbox" name="location[]" value="Curico" id="region-select-states-0" class="in-checkbox">
+                        <input type="checkbox" name="location[]" value="Curicó" id="region-select-states-0" class="in-checkbox">
                         <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Curicó" class="in-label">Curicó</label>
                       </li>
+
                       <li>
                         <input type="checkbox" name="location[]" value="Molina" id="region-select-states-1" class="in-checkbox">
                         <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>                      
