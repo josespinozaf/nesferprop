@@ -45,20 +45,20 @@ $descripcion= $_REQUEST['descripcion'];
 		echo "Felicitaciones, la imagen".$i." ha sido subida exitosamente. Esta pagina se redireccionará<br>";
 					} 
 	  else {
-		echo "Oh, ocurrio un error al copiar el archivo de la imagen.".$i."<br>";
+		echo "Oh, ocurrió un error al copiar el archivo de la imagen.".$i."<br>";
 					}
       }
       else {
-      	echo "Cuidado, archivo no permitido, es tipo de archivo prohibido o excede el tamano de $limite_kb Kilobytes <br>";
+      	echo "Cuidado, archivo no permitido, es tipo de archivo prohibido o excede el tamaño de $limite_kb Kilobytes <br>";
       }
 	}
 	$resultado1 = mysql_query("INSERT INTO `propiedades`(`direccion`, `tipo`, `contrato`, `precio`, `area`, `mconstruidos`, `anoconstruccion`, `comuna`, `descripcion`, `habitaciones`, `banos`)
 			VALUES ('".$direccion."','".$tipo1."','".$contrato."',".$precio.",".$area.",".$mconstruidos.",".$añoconstruccion.",'".$comuna."','".$descripcion."',".$habitaciones.",".$baños.")", $db);
 	 if ($resultado1){
-		echo "Felicitaciones, el ingreso de la propiedad esta completado<br>";
+		echo "Felicitaciones, el ingreso de la propiedad está completado<br>";
 					} 
 	  else {
-		echo "Oh, ocurrio un error. <br>".mysql_error();
+		echo "Oh, ocurrió un error. <br>".mysql_error();
 					}
       } 
 	

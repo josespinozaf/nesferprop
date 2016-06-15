@@ -228,7 +228,7 @@ while($result= mysql_fetch_object($sql)){
 				<?php 
 			}
 			else{ 
-				echo "<h3>No esta registrado con nosotros. Por favor contactenos.<h3>" ;
+				echo "<h3>No está registrado con nosotros. Por favor contáctenos.<h3>" ;
 				}		
 		}
 	}
