@@ -226,7 +226,7 @@ header("Content-Type: text/html;charset=utf-8");
  							}
                             }
  							else{
- 								$query_tipo="'".$tipo[0]."'";
+ 								$query_tipo="'".$tipo1[0]."'";
  							}
  							$total1=count($comuna1);
  							if($total1>1){
