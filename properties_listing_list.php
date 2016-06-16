@@ -202,7 +202,7 @@
 						$preciomin1 = @$_SESSION['inpricefrom'];
 						$preciomax1 = @$_SESSION['inpriceto'];
 						}
-					
+					   
 						//Busqueda en la base de datos//
  						if (@$contrato1 && @$tipo1 && @$comuna1 && @$preciomax1 && @$preciomin1){
  						if (is_array($tipo1) &&  is_array($comuna1)){
@@ -222,7 +222,7 @@
  							}
                             }
  							else{
- 								$query_tipo="'".$tipo[0]."'";
+ 								$query_tipo="'".$tipo1[0]."'";
  							}
  							$total1=count($comuna1);
  							if($total1>1){
@@ -241,7 +241,9 @@
  								$query_comuna="'".$comuna1[0]."'";
  							}
  							
- 							$query= "SELECT * FROM `propiedades`  WHERE  `contrato` ='".$contrato1."'  AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1." AND `comuna` IN (".$query_comuna.") AND `tipo` IN (".$query_tipo.")";
+ 							$query= "SELECT * FROM `propiedades`  WHERE  `contrato` ='".$contrato1."' 
+                            AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1." 
+                            AND `comuna` IN (".$query_comuna.") AND `tipo` IN (".$query_tipo.")";
                 
  							$result = mysql_query($query, $db);
  						}}else{
