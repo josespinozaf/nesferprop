@@ -329,37 +329,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                       </div>
                     </div>
                   </div><?php }}?>
-                  <div class="widget js-widget widget--details">
-                    <div class="widget__content">
-                      
-                      <!-- end of block .worker-->
-                      <form action="#" method="POST" class="form form--flex form--property-agent js-contact-form form--properties">
-                        <div class="row">
-                          <div class="form-group form-group--col-4 required">
-                            <label for="in-form-name" class="control-label">Tu nombre</label>
-                            <input id="in-form-name" type="text" name="name" required class="form-control">
-                          </div>
-                          <div class="form-group form-group--col-4">
-                            <label for="in-form-phone" class="control-label">Teléfono</label>
-                            <input id="in-form-phone" type="text" name="phone" class="form-control">
-                          </div>
-                          <div class="form-group form-group--col-4 required">
-                            <label for="in-form-email" class="control-label">E-mail</label>
-                            <input id="in-form-email" type="email" name="email" required data-parsley-trigger="change" class="form-control">
-                          </div>
-                          <div class="form-group required">
-                            <label for="in-form-message" class="control-label">Mensaje</label>
-                            <textarea id="in-form-message" name="message" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="Ingresa un mensaje de al menos 20 caracteres.." class="form-control"></textarea>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <button type="submit" class="form__submit">Enviar</button>
-                        </div>
-                      </form>
-                      <!-- end of block form-->
-                      <div class="clearfix"></div>
-                    </div>
-                  </div>
+                  
                 </div>
                 <!-- end of block .property-->
                 <!-- END PROPERTY DETAILS-->
