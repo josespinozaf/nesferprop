@@ -282,10 +282,11 @@
                               <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
                                 <div class="properties__offer">
                                   <div class="properties__offer-column">
-                                    <div class="properties__offer-value"><strong><?php echo '$'.$datos['precio'];?></strong>
-                                    <?php if($datos['contrato']='Arriendo'){?>
-                                    <span class="properties__offer-period">/mes</span> 
-                                    <?php }?>
+                                    <div class="properties__offer-value">
+                                        <strong><?php echo '$'.$datos['precio'];?></strong>
+                                        
+                                        
+                                        
                                     </div>
                                   </div>
                                 </div>

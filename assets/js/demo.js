@@ -630,11 +630,13 @@
         prefix: '$',
         force_edges: true,
         max_postfix: '+',
-        step: 1000000,
+        step: 10000,
         prettify_enabled: true,	
         prettify_separator: ".",
         // converts numbers like 4000000 to 4m, remove if you don't like it
-        
+        prettify: function (value) {
+          return app.utils.abbreviateNumber (value)
+        },
         onFinish: app.rangeInputInteraction
       });
     }
