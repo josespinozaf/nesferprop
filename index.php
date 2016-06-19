@@ -576,14 +576,7 @@ header("Content-Type: text/html;charset=utf-8");
 <!-- build:jsvendor-->
 <script type="text/javascript" src="assets/js/vendor.js"></script>
 <!-- endbuild-->
-    <!--
-    This file is used for demonstration purposes and contains example property items, that are mostly used to
-    render markers on the map. You can safely delete this file, after you've adapted the demo.js code
-    to use your own data.
--->
-<!-- build:jsdemodata-->
-<script type="text/javascript" src="assets/js/demodata.js"></script>
-<!-- endbuild-->
+    
     <!--
     The library code that Realtyspace theme relies on, in order to function properly.
     Normally, you should not edit this file or add your own code there.
