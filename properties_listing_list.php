@@ -248,7 +248,7 @@
  							$result = mysql_query($query, $db);
  						}}else{
  						$result = mysql_query("SELECT * FROM `propiedades`", $db);
- 						echo "OJO! Faltaron parametros en el filtro.";
+ 						echo "No has especificado parámetros. Te mostramos algunas propiedades";
  						}
 						// Si no existen datos a mostrar
 						if(mysql_num_rows($result) == 0){
