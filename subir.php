@@ -66,7 +66,7 @@ for ($i = 1; $i <= 5; $i++) {
 		echo "Felicitaciones, el ingreso de la propiedad está completado<br>";
 					} 
 	  else {
-		echo "Oh, ocurrió un error. <br>".mysql_error();
+		echo "Oh, ocurrió un error, no se pudo crear la propiedad<br>".mysql_error();
 					}
       } 
 	
