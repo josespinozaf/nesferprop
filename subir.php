@@ -12,11 +12,19 @@ $comuna= $_REQUEST['comuna'];
 $habitaciones= $_REQUEST['habitaciones'];
 $baños= $_REQUEST['baños'];
 $descripcion= $_REQUEST['descripcion'];
-	
+$x= 0;
+for ($i = 1; $i <= 5; $i++) {
+	if(isset($_FILES["imagen".$i])){
+		$x=$x+1;
+	}
+}
+	echo $x;
 //comprobamos si ha ocurrido un error.
 	if ( !isset($_FILES["imagen1"]) || $_FILES["imagen1"]["error"] > 0 || 
 		 !isset($_FILES["imagen2"]) || $_FILES["imagen2"]["error"] > 0 || 
-		 !isset($_FILES["imagen3"]) || $_FILES["imagen3"]["error"] > 0){
+		 !isset($_FILES["imagen3"]) || $_FILES["imagen3"]["error"] > 0|| 
+		 !isset($_FILES["imagen4"]) || $_FILES["imagen4"]["error"] > 0|| 
+		 !isset($_FILES["imagen5"]) || $_FILES["imagen5"]["error"] > 0){
 	echo "ha ocurrido un error, faltan las fotos";
 	}														
 	else {
@@ -24,7 +32,7 @@ $descripcion= $_REQUEST['descripcion'];
 	//y que el tamano del archivo no exceda los 16MB
 	$permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
 	$limite_kb = 16384;
-	for ($i = 1; $i <= 3; $i++) {
+	for ($i = 1; $i <= $x; $i++) {
 		if (in_array($_FILES['imagen'.$i.'']['type'], $permitidos) && $_FILES['imagen'.$i.'']['size'] <= $limite_kb * 1024){
 
 		//este es el archivo temporal

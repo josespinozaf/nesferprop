@@ -178,6 +178,10 @@
 		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
 		<label for="imagen3">Imagen 3:* <input type="file" name="imagen3" id="imagen3" /></label>
 		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+        <label for="imagen3">Imagen 4:* <input type="file" name="imagen4" id="imagen4" /></label>
+        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+        <label for="imagen3">Imagen 5:* <input type="file" name="imagen5" id="imagen5" /></label>
+        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
 		<textarea name="descripcion" rows="10" cols="40">Escribe la descripción de la propiedad</textarea>
 		<br>
 		<input type="submit" name="IngresarPropiedad" value="Subir"/> <input type="reset" name="limpiar" value="Borrar datos del formulario" />
