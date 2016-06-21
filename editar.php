@@ -150,14 +150,30 @@
                           <div class="widget__header">
                           <h2 class="widget__title">Editar Propiedad</h2><br><br><br>
 <form action="editarbd.php" method="Post">
+Dirección de la priopiedad a editar:
 <select name="direccion">
 <?php
 include("php/connect.php");
 $sql = mysql_query("SELECT * FROM `propiedades`", $db);
 while($result= mysql_fetch_array($sql)){?>
 <option><?php echo $result['direccion']; ?></option>
-<?php } ?>
-</select>
+<?php } 
+echo "</select>";
+?>
+Atributo a cambiar:
+<select name="atributo">
+<option value="tipo">Tipo</option>
+<option value="contrato">Contrato</option>
+<option value="precio">Precio</option>
+<option value="area">Área</option>
+<option value="mconstruidos">Metros Construidos</option>
+<option value="anoconstruccion">Año Construcción</option>
+<option value="comuna">Comuna</option>
+<option value="habitaciones">Habitaciones</option>
+<option value="banos">Baños</option>
+</select><br> 
+Nuevo Valor: <input type="text" name="cambio"><br>
+<input type="submit" name="Editar" value="Editar">
 </form>
 </div>
 </div>
