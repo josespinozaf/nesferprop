@@ -21,5 +21,5 @@ else{
 		echo "No se ha borrado o la propiedad o sus fotos";
 	}
 }
-
+header ("Refresh: 3; URL=../../index.php");
 ?>
