@@ -155,7 +155,7 @@
                               <td><strong>Dirección</strong></td>
                               <td><strong>Comuna</strong></td>
                               <td><strong>Precio</strong></td>
-                              <td><strong>Eliminar</strong></td>
+                              <td><strong>¿Desea eliminar?</strong></td>
                             </tr>
                             <tr>
                             <?php
@@ -165,8 +165,8 @@
                              echo "<td style='text-align: left'>".$result['direccion']."</td>"; 
                              echo "<td>".$result['comuna']."</td>";
                              echo "<td>".$result['precio']."</td>";
-                             ?><td><a href='eliminar.php?id=<?php echo $result["id"];?>'> Eliminar</a></td>  
-                            </tr>
+                             echo "<td><a href='delete.php?id=".$result['id']."&direccion=".$result['direccion']."'> Eliminar</a></td>";  
+                            ?></tr>
                             <?php } ?>
                            </table>
                            </div>
