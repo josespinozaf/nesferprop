@@ -148,14 +148,32 @@
                       <div class="container">
                         <div class="widget js-widget widget--landing">
                           <div class="widget__header">
-                          <h2 class="widget__title">Eliminar Propiedad</h2><br><br><br>
-                          <form action="delete.php" method="post">
-                            Dirección de la priopiedad a eliminar:
-                          
+                          <h2 class="widget__title">Eliminar Propiedad</h2>
+                          <h5 class="widget__headline">Aquí puede eliminar propiedades.</h5><br><br><br>
+                           <table border="4" bordercolor="#2E2EFE" style="width:100%; text-align: center;height:150%;background-color: #f1f1c1;;">
+                            <tr>
+                              <td><strong>Dirección</strong></td>
+                              <td><strong>Comuna</strong></td>
+                              <td><strong>Precio</strong></td>
+                              <td><strong>Eliminar</strong></td>
+                            </tr>
+                            <tr>
                             <?php
                             include("php/connect.php");
                             $sql = mysql_query("SELECT * FROM `propiedades`", $db);
                             while($result= mysql_fetch_array($sql)){                            
-                             echo $result['direccion']."<br>"; 
-                             } ?>
-                          </form>
+                             echo "<td style='text-align: left'>".$result['direccion']."</td>"; 
+                             echo "<td>".$result['comuna']."</td>";
+                             echo "<td>".$result['precio']."</td>";
+                             ?><td><a href='eliminar.php?id=<?php echo $result["id"];?>'> Eliminar</a></td>  
+                            </tr>
+                            <?php } ?>
+                           </table>
+                           </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+                          
