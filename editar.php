@@ -171,8 +171,9 @@ Atributo a cambiar:
 <option value="comuna">Comuna</option>
 <option value="habitaciones">Habitaciones</option>
 <option value="banos">Baños</option>
+<option value="descripcion">Descripción</option>
 </select><br> 
-Nuevo Valor: <input type="text" name="cambio"><br>
+Nuevo Valor: <br><textarea name="cambio">Inserte acá el nuevo valor del atributo</textarea><br>
 <input type="submit" name="Editar" value="Editar">
 </form>
 </div>
