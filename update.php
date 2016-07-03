@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['Editar'])){
+if(isset($_POST['Editar1'])){
 include("php/connect.php");
 $direccion = $_POST["direccion"];
 $atributo = $_POST["atributo"];

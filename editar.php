@@ -149,11 +149,61 @@
                         <div class="widget js-widget widget--landing">
                           <div class="widget__header">
                           <h2 class="widget__title">Editar Propiedad</h2><br><br><br>
-<form action="update.php" method="Post">
+
+                     <?php
+include("php/connect.php");
+if(isset($_POST['Editar'])){
+
+$direccion = $_POST['direccion'];
+$atributo = $_POST['atributo'];
+$sql = mysql_query("SELECT * FROM `propiedades` WHERE direccion='".$direccion."'", $db);
+while($result= mysql_fetch_array($sql)){
+          echo "<h4>El valor que ya existe es: ".$result[$atributo]."</h4><br>";
+}
+
+echo"<form method='post' action='update.php'>";
+echo "Cambia el valor acá:<br>";
+if($atributo=='contrato'){
+        echo "<select name='cambio'>";
+        echo "<option>Venta</option>";
+        echo "<option>Arriendo</option>";
+        echo"</select>";
+}
+if($atributo=='tipo'){
+        echo "<select name='cambio'>";
+        echo "<option>Casa</option>";
+        echo "<option>Parcela</option>";
+        echo "<option>Departamento</option>";
+        echo "<option>Sitio</option>";
+        echo "<option>Local Comercial</option>";
+        echo"</select>";
+}
+if($atributo=='descripcion'){
+        echo"<textarea name='cambio'>Cambia la descripción acá</textarea>";
+}
+if($atributo=='comuna'){
+  $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
+  echo "<select name='cambio'>";
+while($result= mysql_fetch_array($sql1)){
+        echo "<option>".$result['comuna']."</option>";   
+      }
+      echo"</select>";
+}
+else{
+  echo"<input type='number' name='cambio'>";
+}
+echo "<br><input type='submit' name='Editar1' value='Editar'>";
+echo"<input type='hidden' name='direccion' value='".$direccion."'>";
+echo"<input type='hidden' name='atributo' value='".$atributo."'>";
+echo "</form>";
+}
+else{
+?>     
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="Post">
 Dirección de la priopiedad a editar:
 <select name="direccion">
 <?php
-include("php/connect.php");
+
 $sql = mysql_query("SELECT * FROM `propiedades`", $db);
 while($result= mysql_fetch_array($sql)){?>
 <option><?php echo $result['direccion']; ?></option>
@@ -173,8 +223,12 @@ Atributo a cambiar:
 <option value="banos">Baños</option>
 <option value="descripcion">Descripción</option>
 </select><br> 
-Nuevo Valor: <br><textarea name="cambio">Inserte acá el nuevo valor del atributo</textarea><br>
 <input type="submit" name="Editar" value="Editar">
+</form>
+
+<?php }?>
+
+
 </form>
 </div>
 </div>
