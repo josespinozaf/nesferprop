@@ -369,10 +369,13 @@ header("Content-Type: text/html;charset=utf-8");
                             
                           </li>
                           <li>
-                            <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-states-4" class="in-checkbox">
-                            <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Molina</label>
-                            
+                            <input type="checkbox" name="location[]" value="Molina" id="region-select-states-1" class="in-checkbox">
+                            <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
                           </li>
+                            <li>
+                        <input type="checkbox" name="location[]" value="Vichuquén" id="region-select-states-2" class="in-checkbox">
+                        <label for="region-select-states-2" data-toggle="tooltip" data-placement="top" title="Vichuquén" class="in-label">Vichuquén</label>                      
+                             </li>
                         </ul>
                         <div class="region-select__buttons">
                           <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Limpiar</button>
