@@ -249,11 +249,11 @@
  						}}else{
  						$result = mysql_query("SELECT * FROM `propiedades`", $db);
  						echo "No has especificado parámetros. Te mostramos algunas propiedades";
- 						}
-						// Si no existen datos a mostrar
-						if(mysql_num_rows($result) == 0){
-							echo "No existe data!";
-						}
+ 						}// Si no existen datos a mostrar
+                        if(mysql_num_rows($result) == 0){
+                            echo "No existen datos. Te mostramos algunas propiedades";
+                            $result = mysql_query("SELECT * FROM `propiedades`", $db);
+                        }
                   		if (!$result) {
 								die(mysql_error());
 										}

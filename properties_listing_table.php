@@ -265,8 +265,9 @@ header("Content-Type: text/html;charset=utf-8");
  						}
 						// Si no existen datos a mostrar
                   		if(mysql_num_rows($result) == 0){
-                  			echo "No existe data!";
-                  		}
+                            echo "No existen datos. Te mostramos algunas propiedades";
+                            $result = mysql_query("SELECT * FROM `propiedades`", $db);
+                        }
                   		if (!$result) {
 								die(mysql_error());
 										}
