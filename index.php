@@ -259,7 +259,7 @@ header("Content-Type: text/html;charset=utf-8");
 <!-- END SEARCH-->
 
 <!-- BEGIN SLIDER-->
-            <div id="slider-wide" class="slider slider--wide">
+            <div id="slider-wide" class="slider slider--wide" style="margin-top: -50px;">
               <div class="slider__block js-slick-slider">
 
                     
@@ -425,31 +425,7 @@ header("Content-Type: text/html;charset=utf-8");
 
                 <div class="auth auth--footer">
                     <ul class="auth__nav">
-                    <li class="dropdown auth__nav-item">
-                    <div class="dropdown__menu auth__dropdown--restore">
-                        <!-- BEGIN AUTH RESTORE-->
-                        <h5 class="auth__title">Reiniciar contraseña</h5>
-                        <form action="#" class="form form--flex form--auth form--restore js-restore-form js-parsley">
-                          <div class="row">
-                            <div class="form-group">
-                              <label for="restore-email-dropdown" class="control-label">Ingrese su cuenta o email</label>
-                              <input type="email" name="email" id="restore-email-dropdown" required class="form-control">
-                            </div>
-                          </div>
-                        <div class="row">
-                            <button type="submit" class="form__submit">Reiniciar contraseña</button>
-                        </div>
-                        <div class="row">
-                            <div class="form__options">Volver a
-                              <button type="button" class="js-user-login">Ingresar</button>              
-                            </div>
-                          <!-- end of block .auth__links-->
-                        </div>
-                        </form>
-              <!-- end of block .auth__form-->
-              <!-- END AUTH RESTORE-->
-                    </div>
-                    </li>
+                    
                     <li class="dropdown auth__nav-item">
                       <button data-toggle="dropdown" type="button" class="dropdown-toggle js-auth-nav-btn auth__nav-btn">
                         <svg class="auth__icon-user">
@@ -457,7 +433,7 @@ header("Content-Type: text/html;charset=utf-8");
                         </svg>
                         <span class="header__span">  Ingresar</span>
                         </button>
-                    <div class="dropdown__menu auth__dropdown--login">
+                    <div class="dropdown__menu auth__dropdown--login" style="background: #f6f6f6;">
                         <!-- BEGIN AUTH LOGIN-->
                         <h5 class="auth__title">Ingresar en tu cuenta</h5>
                         <form action="administracion.php" class="form form--flex form--auth js-login-form js-parsley" method="POST">
@@ -471,10 +447,7 @@ header("Content-Type: text/html;charset=utf-8");
                               <input type="password" name="password" id="login-password-dropdown" required class="form-control">
                             </div>
                             </div>
-                             <div class="row">
-                                <div class="form__options form__options--forgot">
-                                  <button type="button" class="js-user-restore">¿Olvidó su contraseña?</button>
-                                </div>
+                             <div class="row">                                
                               <button type="submit" class="form__submit" name="Ingresar">Ingresar</button>
                             </div>
                             <div class="form__remember">
