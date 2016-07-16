@@ -271,7 +271,7 @@ header("Content-Type: text/html;charset=utf-8");
                             <div class="properties__thumb"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="item-photo">
                             <img src="/../../imagen.php?imagen_id=<?php echo $datos1['imagen_id'];?>" alt=""/>
                                 <figure class="item-photo__hover item-photo__hover--params">
-                                <span class="properties__params"><?php echo 'Tiene un área de '.$datos['area'].' m2';?></span>
+                                <!-- <span class="properties__params"><?php //echo 'Tiene un área de '.$datos['area'].' m2';?></span> -->
                                 
                                 <span class="properties__intro"><?php echo $datos['descripcion'];?></span>
                                 

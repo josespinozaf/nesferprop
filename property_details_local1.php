@@ -312,7 +312,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                   <div class="property__description js-unhide-block">
                     <h4 class="property__subtitle">Descripción</h4>
                     <div class="property__description-wrap">
-                      <p><?php echo $datos['tipo'].". ".$datos['descripcion'];?></p>                      
+                      <p><?php echo $datos['descripcion'];?></p>                      
                     </div>
                   </div>
                   <div class="widget js-widget widget--details">

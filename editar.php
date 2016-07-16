@@ -169,7 +169,7 @@ if($atributo=='contrato'){
         echo "<option>Arriendo</option>";
         echo"</select>";
 }
-if($atributo=='tipo'){
+else if($atributo=='tipo'){
         echo "<select name='cambio'>";
         echo "<option>Casa</option>";
         echo "<option>Parcela</option>";
@@ -178,10 +178,10 @@ if($atributo=='tipo'){
         echo "<option>Local Comercial</option>";
         echo"</select>";
 }
-if($atributo=='descripcion'){
+else if($atributo=='descripcion'){
         echo"<textarea name='cambio'>Cambia la descripción acá</textarea>";
 }
-if($atributo=='comuna'){
+else if($atributo=='comuna'){
   $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
   echo "<select name='cambio'>";
 while($result= mysql_fetch_array($sql1)){

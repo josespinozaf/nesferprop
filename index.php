@@ -1,5 +1,6 @@
 <?php
 include ("php/connect.php"); 
+include ("php/funciones.php"); 
 @session_start();
 @session_unset();
 header("Content-Type: text/html;charset=utf-8");
@@ -339,7 +340,7 @@ header("Content-Type: text/html;charset=utf-8");
               <figure class="item-photo__hover item-photo__hover--params">
                   <span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
                   
-                  <span class="properties__intro"><?php echo $datos['descripcion']."(".$datos['direccion'].")"; ?></span>
+                  <span class="properties__intro"><?php echo $datos['descripcion']; ?></span>
                   
                   <span class="properties__more">Ver detalles</span>
               </figure></a><span class="properties__ribon"><?php echo $datos['contrato'];?></span>
@@ -350,10 +351,14 @@ header("Content-Type: text/html;charset=utf-8");
                 <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
                 <div class="properties__offer">
                     <div class="properties__offer-column">
-                      <div class="properties__offer-value"><strong><?php echo "$".$datos['precio'];?></strong><span class="properties__offer-period">CLP</span>
+                      <div class="properties__offer-value"><strong><?php Precio_con_puntos($datos['precio']);?></strong><span class="properties__offer-period">CLP</span>
                       </div>
                   </div>
-              </div>
+                  <div class="properties__offer-column">
+                      <div class="properties__offer-value"><strong><?php Precio_a_Uf($datos['precio']);?></strong><span class="properties__offer-period">UF</span>
+                      </div>
+                  </div>
+            </div>
               <div class="properties__params--mob"><a href="#" class="properties__more">Ver detalles</a><span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
 
               </div>
