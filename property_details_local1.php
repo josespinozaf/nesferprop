@@ -181,6 +181,7 @@
           <div class="container">
      <?php
 include ("php/connect.php");
+include ("php/funciones.php"); 
 $id = $_REQUEST['id'];
 $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                   		if (!$result) {
@@ -213,7 +214,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                 <div class="property">
                   <h1 class="property__title"><?php echo $datos['direccion'];?><span class="property__city"><?php echo $datos['comuna'];?></span></h1>
                   <div class="property__header">
-                    <div class="property__price"><strong class="property__price-value"><?php echo "$".$datos['precio'];?></strong>
+                    <div class="property__price"><strong class="property__price-value"><?php Precio_con_puntos($datos['precio']);?></strong>
                     <span class="property__price-label"></span></div>                    
                   
                   </div>

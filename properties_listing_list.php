@@ -192,6 +192,7 @@
                     <div class="widget__content">
                     <?php 
 						include ("php/connect.php"); 
+                        include ("php/funciones.php"); 
 						//Declaración de variables
 						//include ("php/formulario.php");
 						@session_start();
@@ -283,7 +284,7 @@
                                 <div class="properties__offer">
                                   <div class="properties__offer-column">
                                     <div class="properties__offer-value">
-                                        <strong><?php echo '$'.$datos['precio'];?></strong>
+                                        <strong><?php Precio_con_puntos($datos['precio']);?></strong>
                                         
                                         
                                         

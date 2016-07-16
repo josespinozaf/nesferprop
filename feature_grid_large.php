@@ -198,6 +198,7 @@ header("Content-Type: text/html;charset=utf-8");
                       <div class="listing listing--grid listing--lg-6 js-properties-list">
                        <?php
                             include ("php/connect.php"); 
+                            include ("php/funciones.php"); 
                             @session_start();
                             if (isset($_SESSION['contrato'])){
                             	$contrato1 = @$_SESSION['contrato'];
@@ -285,7 +286,7 @@ header("Content-Type: text/html;charset=utf-8");
                                 <div class="properties__offer">
                                   
                                   <div class="properties__offer-column">
-                                    <div class="properties__offer-value"><strong><?php echo $datos['precio'];?></strong>
+                                    <div class="properties__offer-value"><strong><?php Precio_con_puntos($datos['precio']);?></strong>
                                       <span class="properties__offer-period"></span>
                                     </div>
                                   </div>
