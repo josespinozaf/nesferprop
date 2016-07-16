@@ -354,10 +354,6 @@ header("Content-Type: text/html;charset=utf-8");
                       <div class="properties__offer-value"><strong><?php Precio_con_puntos($datos['precio']);?></strong><span class="properties__offer-period">CLP</span>
                       </div>
                   </div>
-                  <div class="properties__offer-column">
-                      <div class="properties__offer-value"><strong><?php Precio_a_Uf($datos['precio']);?></strong><span class="properties__offer-period">UF</span>
-                      </div>
-                  </div>
             </div>
               <div class="properties__params--mob"><a href="#" class="properties__more">Ver detalles</a><span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
 
