@@ -151,6 +151,10 @@
 			            <div class="widget js-widget widget--landing">
 			              <div class="widget__header">
 			              <h2 class="widget__title">Ingresar Propiedad</h2><br><br><br>
+                          <?php
+                          if(isset($_POST['Ingresar'])){
+                            $precio= $_REQUEST['precio'];
+                           if ($precio=='UF' ){?>
 <form action="subir.php" method="POST" enctype="multipart/form-data">
 		<p>Dirección: <input type="text" name="direccion" size="20"></p>
 		<p>Tipo: <select name="tipo" style="width:150px">
@@ -164,7 +168,7 @@
 		 <option>Venta</option>
 		 <option>Arriendo</option>
 		 		</select></p>
-		<p>Precio: <input type="number" name="precio" size="15"></p>
+		<p>Precio UF: <input type="number" name="precio" size="15"></p>
 		<p>Área: <input type="number" name="area" size="4"> * En metros cuadrados</p>
 		<p>Metros Construidos: <input type="number" name="mconstruidos" size="4"></p>
 		<p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
@@ -186,6 +190,54 @@
 		<br>
 		<input type="submit" name="IngresarPropiedad" value="Subir"/> <input type="reset" name="limpiar" value="Borrar datos del formulario" />
 </form>
+<?php }
+else if($precio=='Pesos chilenos'){?>
+<form action="subir.php" method="POST" enctype="multipart/form-data">
+        <p>Dirección: <input type="text" name="direccion" size="20"></p>
+        <p>Tipo: <select name="tipo" style="width:150px">
+         <option>Casa</option>
+         <option>Departamento</option>
+         <option>Local Comercial</option>
+         <option>Sitio</option>
+         <option>Parcela</option>
+                </select></p>
+        <p>Contrato: <select name="contrato" style="width:150px">
+         <option>Venta</option>
+         <option>Arriendo</option>
+                </select></p>
+        <p>Precio UF: <input type="number" name="precio" size="15"></p>
+        <p>Área: <input type="number" name="area" size="4"> * En metros cuadrados</p>
+        <p>Metros Construidos: <input type="number" name="mconstruidos" size="4"></p>
+        <p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
+        <p>Comuna: <input type="text" name="comuna" size="10"></p>
+        <p>Habitaciones: <input type="number" name="habitaciones" size="2"></p>
+        <p>Baños:<input type="number" name="baños" size="2"></p>
+        <br>
+        <label for="imagen1">Imagen 1:* <input type="file" name="imagen1" id="imagen1" /></label>
+        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+        <label for="imagen2">Imagen 2:* <input type="file" name="imagen2" id="imagen2" /></label>
+        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+        <label for="imagen3">Imagen 3:* <input type="file" name="imagen3" id="imagen3" /></label>
+        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+        <label for="imagen3">Imagen 4:* <input type="file" name="imagen4" id="imagen4" /></label>
+        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+        <label for="imagen3">Imagen 5:* <input type="file" name="imagen5" id="imagen5" /></label>
+        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+        <textarea name="descripcion" rows="10" cols="40">Escribe la descripción de la propiedad</textarea>
+        <br>
+        <input type="submit" name="IngresarPropiedad" value="Subir"/> <input type="reset" name="limpiar" value="Borrar datos del formulario" />
+</form>
+
+<?php }}else{ ?>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="Post">
+                            Desea precio en UF o en CLP?
+                            <select name="precio">
+                                <option>UF</option>
+                                <option>Pesos chilenos</option>
+                            </select>
+                            <input type="submit" name='Ingresar' value='Ingresar'>
+                          </form>
+                          <?php }?>
 </div>
 </div>
 </div>
