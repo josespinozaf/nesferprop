@@ -316,6 +316,8 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                       <p><?php echo $datos['descripcion'];?></p>                      
                     </div>
                   </div>
+                  
+                  <!-- 
                   <div class="widget js-widget widget--details">
                     <div class="widget__content">
                       <div class="map map--properties">
@@ -329,7 +331,10 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                         </div>
                       </div>
                     </div>
-                  </div><?php }}?>
+                  </div>
+                  -->
+
+                  <?php }}?>
                   
                 </div>
                 <!-- end of block .property-->
