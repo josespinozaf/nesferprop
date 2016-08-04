@@ -154,7 +154,7 @@
                           <?php
                           if(isset($_POST['Ingresar'])){
                             $precio= $_REQUEST['precio'];
-                           if ($precio=='UF' ){?>
+                           if ($precio=='UF'){?>
 <form action="subir.php" method="POST" enctype="multipart/form-data">
 		<p>Dirección: <input type="text" name="direccion" size="20"></p>
 		<p>Tipo: <select name="tipo" style="width:150px">
@@ -172,7 +172,15 @@
 		<p>Área: <input type="number" name="area" size="4"> * En metros cuadrados</p>
 		<p>Metros Construidos: <input type="number" name="mconstruidos" size="4"></p>
 		<p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
-		<p>Comuna: <input type="text" name="comuna" size="10"></p>
+		<p>Comuna: <?php
+        include ("php/connect.php");
+        $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
+         echo "<select name='comuna' style='width:150px'>";
+            while($result= mysql_fetch_array($sql1)){
+                        echo "<option>".$result['comuna']."</option>";   
+                         }
+                         echo"</select>";
+        ?></p>
 		<p>Habitaciones: <input type="number" name="habitaciones" size="2"></p>
 		<p>Baños:<input type="number" name="baños" size="2"></p>
 		<br>
@@ -205,11 +213,19 @@ else if($precio=='Pesos chilenos'){?>
          <option>Venta</option>
          <option>Arriendo</option>
                 </select></p>
-        <p>Precio UF: <input type="number" name="precio" size="15"></p>
+        <p>Precio Pesos Chilenos: <input type="number" name="precio" size="15"></p>
         <p>Área: <input type="number" name="area" size="4"> * En metros cuadrados</p>
         <p>Metros Construidos: <input type="number" name="mconstruidos" size="4"></p>
         <p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
-        <p>Comuna: <input type="text" name="comuna" size="10"></p>
+        <p>Comuna: <?php
+        include ("php/connect.php");
+        $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
+         echo "<select name='comuna' style='width:150px'>";
+            while($result= mysql_fetch_array($sql1)){
+                        echo "<option>".$result['comuna']."</option>";   
+                         }
+                         echo"</select>";
+        ?></p>
         <p>Habitaciones: <input type="number" name="habitaciones" size="2"></p>
         <p>Baños:<input type="number" name="baños" size="2"></p>
         <br>

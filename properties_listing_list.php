@@ -282,15 +282,22 @@
                               <span class="properties__address-street"><?php echo $datos['direccion'];?></span>
                               <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
                                 <div class="properties__offer">
+                                  <?php if ($datos['preciouf']==0){?>
                                   <div class="properties__offer-column">
                                     <div class="properties__offer-value">
-                                        <strong><?php Precio_con_puntos($datos['precio']);?></strong>
-                                        
-                                        
-                                        
+                                        <strong><?php Precio_con_puntos($datos['precio']);?></strong>   
                                     </div>
                                   </div>
                                 </div>
+                                <?php }
+                                else{?>
+                                <div class="properties__offer-column">
+                                    <div class="properties__offer-value">
+                                        <strong><?php Precio_con_puntos($datos['preciouf']);?></strong>   
+                                    </div>
+                                  </div>
+                                </div>
+                                <?php }?>
                                 <div class="properties__params--mob"><a href="property_details_local1.php" class="properties__more">Ver detalles</a>
                                 <span class="properties__params"><?php 'Tiene un área de '.$datos['area'].' m2';?></span>
                                 

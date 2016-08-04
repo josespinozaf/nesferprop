@@ -213,11 +213,18 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
                 <!-- BEGIN PROPERTY DETAILS-->
                 <div class="property">
                   <h1 class="property__title"><?php echo $datos['direccion'];?><span class="property__city"><?php echo $datos['comuna'];?></span></h1>
+                  <?php if($datos['preciouf'] == 0){?>
                   <div class="property__header">
                     <div class="property__price"><strong class="property__price-value"><?php Precio_con_puntos($datos['precio']);?></strong>
-                    <span class="property__price-label"></span></div>                    
-                  
+                    <span class="property__price-label">CLP</span></div>                    
                   </div>
+                  <?php }
+                  else { ?>
+                  <div class="property__header">
+                    <div class="property__price"><strong class="property__price-value"><?php Precio_con_puntos($datos['preciouf']);?></strong>
+                    <span class="property__price-label">UF</span></div>                    
+                  </div>
+                  <?php } ?>
                   <div class="clearfix"></div>
                   <div class="property__slider">
                     <div class="property__ribon"><?php echo $datos['contrato'];?></div>

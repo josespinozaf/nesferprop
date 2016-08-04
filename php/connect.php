@@ -1,10 +1,9 @@
 <?php
 
 
-//$dbhost = "localhost";
-//$dbuser = "root";
-//$dbpass = "";
-//header("Content-Type: text/html;charset=utf-8");
+// $dbhost = "localhost";
+// $dbuser = "root";
+// $dbpass = "";
 $dbhost = "localhost:3306";
 $dbuser = "nestorfe";
 $dbpass = "Pagina123="; 

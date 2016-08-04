@@ -349,12 +349,20 @@ header("Content-Type: text/html;charset=utf-8");
           <div class="properties__details">
             <div class="properties__info"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="properties__address"><span class="properties__address-street"><?php echo $datos['direccion'];?></span>
                 <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
+               <?php if ($datos['preciouf'] == 0){?>
                 <div class="properties__offer">
                     <div class="properties__offer-column">
                       <div class="properties__offer-value"><strong><?php Precio_con_puntos($datos['precio']);?></strong><span class="properties__offer-period">CLP</span>
                       </div>
                   </div>
-            </div>
+            </div><?php }
+            else{ ?>
+            <div class="properties__offer">
+                    <div class="properties__offer-column">
+                      <div class="properties__offer-value"><strong><?php Precio_con_puntos($datos['preciouf']);?></strong><span class="properties__offer-period">UF</span>
+                      </div>
+                  </div>
+            </div> <?php } ?>
               <div class="properties__params--mob"><a href="#" class="properties__more">Ver detalles</a><span class="properties__params"><?php echo "Contrucción -".$datos['area']." m2";?></span>
 
               </div>

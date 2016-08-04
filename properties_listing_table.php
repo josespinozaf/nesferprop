@@ -211,75 +211,80 @@ header("Content-Type: text/html;charset=utf-8");
                            <?php
                             include ("php/connect.php"); 
                             include ("php/funciones.php"); 
-						if (isset($_SESSION['contrato'])){
-						$contrato1 = @$_SESSION['contrato']; 
-						$tipo1 = @$_SESSION['checkbox_type_1'];
-						$comuna1 = @$_SESSION['location'];
-						$preciomin1 = @$_SESSION['inpricefrom'];
-						$preciomax1 = @$_SESSION['inpriceto'];
-						}
-					
-						//Busqueda en la base de datos//
- 						if (@$contrato1 && @$tipo1 && @$comuna1 && @$preciomax1 && @$preciomin1){
- 						if (is_array($tipo1) &&  is_array($comuna1)){
- 							$query_tipo='';
- 							$query_comuna='';
- 							$total=count($tipo1);
- 							if($total>1){
- 							foreach ($tipo1 as $key=>$tipo1)
-								{
-									if ($key == $total-1){
-															 
-										$query_tipo.="'".$tipo1."'";
-								}
-									else{
-										$query_tipo.="'".$tipo1."',";
-									}
- 							}
+                        if (isset($_SESSION['contrato'])){
+                        $contrato1 = @$_SESSION['contrato']; 
+                        $tipo1 = @$_SESSION['checkbox_type_1'];
+                        $comuna1 = @$_SESSION['location'];
+                        $preciomin1 = @$_SESSION['inpricefrom'];
+                        $preciomax1 = @$_SESSION['inpriceto'];
+                        }
+                    
+                        //Busqueda en la base de datos//
+                        if (@$contrato1 && @$tipo1 && @$comuna1 && @$preciomax1 && @$preciomin1){
+                        if (is_array($tipo1) &&  is_array($comuna1)){
+                            $query_tipo='';
+                            $query_comuna='';
+                            $total=count($tipo1);
+                            if($total>1){
+                            foreach ($tipo1 as $key=>$tipo1)
+                                {
+                                    if ($key == $total-1){
+                                                             
+                                        $query_tipo.="'".$tipo1."'";
+                                }
+                                    else{
+                                        $query_tipo.="'".$tipo1."',";
+                                    }
                             }
- 							else{
- 								$query_tipo="'".$tipo1[0]."'";
- 							}
- 							$total1=count($comuna1);
- 							if($total1>1){
- 								foreach ($comuna1 as $key=>$comuna1)
- 								{
- 									if ($key == $total1-1){
- 							
- 										$query_comuna.="'".$comuna1."'";
- 									}
- 									else{
- 										$query_comuna.="'".$comuna1."',";
- 									}
- 								}
- 							}
- 							else{
- 								$query_comuna="'".$comuna1[0]."'";
- 							}
- 							
- 							$query= "SELECT * FROM `propiedades`  WHERE  `contrato` ='".$contrato1."'  AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1." AND `comuna` IN (".$query_comuna.") AND `tipo` IN (".$query_tipo.")";
+                            }
+                            else{
+                                $query_tipo="'".$tipo1[0]."'";
+                            }
+                            $total1=count($comuna1);
+                            if($total1>1){
+                                foreach ($comuna1 as $key=>$comuna1)
+                                {
+                                    if ($key == $total1-1){
+                            
+                                        $query_comuna.="'".$comuna1."'";
+                                    }
+                                    else{
+                                        $query_comuna.="'".$comuna1."',";
+                                    }
+                                }
+                            }
+                            else{
+                                $query_comuna="'".$comuna1[0]."'";
+                            }
+                            
+                            $query= "SELECT * FROM `propiedades`  WHERE  `contrato` ='".$contrato1."'  AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1." AND `comuna` IN (".$query_comuna.") AND `tipo` IN (".$query_tipo.")";
                 
- 							$result = mysql_query($query, $db);
- 						}}else{
- 						$result = mysql_query("SELECT * FROM `propiedades`", $db);
- 						echo "OJO! Faltaron parametros en el filtro.";
- 						}
-						// Si no existen datos a mostrar
-                  		if(mysql_num_rows($result) == 0){
+                            $result = mysql_query($query, $db);
+                        }}else{
+                        $result = mysql_query("SELECT * FROM `propiedades`", $db);
+                        echo "OJO! Faltaron parametros en el filtro.";
+                        }
+                        // Si no existen datos a mostrar
+                        if(mysql_num_rows($result) == 0){
                             echo "No existen datos. Te mostramos algunas propiedades";
                             $result = mysql_query("SELECT * FROM `propiedades`", $db);
                         }
-                  		if (!$result) {
-								die(mysql_error());
-										}
-						else{
-							while($datos= mysql_fetch_array($result)) {
-						?> <tbody>
-                              <tr data-info="&lt;table class=&quot;table table--stripped&quot;&gt;&lt;tr&gt;&lt;td&gt;Tipo:&lt;/td&gt;&lt;td&gt;<?php echo$datos['tipo'];?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Area:&lt;/td&gt;&lt;td&gt;<?php echo$datos['area']."m2";?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Contrato:&lt;/td&gt;&lt;td&gt;<?php echo$datos['contrato'];?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;/td&gt;&lt;td&gt;Precio:&lt;/td&gt;&lt;td&gt;<?php Precio_con_puntos($datos['precio']);?>">
+                        if (!$result) {
+                                die(mysql_error());
+                                        }
+                        else{
+                            while($datos= mysql_fetch_array($result)) {
+                        ?> <tbody>
+                              <tr data-info="&lt;table class=&quot;table table--stripped&quot;&gt;&lt;tr&gt;&lt;td&gt;Tipo:&lt;/td&gt;&lt;td&gt;<?php echo$datos['tipo'];?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Area:&lt;/td&gt;&lt;td&gt;<?php echo$datos['area']."m2";?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Contrato:&lt;/td&gt;&lt;td&gt;<?php echo$datos['contrato'];?>&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;/td&gt;&lt;td&gt;Precio:&lt;/td&gt;&lt;td&gt;<?php if($datos['preciouf']== 0){ Precio_con_puntos($datos['precio']);echo ' CLP';} else {Precio_con_puntos($datos['preciouf']);echo ' UF';}?>">
                                 <td class="datatable__cell-1"><?php echo $datos['direccion']; ?></td>
                                 <td class="datatable__cell-2"><strong><?php echo $datos['contrato']; ?></strong>
                                 </td>
-                                <td class="datatable__cell-3"><?php Precio_con_puntos($datos['precio']); ?></td>
+                                <?php if($datos['preciouf']== 0){?>
+                                <td class="datatable__cell-3"><?php Precio_con_puntos($datos['precio']);echo " CLP"; ?></td>
+                                <?php }
+                                else{?>
+                                <td class="datatable__cell-3"><?php Precio_con_puntos($datos['preciouf']);echo " UF"; ?></td>
+                                 <?php } ?>   
                                 <td class="datatable__cell-4"><?php echo $datos['tipo']; ?></td>
                                 <td class="datatable__cell-5"><a href="property_details_local1.php?id=<?php echo $datos['id']; ?>" class="datatable__more">Ver detalles</a></td>
                               </tr>
@@ -305,7 +310,7 @@ header("Content-Type: text/html;charset=utf-8");
               </div>
               <!-- END site-->
               <!-- BEGIN SIDEBAR-->
-				<div class="sidebar">
+                <div class="sidebar">
                 <div class="widget js-widget widget--sidebar">
                   <div class="widget__header">
                     <h2 class="widget__title">Filtro</h2>

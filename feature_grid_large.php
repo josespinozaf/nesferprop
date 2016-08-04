@@ -284,12 +284,20 @@ header("Content-Type: text/html;charset=utf-8");
                               <div class="properties__info"><a href="property_details_sitio1.php?id=<?php echo $datos['id']; ?>" class="properties__address"><span class="properties__address-street"><?php echo $datos['direccion'];?></span>
                               <span class="properties__address-city"><?php echo $datos['comuna'];?></span></a>
                                 <div class="properties__offer">
-                                  
+                                  <?php if ($datos['preciouf'] == 0){?>
                                   <div class="properties__offer-column">
                                     <div class="properties__offer-value"><strong><?php Precio_con_puntos($datos['precio']);?></strong>
-                                      <span class="properties__offer-period"></span>
+                                      <span class="properties__offer-period">CLP</span>
                                     </div>
                                   </div>
+                                  <?php } 
+                                  else {?>
+                                     <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong><?php Precio_con_puntos($datos['preciouf']);?></strong>
+                                      <span class="properties__offer-period">UF</span>
+                                    </div>
+                                  </div>
+                                  <?php } ?>
                                 </div>
                                 <div class="properties__params--mob"><a href="property_details_local1.php" class="properties__more">Ver detalles</a><span class="properties__params">Terreno - 450 m2</span>
                                 
