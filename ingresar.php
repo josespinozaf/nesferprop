@@ -144,6 +144,22 @@
     </div>
 </nav>
 <!-- END NAVBAR-->
+<!-- Función agregar una foto-->
+<script type="text/javascript">
+var counter = 1;
+var limit = 7;
+function addInput(divName){
+     if (counter == limit)  {
+          alert("Haz alcanzado el limite de " + counter + " imagenes");
+     }
+     else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "Imagen " + (counter + 1) + " <input type='file' name='imagen" + (counter + 1) + "' id='imagen" + (counter + 1) + "'> <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+     }
+}
+</script>
 			      <div class="site-wrap js-site-wrap">
 			        <!-- BEGIN BREADCRUMBS-->
 			       <div class="center">
@@ -184,16 +200,12 @@
 		<p>Habitaciones: <input type="number" name="habitaciones" size="2"></p>
 		<p>Baños:<input type="number" name="baños" size="2"></p>
 		<br>
-		<label for="imagen1">Imagen 1:* <input type="file" name="imagen1" id="imagen1" /></label>
-		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-		<label for="imagen2">Imagen 2:* <input type="file" name="imagen2" id="imagen2" /></label>
-		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-		<label for="imagen3">Imagen 3:* <input type="file" name="imagen3" id="imagen3" /></label>
-		<p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-        <label for="imagen3">Imagen 4:* <input type="file" name="imagen4" id="imagen4" /></label>
-        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-        <label for="imagen3">Imagen 5:* <input type="file" name="imagen5" id="imagen5" /></label>
-        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
+     <div id="dynamicInput">
+          Imagen 1 <input type="file" name="imagen1" id="imagen1"> <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p>
+     </div>
+     <input type="button" value="Agregar imagen" onClick="addInput('dynamicInput');"><br>
+
+
 		<textarea name="descripcion" rows="10" cols="40">Escribe la descripción de la propiedad</textarea>
 		<br>
 		<input type="submit" name="IngresarPropiedad" value="Subir"/> <input type="reset" name="limpiar" value="Borrar datos del formulario" />
@@ -229,17 +241,12 @@ else if($precio=='Pesos chilenos'){?>
         <p>Habitaciones: <input type="number" name="habitaciones" size="2"></p>
         <p>Baños:<input type="number" name="baños" size="2"></p>
         <br>
-        <label for="imagen1">Imagen 1:* <input type="file" name="imagen1" id="imagen1" /></label>
-        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-        <label for="imagen2">Imagen 2:* <input type="file" name="imagen2" id="imagen2" /></label>
-        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-        <label for="imagen3">Imagen 3:* <input type="file" name="imagen3" id="imagen3" /></label>
-        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-        <label for="imagen3">Imagen 4:* <input type="file" name="imagen4" id="imagen4" /></label>
-        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-        <label for="imagen3">Imagen 5:* <input type="file" name="imagen5" id="imagen5" /></label>
-        <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p><br>
-        <textarea name="descripcion" rows="10" cols="40">Escribe la descripción de la propiedad</textarea>
+            <div id="dynamicInput">
+          Imagen 1 <input type="file" name="imagen1" id="imagen1"> <p>*Este archivo debe ser .jpg, .jpeg, .gif, .png</p>
+     </div>
+     <input type="button" value="Agregar imagen" onClick="addInput('dynamicInput');"><br>
+
+ <textarea name="descripcion" rows="10" cols="40">Escribe la descripción de la propiedad</textarea>
         <br>
         <input type="submit" name="IngresarPropiedad" value="Subir"/> <input type="reset" name="limpiar" value="Borrar datos del formulario" />
 </form>
