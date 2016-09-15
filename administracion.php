@@ -30,7 +30,7 @@
     <style>
 .admin {
     list-style-type: none;
-    margin: 0px 30% 0px 30%;
+    margin: 0px 25% 0px 25%;
     padding: 0;
     overflow: hidden;
     background-color: #333;
@@ -218,6 +218,7 @@ while($result= mysql_fetch_object($sql)){
 						  <li class="admin1"><a href="ingresar.php">Ingresar Propiedad</a></li>
 						  <li class="admin1"><a href="editar.php">Editar Propiedad</a></li>
 						  <li class="admin1"><a href="eliminar.php">Eliminar Propiedad</a></li>
+                          <li class="admin1"><a href="editarfoto.php">Modificar Fotos</a></li>
 						  </ul> 
 			              </div>
 			             </div>

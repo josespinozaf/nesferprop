@@ -147,7 +147,7 @@
 <!-- Función agregar una foto-->
 <script type="text/javascript">
 var counter = 1;
-var limit = 7;
+var limit = 11;
 function addInput(divName){
      if (counter == limit)  {
           alert("Haz alcanzado el limite de " + counter + " imagenes");

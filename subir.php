@@ -13,7 +13,7 @@ $habitaciones= $_REQUEST['habitaciones'];
 $baños= $_REQUEST['baños'];
 $descripcion= $_REQUEST['descripcion'];
 $x= 0;
-for ($n = 1; $n <= 7; $n++) {
+for ($n = 1; $n <= 11; $n++) {
 	if(!isset($_FILES["imagen".$n.""]) || $_FILES["imagen".$n.""]["error"] > 0){
 		$x=$x+1;
 	}
@@ -22,7 +22,7 @@ for ($n = 1; $n <= 7; $n++) {
 
 //comprobamos si ha ocurrido un error.
 	
-	for ($i = 1; $i <= (7 - $x); $i++) {
+	for ($i = 1; $i <= (11 - $x); $i++) {
 		if ( !isset($_FILES["imagen".$i.""]) || $_FILES["imagen".$i.""]["error"] > 0){
 	echo "ha ocurrido un error, faltan las fotos";
 	}														
