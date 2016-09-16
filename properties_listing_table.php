@@ -391,19 +391,7 @@ header("Content-Type: text/html;charset=utf-8");
                 </div>
                 
                 
-                <div class="form-group">
-                  <div class="form__mode">
-                    <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
-                  </div>
-                  <label for="range_price" class="control-label">Precio</label>
-                  <div class="form__ranges">
-                    <input id="range_price" class="js-search-range form__ranges-in">
-                  </div>
-                  <div class="form__inputs js-search-inputs">
-                    <input type="text" name="inpricefrom" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
-                    <input type="text" name="inpriceto" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
-                  </div>
-                </div>
+                
                 
                 <div class="form__buttons form__buttons--double">
                   <button type="button" class="form__reset js-form-reset">Reinicio</button>

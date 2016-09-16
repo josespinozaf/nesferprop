@@ -231,19 +231,7 @@ header("Content-Type: text/html;charset=utf-8");
             </div>
 
 
-<div class="form-group">
-  <div class="form__mode">
-    <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
-</div>
-<label for="range_price" class="control-label">Precio</label>
-<div class="form__ranges">
-    <input id="range_price" class="js-search-range form__ranges-in">
-</div>
-<div class="form__inputs js-search-inputs">
-    <input type="text" id="in-price-from" name="inpricefrom" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
-    <input type="text" id="in-price-to" name="inpriceto" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
-</div>
-</div>
+
 <div class="form-group">
     <h2 style="text-align: center">
         <span>ENCUENTRA TU</span> <b>PROPIEDAD</b>

@@ -381,10 +381,10 @@ header("Content-Type: text/html;charset=utf-8");
                             <input type="checkbox" name="location[]" value="Molina" id="region-select-states-1" class="in-checkbox">
                             <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Molina" class="in-label">Molina</label>
                           </li>
-                            <li>
-                        <input type="checkbox" name="location[]" value="Vichuquén" id="region-select-states-2" class="in-checkbox">
-                        <label for="region-select-states-2" data-toggle="tooltip" data-placement="top" title="Vichuquén" class="in-label">Vichuquén</label>                      
-                             </li>
+                          <li>
+                            <input type="checkbox" name="location[]" value="Vichuquén" id="region-select-states-2" class="in-checkbox">
+                            <label for="region-select-states-2" data-toggle="tooltip" data-placement="top" title="Vichuquén" class="in-label">Vichuquén</label>                      
+                          </li>
                         </ul>
                         <div class="region-select__buttons">
                           <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Limpiar</button>
@@ -398,19 +398,8 @@ header("Content-Type: text/html;charset=utf-8");
                 </div>
                 
                 
-                <div class="form-group">
-                  <div class="form__mode">
-                    <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
-                  </div>
-                  <label for="range_price" class="control-label">Precio</label>
-                  <div class="form__ranges">
-                    <input id="range_price" class="js-search-range form__ranges-in">
-                  </div>
-                  <div class="form__inputs js-search-inputs">
-                    <input type="text" name="inpricefrom" placeholder="Desde" data-input-type="from" class="form-control js-field-range">
-                    <input type="text" name="inpriceto" placeholder="Hasta" data-input-type="to" class="form-control js-field-range">
-                  </div>
-                </div>                
+                
+                               
                 <div class="form__buttons form__buttons--double">
                   <button type="button" class="form__reset js-form-reset">Reinicio</button>
                   <button type="submit" class="form__submit">Buscar</button>
