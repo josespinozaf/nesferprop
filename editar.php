@@ -198,6 +198,7 @@ else if($atributo=='tipo'){
 else if($atributo=='descripcion'){
         echo"<textarea name='cambio'>Cambia la descripción acá</textarea>";
 }
+
 else if($atributo=='comuna'){
   $sql1= mysql_query("SELECT DISTINCT comuna FROM `propiedades`", $db);
   echo "<select name='cambio'>";
@@ -231,7 +232,8 @@ Atributo a cambiar:
 <select name="atributo">
 <option value="tipo">Tipo</option>
 <option value="contrato">Contrato</option>
-<option value="precio">Precio</option>
+<option value="precio">Precio CLP</option>
+<option value="preciouf">Precio UF</option>
 <option value="area">Área</option>
 <option value="mconstruidos">Metros Construidos</option>
 <option value="anoconstruccion">Año Construcción</option>
