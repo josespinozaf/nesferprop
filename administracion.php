@@ -1,5 +1,5 @@
 <!DOCTYPE html >
-<html>
+<html><?php  session_start();?>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Néstor Fernández Propiedades</title><!--[if IE]>
@@ -183,8 +183,11 @@
 <?php
 include("php/connect.php");
 if (isset($_POST['Ingresar'])){
-$username= $_REQUEST['username'];
-$password= $_REQUEST['password'];
+   
+$_SESSION['username']= $_REQUEST['username'];
+$_SESSION['password']= $_REQUEST['password'];
+$username=$_SESSION['username'];
+$password=$_SESSION['password'];
 
 $sql = mysql_query("SELECT * FROM `user`", $db);
 while($result= mysql_fetch_object($sql)){

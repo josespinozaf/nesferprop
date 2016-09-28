@@ -1,5 +1,6 @@
 <!DOCTYPE html >
 <html>
+<?php session_start();?>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Néstor Fernández Propiedades</title><!--[if IE]>
@@ -150,6 +151,24 @@
                           <div class="widget__header">
                           <h2 class="widget__title">Eliminar Propiedad</h2>
                           <h5 class="widget__headline">Aquí puede eliminar propiedades.</h5><br><br><br>
+                          <?php
+                          $username=@$_SESSION['username'];
+$password=@$_SESSION['password'];
+include ("php/connect.php");
+$sql = mysql_query("SELECT * FROM `user`", $db);
+while($result= mysql_fetch_object($sql)){
+    if ($result->user != $username){
+        echo "<h3> El usuario no está registrado</h3>";
+    }
+    else{
+        if($password != $result->password){         
+           echo "<h3>La contraseña es incorrecta!</h3>";           
+        }
+        else{
+
+        $sql1 = mysql_query("SELECT * FROM `user` WHERE `user`='".$username."' AND
+        `password`= '".$password."'", $db);
+            if(mysql_num_rows($sql1) == 1){?>
                            <table border="4" bordercolor="#2E2EFE" style="width:100%; text-align: center;height:150%;background-color: #f1f1c1;;">
                             <tr>
                               <td><strong>Dirección</strong></td>
@@ -159,9 +178,8 @@
                             </tr>
                             <tr>
                             <?php
-                            include("php/connect.php");
-                            $sql = mysql_query("SELECT * FROM `propiedades`", $db);
-                            while($result= mysql_fetch_array($sql)){                            
+                            $sql2 = mysql_query("SELECT * FROM `propiedades`", $db);
+                            while($result= mysql_fetch_array($sql2)){                            
                              echo "<td style='text-align: left'>".$result['direccion']."</td>"; 
                              echo "<td>".$result['comuna']."</td>";
                              echo "<td>".$result['precio']."</td>";
@@ -169,6 +187,7 @@
                             ?></tr>
                             <?php } ?>
                            </table>
+                           <?PHP } else {echo "no esta.";}}}}?>
                            </div>
 </div>
 </div>

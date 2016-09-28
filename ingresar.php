@@ -1,5 +1,6 @@
 <!DOCTYPE html >
 <html>
+<?php session_start();?>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Néstor Fernández Propiedades</title><!--[if IE]>
@@ -160,6 +161,7 @@ function addInput(divName){
      }
 }
 </script>
+
 			      <div class="site-wrap js-site-wrap">
 			        <!-- BEGIN BREADCRUMBS-->
 			       <div class="center">
@@ -167,7 +169,24 @@ function addInput(divName){
 			            <div class="widget js-widget widget--landing">
 			              <div class="widget__header">
 			              <h2 class="widget__title">Ingresar Propiedad</h2><br><br><br>
-                          <?php
+<?php 
+$username=@$_SESSION['username'];
+$password=@$_SESSION['password'];
+include ("php/connect.php");
+$sql = mysql_query("SELECT * FROM `user`", $db);
+while($result= mysql_fetch_object($sql)){
+    if ($result->user != $username){
+        echo "<h3> El usuario no está registrado</h3>";
+    }
+    else{
+        if($password != $result->password){         
+           echo "<h3>La contraseña es incorrecta!</h3>";           
+        }
+        else{
+
+        $sql1 = mysql_query("SELECT * FROM `user` WHERE `user`='".$username."' AND
+        `password`= '".$password."'", $db);
+            if(mysql_num_rows($sql1) == 1){
                           if(isset($_POST['Ingresar'])){
                             $precio= $_REQUEST['precio'];
                            if ($precio=='UF'){?>
@@ -184,12 +203,12 @@ function addInput(divName){
 		 <option>Venta</option>
 		 <option>Arriendo</option>
 		 		</select></p>
-		<p>Precio UF: <input type="number" name="precio" size="15"></p>
+		<p>Precio UF: <input type="number" name="precioUF" size="15"></p>
 		<p>Área: <input type="number" name="area" size="4"> * En metros cuadrados</p>
 		<p>Metros Construidos: <input type="number" name="mconstruidos" size="4"></p>
 		<p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
 		<p>Comuna: <?php
-        include ("php/connect.php");
+        
         $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
          echo "<select name='comuna' style='width:150px'>";
             while($result= mysql_fetch_array($sql1)){
@@ -208,7 +227,7 @@ function addInput(divName){
 
 		<textarea name="descripcion" rows="10" cols="40">Escribe la descripción de la propiedad</textarea>
 		<br>
-		<input type="submit" name="IngresarPropiedad" value="Subir"/> <input type="reset" name="limpiar" value="Borrar datos del formulario" />
+		<input type="submit" name="IngresarPropiedadUF" value="Subir"/> <input type="reset" name="limpiar" value="Borrar datos del formulario" />
 </form>
 <?php }
 else if($precio=='Pesos chilenos'){?>
@@ -230,7 +249,7 @@ else if($precio=='Pesos chilenos'){?>
         <p>Metros Construidos: <input type="number" name="mconstruidos" size="4"></p>
         <p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
         <p>Comuna: <?php
-        include ("php/connect.php");
+        
         $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
          echo "<select name='comuna' style='width:150px'>";
             while($result= mysql_fetch_array($sql1)){
@@ -260,7 +279,7 @@ else if($precio=='Pesos chilenos'){?>
                             </select>
                             <input type="submit" name='Ingresar' value='Ingresar'>
                           </form>
-                          <?php }?>
+                          <?php }} else {echo "no esta.";}}}}?>
 </div>
 </div>
 </div>

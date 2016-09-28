@@ -1,5 +1,5 @@
 <!DOCTYPE html >
-<html>
+<html><?php session_start();?>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Néstor Fernández Propiedades</title><!--[if IE]>
@@ -151,7 +151,24 @@
                           <h2 class="widget__title">Editar Propiedad</h2><br><br><br>
 
                      <?php
-include("php/connect.php");
+                     $username=@$_SESSION['username'];
+$password=@$_SESSION['password'];
+include ("php/connect.php");
+$sql = mysql_query("SELECT * FROM `user`", $db);
+while($result= mysql_fetch_object($sql)){
+    if ($result->user != $username){
+        echo "<h3> El usuario no está registrado</h3>";
+    }
+    else{
+        if($password != $result->password){         
+           echo "<h3>La contraseña es incorrecta!</h3>";           
+        }
+        else{
+
+        $sql1 = mysql_query("SELECT * FROM `user` WHERE `user`='".$username."' AND
+        `password`= '".$password."'", $db);
+            if(mysql_num_rows($sql1) == 1){
+
 if(isset($_POST['Editar'])){
 
 $direccion = $_POST['direccion'];
@@ -229,7 +246,8 @@ Atributo a cambiar:
 <?php }?>
 
 
-</form>
+</form><?php
+} else {echo "no esta.";}}}}?>
 </div>
 </div>
 </div>
