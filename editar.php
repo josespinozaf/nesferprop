@@ -199,7 +199,7 @@ else if($atributo=='descripcion'){
         echo"<textarea name='cambio'>Cambia la descripción acá</textarea>";
 }
 else if($atributo=='comuna'){
-  $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
+  $sql1= mysql_query("SELECT DISTINCT comuna FROM `propiedades`", $db);
   echo "<select name='cambio'>";
 while($result= mysql_fetch_array($sql1)){
         echo "<option>".$result['comuna']."</option>";   

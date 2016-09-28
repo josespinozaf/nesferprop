@@ -209,7 +209,7 @@ while($result= mysql_fetch_object($sql)){
 		<p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
 		<p>Comuna: <?php
         
-        $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
+        $sql1= mysql_query("SELECT DISTINCT comuna FROM `propiedades`", $db);
          echo "<select name='comuna' style='width:150px'>";
             while($result= mysql_fetch_array($sql1)){
                         echo "<option>".$result['comuna']."</option>";   
@@ -250,7 +250,7 @@ else if($precio=='Pesos chilenos'){?>
         <p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
         <p>Comuna: <?php
         
-        $sql1= mysql_query("SELECT * FROM `propiedades`", $db);
+        $sql1= mysql_query("SELECT DISTINCT comuna FROM `propiedades`", $db);
          echo "<select name='comuna' style='width:150px'>";
             while($result= mysql_fetch_array($sql1)){
                         echo "<option>".$result['comuna']."</option>";   
