@@ -201,12 +201,23 @@ else if($atributo=='descripcion'){
 }
 
 else if($atributo=='comuna'){
-  $sql1= mysql_query("SELECT DISTINCT comuna FROM `propiedades`", $db);
-  echo "<select name='cambio'>";
-while($result= mysql_fetch_array($sql1)){
-        echo "<option>".$result['comuna']."</option>";   
-      }
-      echo"</select>";
+  echo "<select name='comuna' style='width:150px'>
+            <option>Curicó</option>
+            <option>Teno</option>
+            <option>Romeral</option>
+            <option>Molina</option>
+            <option>Rauco</option>
+            <option>Los Niches</option>
+            <option>Vichuquén</option>
+            <option>Sagrada Familia</option>
+            <option>Iloca</option>
+            </select>";
+//   $sql1= mysql_query("SELECT DISTINCT comuna FROM `propiedades`", $db);
+//   echo "<select name='cambio'>";
+// while($result= mysql_fetch_array($sql1)){
+//         echo "<option>".$result['comuna']."</option>";   
+//       }
+//       echo"</select>";
 }
 else{
   echo"<input type='number' name='cambio'>";

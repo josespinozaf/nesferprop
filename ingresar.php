@@ -248,14 +248,24 @@ else if($precio=='Pesos chilenos'){?>
         <p>Área: <input type="number" name="area" size="4"> * En metros cuadrados</p>
         <p>Metros Construidos: <input type="number" name="mconstruidos" size="4"></p>
         <p>Año Construcción: <input type="number" name="añoconstruccion" size="5"></p>
-        <p>Comuna: <?php
-        
-        $sql1= mysql_query("SELECT DISTINCT comuna FROM `propiedades`", $db);
-         echo "<select name='comuna' style='width:150px'>";
-            while($result= mysql_fetch_array($sql1)){
-                        echo "<option>".$result['comuna']."</option>";   
-                         }
-                         echo"</select>";
+        <p>Comuna:<select name='comuna' style='width:150px'>
+            <option>Curicó</option>
+            <option>Teno</option>
+            <option>Romeral</option>
+            <option>Molina</option>
+            <option>Rauco</option>
+            <option>Los Niches</option>
+            <option>Vichuquén</option>
+            <option>Sagrada Familia</option>
+            <option>Iloca</option>
+            </select> <?php
+        //COMUNA DINAMICO NO BORRAR
+        //$sql1= mysql_query("SELECT DISTINCT comuna FROM `propiedades`", $db);
+        // echo "<select name='comuna' style='width:150px'>";
+        //    while($result= mysql_fetch_array($sql1)){
+        //                echo "<option>".$result['comuna']."</option>";   
+        //                 }
+        //                 echo"</select>";
         ?></p>
         <p>Habitaciones: <input type="number" name="habitaciones" size="2"></p>
         <p>Baños:<input type="number" name="baños" size="2"></p>
