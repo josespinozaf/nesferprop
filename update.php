@@ -7,7 +7,7 @@ $cambio = $_POST["cambio"];
 
 if (!$direccion || !$atributo || !$cambio){
 	echo "Estimado, no ha enviado todos los datos del formulario anterior. Esta página se redireccionará.";
-	header("Refresh: 3; URL=../../editar.php");
+	echo "<a href='../../administracion.php'>Volver</a>";
 }
 else{
 	$sql="UPDATE `propiedades` SET `".$atributo."`='".$cambio."' WHERE `direccion`= '".$direccion."'";
@@ -15,11 +15,11 @@ else{
 	if (!$result){
 			echo "No se ha podido actualizar la información.";
 			die(mysql_error());
-			header ("Refresh: 3; URL=../../index.php");
+			echo "<a href='../../administracion.php'>Volver</a>";
 	}
 	else{
 			echo "Se ha actualizado con éxito";
-			header ("Refresh: 3; URL=../../index.php");
+			echo "<a href='../../administracion.php'>Volver</a>";
 	}
 
 }

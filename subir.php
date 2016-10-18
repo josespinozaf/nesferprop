@@ -148,6 +148,8 @@ if(isset($_POST['IngresarPropiedad'])){
 	      }
 	
 	
-	 header("Refresh: 3; URL=../../administracion.php");
+	echo "<a href='../../administracion.php'>Volver</a>";
+
+	
 
 ?>
