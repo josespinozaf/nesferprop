@@ -1,5 +1,6 @@
-<!DOCTYPE html >
-<html><?php session_start();?>
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Néstor Fernández Propiedades</title><!--[if IE]>

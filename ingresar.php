@@ -1,6 +1,6 @@
+<?php session_start(); ?>
 <!DOCTYPE html >
 <html>
-<?php session_start();?>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Néstor Fernández Propiedades</title><!--[if IE]>
