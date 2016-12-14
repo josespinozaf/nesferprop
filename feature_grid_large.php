@@ -246,12 +246,12 @@ header("Content-Type: text/html;charset=utf-8");
  								$query_comuna="'".$comuna1[0]."'";
  							}
  							
- 							$query= "SELECT * FROM `propiedades`  WHERE  `contrato` ='".$contrato1."'  AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1." AND `comuna` IN (".$query_comuna.") AND `tipo` IN (".$query_tipo.")";
+ 							$query= "SELECT * FROM `propiedades`  WHERE  `contrato` ='".$contrato1."' AND `comuna` IN (".$query_comuna.") AND `tipo` IN (".$query_tipo.")";
                 
  							$result = mysql_query($query, $db);
  						}}else{
                             	$result = mysql_query("SELECT * FROM `propiedades`", $db);
-                            	echo "OJO! Faltaron parametros en el filtro.<br>";
+                            	echo "   No has especificado parámetros. Te mostramos algunas propiedades.<br>";
                             }
                             
 							// Si no existen datos a mostrar

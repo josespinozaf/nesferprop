@@ -243,13 +243,12 @@
  							}
  							
  							$query= "SELECT * FROM `propiedades`  WHERE  `contrato` ='".$contrato1."' 
-                            AND `precio`>=".$preciomin1." AND `precio`<=".$preciomax1." 
                             AND `comuna` IN (".$query_comuna.") AND `tipo` IN (".$query_tipo.")";
                 
  							$result = mysql_query($query, $db);
  						}}else{
  						$result = mysql_query("SELECT * FROM `propiedades`", $db);
- 						echo "No has especificado parámetros. Te mostramos algunas propiedades";
+ 						echo "No has especificado parámetros. Te mostramos algunas propiedades.";
  						}// Si no existen datos a mostrar
                         if(mysql_num_rows($result) == 0){
                             echo "No existen datos. Te mostramos algunas propiedades";
