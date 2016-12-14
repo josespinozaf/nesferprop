@@ -511,7 +511,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
         <div class="widget__content">
             <nav class="nav nav--footer">
                 <a href="index.php">Principal</a>
-                <a href="feature_grid_large">Propiedades</a>
+                <a href="feature_grid_large.php">Propiedades</a>
                 <a href="contacts.php">Contacto</a>
                 
                 <!-- end of block .nav-footer-->
@@ -524,7 +524,8 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
         <div class="widget__content">
             <aside class="widget_text">
               <div class="textwidget">
-                Néstor Fernández Propiedades te ofrece un servicio personalizado a tus necesidades de compra, venta o arriendo de bienes raíces. 
+                 Néstor Fernández Propiedades te ofrece un servicio personalizado a tus necesidades de compra, venta o arriendo de bienes raíces en Curicó.
+                <p>Como corredor de propiedades en Curicó, te garantizamos un servicio de calidad.</p>
                 <p>¡Cuenta con nosotros!</p>
             </div>
             
@@ -597,7 +598,7 @@ $result = mysql_query("SELECT * FROM `propiedades`  WHERE `id` =".$id."", $db);
 
 </div>
 <!-- end of block .footer__col-third-->
-<div class="clearfix"></div><span class="footer__copyright">&copy; 2016 NESTOR FERNANDEZ PROPIEDADES. Todos los derechos reservados</span>
+<div class="clearfix"></div><span class="footer__copyright">&copy; 2016 NESTOR FERNANDEZ PROPIEDADES. Corredor de propiedades en Curicó. Todos los derechos reservados.</span>
 <!-- end of block .footer__copyright-->
 
 </div>

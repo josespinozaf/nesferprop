@@ -403,7 +403,8 @@ header("Content-Type: text/html;charset=utf-8");
         <div class="widget__content">
             <aside class="widget_text">
               <div class="textwidget">
-                Néstor Fernández Propiedades te ofrece un servicio personalizado a tus necesidades de compra, venta o arriendo de bienes raíces. 
+                 Néstor Fernández Propiedades te ofrece un servicio personalizado a tus necesidades de compra, venta o arriendo de bienes raíces en Curicó.
+                <p>Como corredor de propiedades en Curicó, te garantizamos un servicio de calidad.</p>
                 <p>¡Cuenta con nosotros!</p>
             </div>
             
@@ -528,7 +529,7 @@ header("Content-Type: text/html;charset=utf-8");
 
 </div>
 <!-- end of block .footer__col-third-->
-<div class="clearfix"></div><span class="footer__copyright">&copy; 2016 NESTOR FERNANDEZ PROPIEDADES. Todos los derechos reservados</span>
+<div class="clearfix"></div><span class="footer__copyright">&copy; 2016 NESTOR FERNANDEZ PROPIEDADES. Corredor de propiedades en Curicó. Todos los derechos reservados.</span>
 <!-- end of block .footer__copyright-->
 
 </div>
