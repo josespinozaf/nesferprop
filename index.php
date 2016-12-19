@@ -9,7 +9,11 @@ header("Content-Type: text/html;charset=utf-8");
 <head lang="en">
     <meta charset="UTF-8">
     <title>Néstor Fernández Propiedades</title><!--[if IE]>
-    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1"><![endif]-->
+        <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1"><![endif]-->
+    
+    <meta name="Description" content="Néstor Fernández corredor de propiedades en Curicó, gestiona tu ventasde casa y otras propiedades en Curicó y alrededores, también tu arriendo de casa y otras propiedades en Curicó">
+    <meta name="Keywords" content="Corredor, Propiedades, Curicó, Venta en Curicó, Arriendo en Curicó">
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no">
     <meta name="format-detection" content="telephone=no">
